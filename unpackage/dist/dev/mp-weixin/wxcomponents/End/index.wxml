@@ -1,0 +1,5 @@
+<view class="end" wx:if="{{ isLoading }}">
+<!-- <view class="end"> -->
+	<image class="loading" src="../../index/icon-loading.png"></image>
+	<view class="font-18 font-used clr-144">别拉了^_^我也是有底线</view>
+</view>

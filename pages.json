@@ -1,0 +1,229 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "小红心"
+			}
+		},
+		{
+			"path": "pages/classification/index",
+			"style": {
+				"navigationBarTitleText": "分类"
+			}
+		},
+		{
+			"path": "pages/shop/index",
+			"style": {
+				"navigationBarTitleText": "商城",
+				"enablePullDownRefresh":true,
+				"usingComponents":{
+					"End":"../../wxcomponents/End/index"
+				}
+			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+	],
+	"subPackages":[
+		{
+			"root":"pages/Authorize",
+			"pages":[
+				{
+					"path": "login/index",
+					"style": {
+						"navigationBarTitleText": "登录"
+					}
+				},
+				{
+					"path": "wx/index",
+					"style": {
+						"navigationBarTitleText": "微信登录"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/Mall",
+			"pages":[
+				{
+					"path": "exchangeRecord/index",
+					"style": {
+						"navigationBarTitleText": "兑换记录",
+						"usingComponents":{
+							"End":"/wxcomponents/End/index"
+						}
+					}
+				},
+				{
+					"path": "goodsDetails/index",
+					"style": {
+						"navigationBarTitleText": "商品详情"
+					}
+				},
+				{
+					"path": "createOrder/index",
+					"style": {
+						"navigationBarTitleText": "创建订单"
+					}
+				},
+				{
+					"path": "address/index",
+					"style": {
+						"navigationBarTitleText": "编辑地址信息"
+					}
+				}
+			]	
+		},
+		{
+			"root":"pages/Money",
+			"pages":[
+				{
+					"path": "delivering/index",
+					"style": {
+						"navigationBarTitleText": "扫码成功开始投递"
+					}
+				},
+				{
+					"path": "deliveryFinish/index",
+					"style": {
+						"navigationBarTitleText": "我的环保金"
+					}
+				},
+				{
+					"path": "withdraw/index",
+					"style": {
+						"navigationBarTitleText": "我的环保金"
+					}
+				},
+				{
+					"path": "withdrawResult/index",
+					"style": {
+						"navigationBarTitleText": "提现申请成功"
+					}
+				}
+			]
+		},
+		{
+			"root":"pages/AI",
+			"pages":[
+				{
+					"path": "face/index",
+					"style": {
+						"navigationBarTitleText": "人脸识别"
+					}
+				}
+			]
+		},
+		{
+			"root":"pages/Score",
+			"pages":[
+				{
+					"path": "score/index",
+					"style": {
+						"navigationBarTitleText": "我的积分"
+					}
+				},{
+					"path": "gold/index",
+					"style": {
+						"navigationBarTitleText": "环保金明细"
+					}
+				},{
+					"path": "delivery/index",
+					"style": {
+						"navigationBarTitleText": "我的投递"
+					}
+				},{
+					"path": "welfareRule/index",
+					"style": {
+						"navigationBarTitleText": "公益值"
+					}
+				},{
+					"path": "welfare/index",
+					"style": {
+						"navigationBarTitleText": "公益值明细"
+					}
+				},
+				{
+					"path": "ranking/index",
+					"style": {
+						"navigationBarTitleText": "小区排名"
+					}
+				}
+			]
+		},
+		{
+			"root":"pages/Map",
+			"pages":[
+				{
+					"path": "map/index",
+					"style": {
+						"navigationBarTitleText": "地图"
+					}
+				}
+			]
+		},
+		{
+			"root":"pages/About",
+			"pages":[
+				{
+					"path": "help/index",
+					"style": {
+						"navigationBarTitleText": "帮助中心"
+					}
+				},
+				{
+					"path": "aboutUs/index",
+					"style": {
+						"navigationBarTitleText": "关于我们"
+					}
+				}
+			]
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "小红心",
+		"navigationBarBackgroundColor": "#FFF",
+		"backgroundColor": "#FFF"
+	},
+	"tabBar":{
+		"color":"#333333",
+		"selectedColor":"#333333",
+		"backgroundColor":"#FFFFFF",
+		"fontSize":"20rpx",
+		"iconWidth":"54rpx",
+		"borderStyle":"white",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页",
+				"iconPath":"static/tabbar/home.png",
+				"selectedIconPath":"static/tabbar/home-s.png"
+			},
+			{
+				"pagePath":"pages/classification/index",
+				"text":"分类",
+				"iconPath":"static/tabbar/classification.png",
+				"selectedIconPath":"static/tabbar/classification-s.png"
+			},
+			{
+				"pagePath":"pages/shop/index",
+				"text":"商城",
+				"iconPath":"static/tabbar/shop.png",
+				"selectedIconPath":"static/tabbar/shop-s.png"
+			},
+			{
+				"pagePath":"pages/mine/index",
+				"text":"我的",
+				"iconPath":"static/tabbar/my.png",
+				"selectedIconPath":"static/tabbar/my-s.png"
+			}
+		]
+		
+	}
+}

@@ -1,0 +1,22 @@
+.end{
+	font-size: 22rpx;
+	color: #C0C0C0;
+	background-color: #F6F6F6;
+	text-align: center;
+}
+.loading {
+  width: 32rpx;
+  height: 32rpx;
+  margin: 10rpx auto;
+  animation: load 1s linear infinite;
+}
+
+@-webkit-keyframes load {
+  from {
+	transform: rotate(0deg);
+  }
+
+  to {
+	transform: rotate(360deg);
+  }
+}

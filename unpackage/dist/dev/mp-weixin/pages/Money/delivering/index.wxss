@@ -1,0 +1,25 @@
+
+.scon-container {
+  padding: 130rpx 72rpx 0 72rpx;
+  text-align: center;
+}
+.scon-img-box {
+  width: 568rpx;
+  height: 438rpx;
+  margin-bottom: 86rpx;
+}
+.s-tips{
+	font-size:34rpx;
+	font-weight:500;
+	color:rgba(255,95,98,1);
+	line-height:48rpx;
+	margin-bottom: 26rpx;
+}
+.tips {
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(109,114,120,1);
+  line-height:34rpx;
+}
+
+
