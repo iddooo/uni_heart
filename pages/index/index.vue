@@ -121,7 +121,7 @@
 			<view class="rank">
 				<view class="title">小区排名</view>
 				<view class="rank-type flex-ct-bwt">
-					<view class="type" 
+					<view class="type-box" 
 					@click="goRanking(item)"
 					v-for="item in rank" :key="item.id">
 						<view class="rank-name">
@@ -176,7 +176,7 @@
 					needPhone: true
 				  },
 				  {
-					url: "/pages/about/guide/index",
+					url: "/pages/About/guide/index",
 					icon: "/static/index/guide.png",
 					name: "新手指南",
 					need: false
@@ -228,7 +228,7 @@
 			}
 		},
 		onLoad(e) {
-			console.log(e)
+			// console.log(e)
 			//首页启动存储被分享人的id
 			let invitedId = e.userId
 			uni.setStorageSync('invitedId',invitedId)
@@ -246,6 +246,7 @@
 			this.isLogin = isLogin
 			//获取我的环保金
 			this.getMyScore()
+		
 		},
 		methods: {
 			swiperChange(e){
@@ -435,7 +436,7 @@
 						let userInfo = uni.getStorageSync('userInfo')
 						let data = {
 							openid: userInfo.openid,
-							token:'c1c7e63efc352d9af998cd331f8d8edc',
+							token:'c1c7e63efc352d9af998cd331f8d8edc', //优化应该减掉
 							deviceSn: arr[arr.length - 2],
 							time: arr[arr.length - 1],
 							appid: 'wx79d70ef10138edc1',
@@ -495,13 +496,12 @@
 				})
 			},
 			linkTo(e) {
-				console.log(e)
 			    let url = e.currentTarget.dataset.url
 			    let need = e.currentTarget.dataset.need
 			    let needPhone = e.currentTarget.dataset.needPhone
 			    let scan = e.currentTarget.dataset.scan
 			
-			    let token = uni.getStorageSync('tokenData');
+			    let token = uni.getStorageSync('token');
 			    let userInfo = uni.getStorageSync('userInfo');
 			
 			    if(need && !token){
@@ -509,12 +509,14 @@
 			      return
 			    }
 			
+			    // #ifdef MP-WEIXIN
 			    if(needPhone && !userInfo.phoneType){
 			      uni.navigateTo({
-			        url: '/pages/mainStream/pages/authorize/index?phoneType=false&redirectUrl=/pages/Third/familyAccount/index'
+			        url: '/pages/authorize/index?phoneType=false&redirectUrl=/pages/Third/familyAccount/index'
 			      })
 			      return
 			    }
+			    // #endif
 				
 			
 			    if (scan) {
@@ -524,14 +526,13 @@
 					})
 				// #endif
 				// #ifndef H5
-					this.scanCode()
+					this.scanToDelivery()
 				// #endif
 				
 			      return
 			    }
-			    uni.navigateTo({
-			      url
-			    })
+				uni.switchTab({ url })
+			    uni.navigateTo({ url })
 			  },
 				
 		}
@@ -580,7 +581,7 @@
 		height: 400rpx;
 		border:2px solid rgba(226,226,226,1);
 		border-radius:16rpx;
-		margin: 44rpx auto 10rpx;
+		margin: 44rpx auto 0;
 		background-color: #FFFFFF;
 		position: relative;
 	}
@@ -669,7 +670,7 @@
 	}
 	
 	.money{
-		padding-top: 34rpx;
+		padding-top: 46rpx;
 		padding-bottom: 60rpx;
 	}
 	.title{
@@ -691,7 +692,7 @@
 		border-radius:5rpx;
 	}
 	.grand-total{
-		padding: 46rpx 70rpx;
+		padding: 46rpx 70rpx 0;
 	}
 	.box{
 		text-align: center;
@@ -718,7 +719,16 @@
 		color: #FF5F62;
 	}
 	.rank-type{
-		padding: 60rpx 46rpx;
+		padding: 46rpx 38rpx;
+	}
+	.type-box{
+		width:208rpx;
+		height:130rpx;
+		background:rgba(255,255,255,1);
+		border-radius:10rpx;
+		border:1rpx solid rgba(226,226,226,1);
+		box-sizing: border-box;
+		padding: 16rpx 8rpx;
 	}
 	.rank-name{
 		display: flex;
@@ -739,8 +749,7 @@
 		font-size:46rpx;
 		font-family:DINAlternate-Bold,DINAlternate;
 		font-weight:bold;
-		line-height:54rpx;
-		margin-bottom: 60rpx;		
+		line-height:54rpx;	
 		text-align: center;
 		padding-left: 22rpx;
 	}
@@ -804,4 +813,5 @@
 	  right: -28rpx;
 	  top: -10rpx;
 	}
+	
 </style>

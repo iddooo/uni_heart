@@ -8,7 +8,7 @@
 				<view class="username">
 					AWER BORRY
 				</view>
-				<view class="level flex" @click="goWelfareRule">
+				<view class="level-box flex" @click="goWelfareRule">
 					<view class="level-des">
 						青铜
 					</view>
@@ -177,7 +177,7 @@
 		color:rgba(59,59,59,1);
 		line-height:56rpx;
 	}
-	.level{
+	.level-box{
 		font-size: 20rpx;
 	}
 	.level-icon{

@@ -127,7 +127,7 @@
 				kw_station:{},
 				kitchen:0,
 				other:0,
-				// min_dis:0,
+				min_dis:0,
 				indicatorDots:false,
 				autoplay:true,
 				pics:[],
@@ -443,5 +443,20 @@
 		top: -70rpx;
 		width:142rpx;
 		height:142rpx;
+	}
+	.c-dots{
+	  position: absolute;
+	  left: 50%;
+	  transform: translateX(-50%);
+	}
+	.c-dot{
+	  width: 10rpx;
+	  height: 10rpx;
+	  border-radius: 50%;
+	  background-color: rgba(183,183,183,.42);
+	  margin: 0 7rpx;
+	}
+	.c-dot.active{
+	  background-color: #FF5F62;
 	}
 </style>

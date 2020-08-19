@@ -181,6 +181,12 @@
 					"style": {
 						"navigationBarTitleText": "关于我们"
 					}
+				},
+				{
+					"path": "guide/index",
+					"style": {
+						"navigationBarTitleText": "引导页"
+					}
 				}
 			]
 		}

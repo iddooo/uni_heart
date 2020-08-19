@@ -1,7 +1,5 @@
 //测试
 let BASE_URL = "https://heart.synpowertech.com"
-// 正式
-// let BASE_URL = "https://xhx.synpowertech.com"
 
 import { goLoginPageTimeOut } from '../common/index.js'
 

@@ -11,9 +11,15 @@ Vue.config.productionTip = false
 import MessageBox from 'components/messageBox/index.js'
 Vue.use(MessageBox)
 
+import store from './store/index.js'
+
+import commom from 'common/index.js'
+Vue.prototype.$common = commom
+
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+	store
 })
 app.$mount()

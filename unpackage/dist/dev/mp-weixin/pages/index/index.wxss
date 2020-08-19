@@ -43,7 +43,7 @@
 	height: 400rpx;
 	border:2px solid rgba(226,226,226,1);
 	border-radius:16rpx;
-	margin: 44rpx auto 10rpx;
+	margin: 44rpx auto 0;
 	background-color: #FFFFFF;
 	position: relative;
 }
@@ -135,7 +135,7 @@
 	margin-bottom: 28rpx;
 }
 .money.data-v-6f79d1b9{
-	padding-top: 34rpx;
+	padding-top: 46rpx;
 	padding-bottom: 60rpx;
 }
 .title.data-v-6f79d1b9{
@@ -157,7 +157,7 @@
 	border-radius:5rpx;
 }
 .grand-total.data-v-6f79d1b9{
-	padding: 46rpx 70rpx;
+	padding: 46rpx 70rpx 0;
 }
 .box.data-v-6f79d1b9{
 	text-align: center;
@@ -184,7 +184,16 @@
 	color: #FF5F62;
 }
 .rank-type.data-v-6f79d1b9{
-	padding: 60rpx 46rpx;
+	padding: 46rpx 38rpx;
+}
+.type-box.data-v-6f79d1b9{
+	width:208rpx;
+	height:130rpx;
+	background:rgba(255,255,255,1);
+	border-radius:10rpx;
+	border:1rpx solid rgba(226,226,226,1);
+	box-sizing: border-box;
+	padding: 16rpx 8rpx;
 }
 .rank-name.data-v-6f79d1b9{
 	display: -webkit-box;
@@ -209,8 +218,7 @@
 	font-size:46rpx;
 	font-family:DINAlternate-Bold,DINAlternate;
 	font-weight:bold;
-	line-height:54rpx;
-	margin-bottom: 60rpx;		
+	line-height:54rpx;	
 	text-align: center;
 	padding-left: 22rpx;
 }
@@ -276,4 +284,5 @@
   right: -28rpx;
   top: -10rpx;
 }
+
 

@@ -58,7 +58,8 @@
       "root": "pages/About",
       "pages": [
         "help/index",
-        "aboutUs/index"
+        "aboutUs/index",
+        "guide/index"
       ]
     }
   ],
@@ -108,5 +109,5 @@
     }
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap68.json"
+  "sitemapLocation": "sitemap30.json"
 }

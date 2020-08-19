@@ -24,6 +24,7 @@
 			}
 		},
 		onLoad() {
+			// console.log(mapActions)
 			
 		},
 		methods:{

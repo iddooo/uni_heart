@@ -317,7 +317,7 @@
 		-webkit-box-orient:vertical;
 		-webkit-line-clamp:2;//控制行数
 		overflow:hidden;
-		padding-bottom: 46rpx;
+		margin-bottom: 46rpx;
 	}
 	.num-box{
 		width:154rpx;
