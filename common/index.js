@@ -1,4 +1,4 @@
-export const IMG_URL = 'https://heart-score-mall.oss-cn-hangzhou.aliyuncs.com/goods'
+export const IMG_URL = 'https://heart-score-mall.oss-cn-hangzhou.aliyuncs.com/goods/'
 
 export const URL = 'https://xiaohongxinheadpic.oss-cn-hangzhou.aliyuncs.com'
 
