@@ -271,7 +271,12 @@ module.exports = {
 		})
 	},
 	
-	// 
+	// 环保数据
+	getEnvData:(userId) => {
+		return fetch({
+			url:"/recover-api/deliver/getEnvironmentalData/"+userId
+		})
+	}
 
 }
 

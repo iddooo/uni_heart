@@ -35,7 +35,7 @@
 		
 		<!-- 用户 -->
 		<view class="user flex-ct ">
-			<view class="user-phone">
+			<view class="user-photo">
 				<!-- #ifndef MP-WEIXIN -->
 					<image class="headpic" src="/static/index/head.png" mode=""></image>
 				<!-- #endif -->
@@ -65,7 +65,7 @@
 				<view class="num">
 					{{item.rank}}
 				</view>
-				<view class="user-phone">
+				<view class="user-photo">
 					<image v-if="item.headPic" class="headpic" :src="IMG_URL+item.headPic" mode=""></image>
 					<image v-else class="headpic" src="/static/index/head.png" mode=""></image>
 				</view>
@@ -219,13 +219,13 @@
 		border-bottom: 20rpx solid #F6F6F6;
 		padding: 26rpx;
 	}
-	.user-phone{
+	.user-photo{
 		width:80rpx;
 		height:80rpx;
 		border-radius: 50%;
 		overflow: hidden;
 	}
-	.user-phone .headpic{
+	.user-photo .headpic{
 		width: 100%;
 		height: 100%;
 	}

@@ -32,7 +32,7 @@
 			</view>
 		</view>
 		
-		<view class="env-data">
+		<view class="env-data" @click="goEnergyData">
 			<view class="title">
 				我的环保数据
 			</view>
@@ -115,6 +115,17 @@
 						this.welfare = res.data.currWelfare
 					}
 					
+				})
+			},
+			goEnergyData(){
+				let isLogin = uni.getStorageSync('isLogin')
+				if(isLogin==''){
+					goLoginPageTimeOut()
+					return
+				}
+				
+				uni.navigateTo({
+					url:"/pages/Score/energyData/index"
 				})
 			},
 			goWelfareRule(){

@@ -59,8 +59,7 @@
 						name:userDetail.userInfo.nickName,//微信昵称
 					}).then(res=>{
 						// 测试数据
-						let userInfo = {"id":"306","sno":"1000","openid":"oQBWv4ghbC2NZVj3ahEDCupsYdko","sessionKey":"8OjAUP6FBAnu3g5aBfjvcA==","phoneType":true,"forzen":0,"bankType":0,"bankCard":null,"faceUrl":null,"birthday":null,"sex":0,"groupId":10,"phone":"18583027254","userName":"1000","cusPassword":null,"headPic":null}
-		
+						let userInfo = {"id":"306","sno":"1000","openid":null,"sessionKey":null,"phoneType":true,"forzen":0,"bankType":null,"bankCard":null,"faceUrl":null,"birthday":null,"sex":0,"groupId":10,"phone":"18583027254","userName":"1000","cusPassword":"0b0bb750e5fbec975c9ebaf9f64bd76b","headPic":null,"iOpenid":null,"aOpenid":null,"appleId":null,"nickname":"D儿"}
 						// if(res.data != null && res.code==1){
 							console.log('注册登录成功')
 							// let userInfo = res.data

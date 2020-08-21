@@ -128,6 +128,11 @@
 						"navigationBarTitleText": "我的积分"
 					}
 				},{
+					"path": "energyData/index",
+					"style": {
+						"navigationBarTitleText": "环保数据"
+					}
+				},{
 					"path": "gold/index",
 					"style": {
 						"navigationBarTitleText": "环保金明细"
