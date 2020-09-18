@@ -1,35 +1,48 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/Tabbar/index/index",
 			"style": {
 				"navigationBarTitleText": "小红心"
 			}
 		},
 		{
-			"path": "pages/classification/index",
+			"path": "pages/Tabbar/foundList/index",
 			"style": {
-				"navigationBarTitleText": "分类"
+				"navigationBarTitleText": "发现"
 			}
 		},
 		{
-			"path": "pages/shop/index",
+			"path": "pages/Tabbar/voiceRecognition/index",
 			"style": {
-				"navigationBarTitleText": "商城",
-				"enablePullDownRefresh":true,
-				"usingComponents":{
-					"End":"../../wxcomponents/End/index"
-				}
+				"navigationBarTitleText": "语音识别"
 			}
 		},
 		{
-			"path": "pages/mine/index",
+			"path": "pages/Tabbar/shop/index",
+			"style": {
+				"navigationBarTitleText": "商城"
+			}
+		},
+		{
+			"path": "pages/Tabbar/mine/index",
 			"style": {
 				"navigationBarTitleText": "我的"
 			}
 		}
 	],
 	"subPackages":[
+		{
+			"root":"pages/AI",
+			"pages":[
+				{
+					"path": "face/index",
+					"style": {
+						"navigationBarTitleText": "人脸识别"
+					}
+				}
+			]
+		},
 		{
 			"root":"pages/Authorize",
 			"pages":[
@@ -48,15 +61,70 @@
 			]
 		},
 		{
+			"root":"pages/Classification",
+			"pages":[
+				{
+					"path": "answer/index",
+					"style": {
+						"navigationBarTitleText": "环保知识竞赛"
+					}
+				},
+				{
+					"path": "knowledge/index",
+					"style": {
+						"navigationBarTitleText": "环保知识竞赛"
+					}
+				},
+				{
+					"path": "results/index",
+					"style": {
+						"navigationBarTitleText": "环保知识竞赛"
+					}
+				},
+				{
+					"path": "list/index",
+					"style": {
+						"navigationBarTitleText": "分类列表"
+					}
+				},
+				{
+					"path": "search/index",
+					"style": {
+						"navigationBarTitleText": "小红心"
+					}
+				}
+			]
+		},
+		{
+			"root":"pages/ICCard",
+			"pages":[
+				{
+					"path": "countDown/index",
+					"style": {
+						"navigationBarTitleText": "领取倒计时"
+					}
+				},
+				{
+					"path": "deliveryCode/index",
+					"style": {
+						"navigationBarTitleText": "投递二维码"
+					}
+				},
+				{
+					"path": "familyAccount/index",
+					"style": {
+						"navigationBarTitleText": "家庭账户"
+					}
+				}
+			]
+		},
+		{
 			"root": "pages/Mall",
 			"pages":[
 				{
 					"path": "exchangeRecord/index",
 					"style": {
-						"navigationBarTitleText": "兑换记录",
-						"usingComponents":{
-							"End":"/wxcomponents/End/index"
-						}
+						"navigationBarTitleText": "兑换记录"
 					}
 				},
 				{
@@ -109,18 +177,7 @@
 			]
 		},
 		{
-			"root":"pages/AI",
-			"pages":[
-				{
-					"path": "face/index",
-					"style": {
-						"navigationBarTitleText": "人脸识别"
-					}
-				}
-			]
-		},
-		{
-			"root":"pages/Score",
+			"root":"pages/My",
 			"pages":[
 				{
 					"path": "score/index",
@@ -173,6 +230,29 @@
 			]
 		},
 		{
+			"root":"pages/Setting",
+			"pages":[
+				{
+					"path": "icCard/index",
+					"style": {
+						"navigationBarTitleText": "绑定IC卡"
+					}
+				},
+				{
+					"path": "personal/index",
+					"style": {
+						"navigationBarTitleText": "个人信息"
+					}
+				},
+				{
+					"path": "myCode/index",
+					"style": {
+						"navigationBarTitleText": "完善信息"
+					}
+				}
+			]
+		},
+		{
 			"root":"pages/About",
 			"pages":[
 				{
@@ -196,6 +276,12 @@
 			]
 		}
 	],
+	"preloadRule": {
+		"pages/Tabbar/mine/index": {
+			"network": "all",
+			"packages": ["pages/My"]
+		}
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "小红心",
@@ -211,25 +297,31 @@
 		"borderStyle":"white",
 		"list":[
 			{
-				"pagePath":"pages/index/index",
+				"pagePath":"pages/Tabbar/index/index",
 				"text":"首页",
 				"iconPath":"static/tabbar/home.png",
 				"selectedIconPath":"static/tabbar/home-s.png"
 			},
 			{
-				"pagePath":"pages/classification/index",
-				"text":"分类",
-				"iconPath":"static/tabbar/classification.png",
-				"selectedIconPath":"static/tabbar/classification-s.png"
+				"pagePath":"pages/Tabbar/foundList/index",
+				"text":"发现",
+				"iconPath":"static/tabbar/fund.png",
+				"selectedIconPath":"static/tabbar/fund-s.png"
 			},
 			{
-				"pagePath":"pages/shop/index",
+				"pagePath":"pages/Tabbar/voiceRecognition/index",
+				"text":"语音识别",
+				"iconPath":"static/tabbar/voice-tabbar-s.png",
+				"selectedIconPath":"static/tabbar/voice-tabbar.png"
+			},
+			{
+				"pagePath":"pages/Tabbar/shop/index",
 				"text":"商城",
 				"iconPath":"static/tabbar/shop.png",
 				"selectedIconPath":"static/tabbar/shop-s.png"
 			},
 			{
-				"pagePath":"pages/mine/index",
+				"pagePath":"pages/Tabbar/mine/index",
 				"text":"我的",
 				"iconPath":"static/tabbar/my.png",
 				"selectedIconPath":"static/tabbar/my-s.png"

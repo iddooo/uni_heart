@@ -19,4 +19,19 @@
 	/*每个页面公共css */
 	@import url("./common/common.css");
 	@import url("./common/style.css");
+	/* 商城banner */
+	/* .shop-banner .swiper-container{
+		height: 298rpx;
+	}
+	.shop-banner .dots{
+		bottom: 0rpx;
+	}
+	.shop-banner .dot{
+		width: 8rpx;
+		height: 8rpx;
+		border-radius: 4rpx;
+		background: #D8D8D8;
+		opacity: 1;
+		margin-right: 10rpx;
+	} */
 </style>

@@ -1,16 +1,41 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/classification/index",
-    "pages/shop/index",
-    "pages/mine/index"
+    "pages/Tabbar/index/index",
+    "pages/Tabbar/foundList/index",
+    "pages/Tabbar/voiceRecognition/index",
+    "pages/Tabbar/shop/index",
+    "pages/Tabbar/mine/index"
   ],
   "subPackages": [
+    {
+      "root": "pages/AI",
+      "pages": [
+        "face/index"
+      ]
+    },
     {
       "root": "pages/Authorize",
       "pages": [
         "login/index",
         "wx/index"
+      ]
+    },
+    {
+      "root": "pages/Classification",
+      "pages": [
+        "answer/index",
+        "knowledge/index",
+        "results/index",
+        "list/index",
+        "search/index"
+      ]
+    },
+    {
+      "root": "pages/ICCard",
+      "pages": [
+        "countDown/index",
+        "deliveryCode/index",
+        "familyAccount/index"
       ]
     },
     {
@@ -32,13 +57,7 @@
       ]
     },
     {
-      "root": "pages/AI",
-      "pages": [
-        "face/index"
-      ]
-    },
-    {
-      "root": "pages/Score",
+      "root": "pages/My",
       "pages": [
         "score/index",
         "energyData/index",
@@ -53,6 +72,14 @@
       "root": "pages/Map",
       "pages": [
         "map/index"
+      ]
+    },
+    {
+      "root": "pages/Setting",
+      "pages": [
+        "icCard/index",
+        "personal/index",
+        "myCode/index"
       ]
     },
     {
@@ -79,36 +106,49 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/Tabbar/index/index",
         "text": "首页",
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/home-s.png"
       },
       {
-        "pagePath": "pages/classification/index",
-        "text": "分类",
-        "iconPath": "static/tabbar/classification.png",
-        "selectedIconPath": "static/tabbar/classification-s.png"
+        "pagePath": "pages/Tabbar/foundList/index",
+        "text": "发现",
+        "iconPath": "static/tabbar/fund.png",
+        "selectedIconPath": "static/tabbar/fund-s.png"
       },
       {
-        "pagePath": "pages/shop/index",
+        "pagePath": "pages/Tabbar/voiceRecognition/index",
+        "text": "语音识别",
+        "iconPath": "static/tabbar/voice-tabbar-s.png",
+        "selectedIconPath": "static/tabbar/voice-tabbar.png"
+      },
+      {
+        "pagePath": "pages/Tabbar/shop/index",
         "text": "商城",
         "iconPath": "static/tabbar/shop.png",
         "selectedIconPath": "static/tabbar/shop-s.png"
       },
       {
-        "pagePath": "pages/mine/index",
+        "pagePath": "pages/Tabbar/mine/index",
         "text": "我的",
         "iconPath": "static/tabbar/my.png",
         "selectedIconPath": "static/tabbar/my-s.png"
       }
     ]
   },
+  "preloadRule": {
+    "pages/Tabbar/mine/index": {
+      "network": "all",
+      "packages": [
+        "pages/My"
+      ]
+    }
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap5.json"
+  "usingComponents": {}
 }

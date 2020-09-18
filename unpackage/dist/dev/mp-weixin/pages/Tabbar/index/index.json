@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "小红心",
+  "usingComponents": {
+    "banner": "/components/Banner",
+    "h-button": "/components/HButton"
+  }
+}

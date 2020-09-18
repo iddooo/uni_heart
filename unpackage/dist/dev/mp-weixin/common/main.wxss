@@ -271,9 +271,24 @@
 	  	color: #BC682E;
 	  	background-color: #FFF4BD;
 }
+/* 商城banner */
+/* .shop-banner .swiper-container{
+	height: 298rpx;
+}
+.shop-banner .dots{
+	bottom: 0rpx;
+}
+.shop-banner .dot{
+	width: 8rpx;
+	height: 8rpx;
+	border-radius: 4rpx;
+	background: #D8D8D8;
+	opacity: 1;
+	margin-right: 10rpx;
+} */
 
 
-.popup.data-v-ee858a52{
+.popup.data-v-7878773e{
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -281,7 +296,7 @@
 	bottom: 0;
 	z-index: 99;
 }
-.pop-bg.data-v-ee858a52{
+.pop-bg.data-v-7878773e{
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -289,7 +304,7 @@
 	bottom: 0;
 	background-color: rgba(0,0,0,.4);
 }
-.close-btn.data-v-ee858a52{
+.close-btn.data-v-7878773e{
 	position: absolute;
 	width: 26rpx;
 	height: 26rpx;
@@ -297,11 +312,11 @@
 	top: 32rpx;
 	right: 32rpx;
 }
-.close-btn image.data-v-ee858a52{
+.close-btn image.data-v-7878773e{
 	width: 100%;
 	height: 100%;
 }
-.content.data-v-ee858a52{
+.content.data-v-7878773e{
 	width:654rpx;
 	background:rgba(255,255,255,1);
 	border-radius:10rpx;
@@ -313,14 +328,14 @@
 	padding: 42rpx;
 	box-sizing: border-box;
 }
-.title.data-v-ee858a52{
+.title.data-v-7878773e{
 	font-size:34rpx;
 	font-weight:500;
 	color:rgba(30,30,30,1);
 	line-height:48rpx;
 	text-align: center;
 }
-.msg.data-v-ee858a52{
+.msg.data-v-7878773e{
 	padding: 64rpx 0 80rpx;
 	text-align: center;
 	font-size:32rpx;
@@ -328,13 +343,13 @@
 	color:rgba(101,101,101,1);
 	line-height:46rpx;
 }
-.msg.html.data-v-ee858a52{
+.msg.html.data-v-7878773e{
 	padding: 36rpx 40rpx 52rpx;
 	text-align: left;
 	font-size:28rpx;
 	line-height:46rpx;
 }
-.btns button.data-v-ee858a52{
+.btns button.data-v-7878773e{
 	width:226rpx;
 	height:80rpx;
 	line-height: 80rpx;
@@ -344,12 +359,12 @@
 	font-size:32rpx;
 	color: #FFFFFF;
 }
-.btns button.plain.data-v-ee858a52{
+.btns button.plain.data-v-7878773e{
 	background-color: #FFFFFF;
 	border:2rpx solid rgba(255,95,98,1);
 	color: rgba(255,95,98,1);
 }
-.btns.single button.data-v-ee858a52{
+.btns.single button.data-v-7878773e{
 	width:554rpx;
 }
 

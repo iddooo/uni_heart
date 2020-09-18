@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "商城",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "End": "../../wxcomponents/End/index"
-  }
-}

@@ -45,12 +45,15 @@
                     "<uses-feature android:name=\"android.hardware.camera\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ]
+                ],
+                "abiFilters" : [ "armeabi-v7a", "x86" ]
             },
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         }
     },
     /* 快应用特有相关 */
@@ -58,6 +61,9 @@
     /* 小程序特有相关 */
     "mp-weixin" : {
         "appid" : "wx2a369adaf30b31e1",
+		"optimization":{
+		    "subPackages":true
+		},
         "setting" : {
             "urlCheck" : false,
             "minified" : true
