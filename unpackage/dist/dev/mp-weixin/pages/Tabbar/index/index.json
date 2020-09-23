@@ -2,6 +2,8 @@
   "navigationBarTitleText": "小红心",
   "usingComponents": {
     "banner": "/components/Banner",
-    "h-button": "/components/HButton"
+    "h-button": "/components/HButton",
+    "resources": "/components/Resources",
+    "kitchen-waste": "/components/KitchenWaste"
   }
 }

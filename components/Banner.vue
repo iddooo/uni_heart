@@ -100,7 +100,7 @@
 	.dot:last-of-type{
 		margin-right: 0;
 	}
-	.banner .dot.is-active{
+	.dot.is-active{
 		opacity:1;
 		width: 24rpx;
 	}

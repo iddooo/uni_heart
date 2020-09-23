@@ -189,50 +189,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _index = __webpack_require__(/*! ../../../api/index.js */ 37);
 var _coordinate = _interopRequireDefault(__webpack_require__(/*! ../../../utils/coordinate.js */ 390));
 var _index2 = __webpack_require__(/*! ../../../common/index.js */ 27);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
@@ -290,65 +246,79 @@ var _index2 = __webpack_require__(/*! ../../../common/index.js */ 27);function _
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { IMG_URL: _index2.IMG_URL, resources: [{ "id": "411560080522219520", "name": "饮料瓶", "price": 0.04, "imgUrl": "http://47.103.51.182:8000/icon/bottles-s.png", "contry": null, "unit": "个", "state": 0, "sno": null }, { "id": "411560080522219521", "name": "纸类", "price": 0.50, "imgUrl": "http://47.103.51.182:8000/icon/page-s.png", "contry": null, "unit": "kg", "state": 0, "sno": null }, { "id": "411560080522219522", "name": "纺织物", "price": 0.30, "imgUrl": "http://47.103.51.182:8000/icon/clothes-s.png", "contry": null, "unit": "kg", "state": 0, "sno": null }, { "id": "411560080522219523", "name": "有害", "price": 0.00, "imgUrl": "http://47.103.51.182:8000/icon/harmful-s.png", "contry": null, "unit": "kg", "state": 0, "sno": null }, { "id": "411560080522219524", "name": "塑料/金属", "price": 0.40, "imgUrl": "http://47.103.51.182:8000/icon/suliao-red.png", "contry": null, "unit": "kg", "state": 2, "sno": null }, { "id": "411560080522219525", "name": "玻璃", "price": 0.00, "imgUrl": "http://47.103.51.182:8000/icon/boli-red.png", "contry": null, "unit": "kg", "state": 2, "sno": null }], swiperData: [], cur: 0, latitude: '30.53811264038086', longitude: '104.06261444091797', allMarkers: [{ latitude: 39.909, longitude: 116.39742 }], staions: [], kwStaions: [], station: {}, kw_station: {}, kitchen: 0, other: 0, min_dis: 0, indicatorDots: false, autoplay: true, pics: [], currentIndex: 0, visible: false, type: 1, item6: false };}, onLoad: function onLoad(option) {console.log(option);this.type = option.type;console.log(this.type);}, onShow: function onShow() {var location = uni.getStorageSync('location');var station = uni.getStorageSync('station');var kw_station = uni.getStorageSync('kw_station'); // 当前经纬度
+var Banner = function Banner() {return __webpack_require__.e(/*! import() | components/Banner */ "components/Banner").then(__webpack_require__.bind(null, /*! ../../../components/Banner.vue */ 433));};var Resources = function Resources() {return __webpack_require__.e(/*! import() | components/Resources */ "components/Resources").then(__webpack_require__.bind(null, /*! ../../../components/Resources.vue */ 447));};var KitchenWaste = function KitchenWaste() {return __webpack_require__.e(/*! import() | components/KitchenWaste */ "components/KitchenWaste").then(__webpack_require__.bind(null, /*! ../../../components/KitchenWaste.vue */ 454));};var _default = { components: { Banner: Banner, Resources: Resources, KitchenWaste: KitchenWaste }, data: function data() {return { IMG_URL: _index2.IMG_URL, resources: [// {"id":"411560080522219520","name":"饮料瓶","price":0.04,"imgUrl":"http://47.103.51.182:8000/icon/bottles-s.png","contry":null,"unit":"个","state":0,"sno":null},
+        // {"id":"411560080522219521","name":"纸类","price":0.50,"imgUrl":"http://47.103.51.182:8000/icon/page-s.png","contry":null,"unit":"kg","state":0,"sno":null},
+        // {"id":"411560080522219522","name":"纺织物","price":0.30,"imgUrl":"http://47.103.51.182:8000/icon/clothes-s.png","contry":null,"unit":"kg","state":0,"sno":null},
+        // {"id":"411560080522219523","name":"有害","price":0.00,"imgUrl":"http://47.103.51.182:8000/icon/harmful-s.png","contry":null,"unit":"kg","state":0,"sno":null},
+        // {"id":"411560080522219524","name":"塑料/金属","price":0.40,"imgUrl":"http://47.103.51.182:8000/icon/suliao-red.png","contry":null,"unit":"kg","state":2,"sno":null},
+        // {"id":"411560080522219525","name":"玻璃","price":0.00,"imgUrl":"http://47.103.51.182:8000/icon/boli-red.png","contry":null,"unit":"kg","state":2,"sno":null}
+      ], latitude: '30.53811264038086', longitude: '104.06261444091797', allMarkers: [{ latitude: 39.909, longitude: 116.39742 }], staions: [], kwStaions: [], station: {}, kw_station: {}, kitchen: 0, other: 0, min_dis: 0, indicatorDots: false, autoplay: true, pics: [], currentIndex: 0, visible: false, type: 1, item6: false };}, onLoad: function onLoad(option) {console.log(option);this.type = option.type;console.log(this.type);}, onShow: function onShow() {var _this = this;var location = uni.getStorageSync('location');var station = uni.getStorageSync('station');var kw_station = uni.getStorageSync('kw_station'); // 当前经纬度
     this.latitude = location.latitude;this.longitude = location.longitude; // 获取地图上所有设备点
-    this.getKwStaions();this.getRecoveryStaions();if (this.type == 2) {this.station = kw_station.min_station;this.min_dis = station.min_dis;this.pics = JSON.parse(this.station.pic || '[]'); // 获取当前厨余设备的容量
-      this.getCurKwStation(this.station);} else {this.station = station.min_station;this.min_dis = station.min_dis;this.pics = JSON.parse(this.station.pic || '[]'); // 获取当前设备的分类信息
-      this.getCurStation(this.station);}}, methods: { // 获取所有的回收设备
-    getRecoveryStaions: function getRecoveryStaions() {var _this = this;(0, _index.getAllStations)().then(function (res) {var eqp = res.data.reduce(function (a, b) {var _coordinate$transform = _coordinate.default.transformFromBaiduToGCJ(b.lat, b.lng),longitude = _coordinate$transform.longitude,latitude = _coordinate$transform.latitude;b.longitude = longitude;b.latitude = latitude; // b.longitude = Number(b.lng)
+    this.getKwStaions();this.getRecoveryStaions();if (this.type == 2) {this.station = kw_station.min_station;this.min_dis = station.min_dis;var pics = JSON.parse(this.station.pic || '[]');this.pics = pics.map(function (v) {v.imgUrl = _this.IMG_URL + v.value;
+        return v;
+      });
+      // 获取当前厨余设备的容量
+      this.getCurKwStation(this.station);
+    } else {
+      this.station = station.min_station;
+      this.min_dis = station.min_dis;
+      var _pics = JSON.parse(this.station.pic || '[]');
+      this.pics = _pics.map(function (v) {
+        v.imgUrl = _this.IMG_URL + v.value;
+        return v;
+      });
+      // 获取当前设备的分类信息
+      this.getCurStation(this.station);
+    }
+  },
+  methods: {
+    // 获取所有的回收设备
+    getRecoveryStaions: function getRecoveryStaions() {var _this2 = this;
+      (0, _index.getAllStations)().then(function (res) {
+        var eqp = res.data.reduce(function (a, b) {var _coordinate$transform =
+          _coordinate.default.transformFromBaiduToGCJ(b.lat, b.lng),longitude = _coordinate$transform.longitude,latitude = _coordinate$transform.latitude;
+          b.longitude = longitude;
+          b.latitude = latitude;
+          // b.longitude = Number(b.lng)
           // b.latitude = Number(b.lat)
-          b.iconPath = '/static/map/marker.png';b.width = 37;b.height = 41;if (b.id == _this.station.id) {b.width = 48;b.height = 53;}a.push(b);return a;}, []); // console.log(eqp)
-        _this.staions = eqp; // this.allMarkers.push(...eqp)
-        _this.allMarkers = _this.allMarkers.concat(_this.staions);});}, //获取所有的厨余设备
-    getKwStaions: function getKwStaions() {var _this2 = this;(0, _index.getKwStationList)().then(function (res) {var kw = res.data.reduce(function (a, b) {var _coordinate$transform2 = _coordinate.default.transformFromBaiduToGCJ(b.lat, b.lng),longitude = _coordinate$transform2.longitude,latitude = _coordinate$transform2.latitude;b.longitude = longitude;b.latitude = latitude; // b.longitude = Number(b.lng)
+          b.iconPath = '/static/map/marker.png';
+          b.width = 37;
+          b.height = 41;
+          if (b.id == _this2.station.id) {
+            b.width = 48;
+            b.height = 53;
+          }
+          a.push(b);
+          return a;
+        }, []);
+        // console.log(eqp)
+        _this2.staions = eqp;
+        // this.allMarkers.push(...eqp)
+        _this2.allMarkers = _this2.allMarkers.concat(_this2.staions);
+      });
+    },
+    //获取所有的厨余设备
+    getKwStaions: function getKwStaions() {var _this3 = this;
+      (0, _index.getKwStationList)().then(function (res) {
+        var kw = res.data.reduce(function (a, b) {var _coordinate$transform2 =
+          _coordinate.default.transformFromBaiduToGCJ(b.lat, b.lng),longitude = _coordinate$transform2.longitude,latitude = _coordinate$transform2.latitude;
+          b.longitude = longitude;
+          b.latitude = latitude;
+          // b.longitude = Number(b.lng)
           // b.latitude = Number(b.lat)
-          b.iconPath = '/static/map/marker2.png';b.width = 37;b.height = 41;if (b.sno == _this2.station.sno) {b.width = 48;b.height = 53;}a.push(b);return a;}, []); // console.log(kw)
-        _this2.kwStaions = kw;
-        _this2.allMarkers = _this2.allMarkers.concat(_this2.kwStaions);
+          b.iconPath = '/static/map/marker2.png';
+          b.width = 37;
+          b.height = 41;
+          if (b.sno == _this3.station.sno) {
+            b.width = 48;
+            b.height = 53;
+          }
+          a.push(b);
+          return a;
+        }, []);
+        // console.log(kw)
+        _this3.kwStaions = kw;
+        _this3.allMarkers = _this3.allMarkers.concat(_this3.kwStaions);
       });
     },
     swiperChange: function swiperChange(e) {
@@ -367,7 +337,7 @@ var _default = { data: function data() {return { IMG_URL: _index2.IMG_URL, resou
     closePreview: function closePreview() {
       this.visible = false;
     },
-    checkStationInfo: function checkStationInfo(e) {var _this3 = this;
+    checkStationInfo: function checkStationInfo(e) {var _this4 = this;
       // console.log(e)
       var id = e.markerId || e.detail.markerId;
       this.staions.forEach(function (b, i) {
@@ -377,9 +347,9 @@ var _default = { data: function data() {return { IMG_URL: _index2.IMG_URL, resou
           b.width = 48;
           b.height = 53;
           //优化
-          _this3.type = 1;
-          _this3.getCurStation(b);
-          console.log(b, i, b.id, _this3.allMarkers);
+          _this4.type = 1;
+          _this4.getCurStation(b);
+          console.log(b, i, b.id, _this4.allMarkers);
         }
       });
       this.allMarkers.forEach(function (b, i) {
@@ -394,35 +364,36 @@ var _default = { data: function data() {return { IMG_URL: _index2.IMG_URL, resou
           b.width = 48;
           b.height = 53;
           //优化
-          _this3.type = 2;
-          _this3.getCurKwStation(b);
+          _this4.type = 2;
+          _this4.getCurKwStation(b);
         }
       });
     },
-    getCurStation: function getCurStation(data) {var _this4 = this;
+    getCurStation: function getCurStation(data) {var _this5 = this;
       console.log(data);
       (0, _index.getSingleStation)(data).then(function (res) {
-        _this4.station = res.data.min_station;
-        _this4.min_dis = res.data.min_dis;
-        _this4.pics = JSON.parse(_this4.station.pic);
-        (0, _index.getClassify)(_this4.station.id).then(function (res) {
-          // this.resources = []
-          // this.resources = res.data
-          // this.item6 = this.resources.length > 4
-          var resources = res.data;
-          _this4.item6 = resources.length > 4;
-          _this4.swiperData = _this4.truck(resources, 6);
+        _this5.station = res.data.min_station;
+        _this5.min_dis = res.data.min_dis;
+        var pics = JSON.parse(_this5.station.pic);
+        _this5.pics = pics.map(function (v) {
+          v.imgUrl = _this5.IMG_URL + v.value;
+          return v;
+        });
+        (0, _index.getClassify)(_this5.station.id).then(function (res) {
+          _this5.resources = res.data;
         });
       });
     },
-    getCurKwStation: function getCurKwStation(data) {var _this5 = this;
+    getCurKwStation: function getCurKwStation(data) {var _this6 = this;
       console.log(data);
       (0, _index.getKwStaion)(data).then(function (res) {
-        _this5.station = res.data;
-        _this5.pics = JSON.parse(_this5.station.pic || '[]');
-        _this5.min_dis = res.data.square;
-        _this5.kitchen = (Number(_this5.station.kitchenCapacity) / 30).toFixed(0);
-        _this5.other = (Number(_this5.station.otherCapacity) / 30).toFixed(0);
+        _this6.station = res.data;
+        var pics = JSON.parse(_this6.station.pic || '[]');
+        _this6.pics = pics.map(function (v) {
+          v.imgUrl = _this6.IMG_URL + v.value;
+          return v;
+        });
+        _this6.min_dis = res.data.square;
       });
     },
     lead: function lead() {var _this$station =
@@ -437,24 +408,6 @@ var _default = { data: function data() {return { IMG_URL: _index2.IMG_URL, resou
           console.log('success');
         } });
 
-    },
-    truck: function truck(arr, count) {
-      var result = [];
-      //遍历输出成员
-      arr.forEach(function (item, index) {
-        //
-        var temp = Math.floor(index / count);
-        //检验数组是否初始化
-        if (!(result[temp] instanceof Array)) {
-          result[temp] = new Array();
-        }
-        result[temp].push(item);
-      });
-      return result;
-    },
-    cateSwiperChange: function cateSwiperChange(e) {
-      console.log(e);
-      this.cur = e.detail.current;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

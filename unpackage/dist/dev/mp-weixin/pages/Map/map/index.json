@@ -1,4 +1,8 @@
 {
   "navigationBarTitleText": "地图",
-  "usingComponents": {}
+  "usingComponents": {
+    "banner": "/components/Banner",
+    "resources": "/components/Resources",
+    "kitchen-waste": "/components/KitchenWaste"
+  }
 }

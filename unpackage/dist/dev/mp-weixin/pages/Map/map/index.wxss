@@ -36,7 +36,7 @@
 	margin-right: 18rpx;
 }
 .dashed{
-	margin: 6rpx auto 0;
+	margin: 6rpx auto 22rpx;
 	width:652rpx;
 	height:2rpx;
 	border-bottom:2rpx dashed rgba(239,239,239,1);
@@ -51,54 +51,26 @@
   background-color: rgba(0, 0, 0, .7);
   z-index: 999;
 }
-.swiper-container{
-  width:656rpx;
-  height:562rpx;
-  border-radius:22rpx;
-  position: absolute;
-  left: 50%;
-  top: 266rpx;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  overflow: hidden;
-  background-color: #fff;
+/* 预览图片 */
+.preview-banner{
+	width:656rpx;
+	height:562rpx;
+	position: absolute;
+	left: 50%;
+	top: 266rpx;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
 }
-.swiper{
-  height: 100%;
+.preview-banner .swiper-container{
+	height:562rpx;
+	border-radius:22rpx;
+	background-color: #fff;
 }
-.swiper image{
-	width: 100%;
-	height: 100%;
+.preview-banner .dots{
+	bottom: -8rpx;
 }
-.dots {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  top: 860rpx;
-  z-index: 9999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  height: 36rpx;
-}
-/*未选中时的小圆点样式 */
-.dot {
-  width: 10rpx;
-  height: 10rpx;
-  background: rgba(255, 255, 255, 1);
-  opacity: 0.4214;
-  border-radius: 50%;
-  margin-right: 14rpx;
-}
-/*选中以后的小圆点样式  */
-.is-active {
-  opacity: 1;
-  background: rgba(255, 255, 255, 1);
+.preview-banner .dot.is-active{
+	width: 10rpx;
 }
 .touch-close{
   position: absolute;
@@ -119,21 +91,5 @@
 	top: -70rpx;
 	width:142rpx;
 	height:142rpx;
-}
-.c-dots{
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-.c-dot{
-  width: 10rpx;
-  height: 10rpx;
-  border-radius: 50%;
-  background-color: rgba(183,183,183,.42);
-  margin: 0 7rpx;
-}
-.c-dot.active{
-  background-color: #FF5F62;
 }
 

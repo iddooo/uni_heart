@@ -19,6 +19,7 @@
 		</view>
 		  
 		<view class="title">附近回收设备</view>
+		
 		<view v-if="isLocation" class="station">
 			<!-- 设备分类 -->
 			<view class="station-hd">
@@ -26,7 +27,8 @@
 				:class='{"station-type":true,"is-active":type==t.id}'
 				@click="changeType(t.id)">{{t.name}}</view>
 			</view>
-			<!-- 设备资源  可回收/有害-->
+			
+			<!-- 可回收/有害-->
 			<view v-show="type==1" class="staion-info">
 				<!-- 设备位置 -->
 				<view class="location flex-ct-bwt">
@@ -38,25 +40,11 @@
 						<text class="about">约</text><text>{{min_dis}}</text>
 					</view>
 				</view>
-				<swiper class="r-c-swiper" @change="cateSwiperChange">
-					<swiper-item v-for="(resources,i) in swiperData" :key="i">
-						<view :class="{'resources':true,'item-6':item6 }">
-							<view v-for="(item,index) in resources" :key="index" class="category">
-								<image class="cls" :src="item.imgUrl" mode=""></image>
-								<image v-if="item.state" class="state" :src="'/static/index/box-state' + item.state +'.png'" mode=""></image>
-								<view class="name">{{item.name}}</view>
-								<view class="count">{{item.price}}元/{{item.unit}}</view>
-							</view>
-						</view>
-					</swiper-item>
-				</swiper>
-				<view class="c-dots flex" v-if="swiperData.length>1">
-				  <view v-for="(r,i) in swiperData" :key="i" :class="['c-dot', {'active': cur==i}]"></view>
-				</view>
-				
-				<!-- <button @click="scanToDelivery" class="scan">扫码投递</button> -->
+				<!-- 设备资源 -->
+				<Resources :data="resources"></Resources>
 			</view>
-			<!-- 设备资源  厨余/其他-->
+			
+			<!-- 厨余/其他-->
 			<view v-show="type==2" class="staion-info">
 				<!-- 设备位置 -->
 				<view class="location flex-ct-bwt">
@@ -68,20 +56,11 @@
 						<text class="about">约</text><text>{{min_kw_dis}}</text>
 					</view>
 				</view>
-				<view class="flex">
-					<view class="item-2">
-						<image :src="'/static/index/liquid-red-'+ kitchen +'.png'" mode=""></image>
-						<view class="capacity">{{min_kw_station.kitchenCapacity}}%</view>
-						<view>厨余垃圾</view>
-					</view>
-					<view class="item-2">
-						<image :src="'/static/index/liquid-yellow-'+other+'.png'" mode=""></image>
-						<view class="capacity">{{min_kw_station.otherCapacity}}%</view>
-						<view>其他垃圾</view>
-					</view>
-				</view>
+				<!-- 设备资源 -->
+				<KitchenWaste :data="min_kw_station"></KitchenWaste>
 			</view>
 		</view>
+		
 		<view v-else class="station no-station">
 			<image src="/static/index/not-local.png" mode=""></image>
 			<view class="tips">
@@ -134,11 +113,15 @@
 	import { goLoginPageTimeOut } from '../../../common/index.js'
 	import Banner from '../../../components/Banner.vue'
 	import HButton from '../../../components/HButton.vue'
+	import Resources from '../../../components/Resources.vue'
+	import KitchenWaste from '../../../components/KitchenWaste.vue'
 	
 	export default {
 		components:{
 			Banner,
-			HButton
+			HButton,
+			Resources,
+			KitchenWaste
 		},
 		data() {
 			return {
@@ -191,8 +174,6 @@
 					// {"id":"411560080522219524","name":"塑料/金属","price":0.40,"imgUrl":"http://47.103.51.182:8000/icon/suliao-red.png","contry":null,"unit":"kg","state":2,"sno":null},
 					// {"id":"411560080522219525","name":"玻璃","price":0.00,"imgUrl":"http://47.103.51.182:8000/icon/boli-red.png","contry":null,"unit":"kg","state":2,"sno":null}
 				],
-				swiperData:[],
-				cur:0,
 				
 				min_kw_station:{},
 				min_kw_dis:0,
@@ -331,28 +312,8 @@
 				this.min_dis = res.data.min_dis
 				let resp = await getClassify(this.min_station.id)
 				let resources = resp.data.concat(resp.data)
-				// let resources = resp.data
-				this.item6 = resources.length > 4
-				this.swiperData = this.truck(resources,6)
+				this.resources = resources
 				uni.setStorageSync('station',res.data)
-			},
-			truck(arr,count){
-			  let result = [];
-			  //遍历输出成员
-			  arr.forEach((item,index) => {
-				//
-				let temp = Math.floor(index / count);
-				//检验数组是否初始化
-				if(!(result[temp] instanceof Array)){
-				  result[temp] = new Array;
-				}
-				result[temp].push(item);
-			  })
-			  return result;
-			},
-			cateSwiperChange(e){
-				console.log(e)
-				this.cur = e.detail.current
 			},
 			async getNearestKcEqp(){
 				let location = uni.getStorageSync('location')
@@ -360,18 +321,18 @@
 				this.min_kw_station = res.data.min_station
 				this.min_kw_dis = res.data.min_dis
 				uni.setStorageSync('kw_station',res.data)
-				this.kitchen = (Number(this.min_kw_station.kitchenCapacity)/30).toFixed(0)
-				this.other = (Number(this.min_kw_station.otherCapacity)/30).toFixed(0)
-				if(this.min_kw_station.kitchenfull){
-					this.min_kw_station.kitchenCapacity = '暂满'
-				}else{
-					this.min_kw_station.kitchenCapacity += '%'
-				}
-				if(this.min_kw_station.otherfull){
-					this.min_kw_station.otherCapacity = '暂满'
-				}else{
-					this.min_kw_station.otherCapacity += '%'
-				}
+				// this.kitchen = (Number(this.min_kw_station.kitchenCapacity)/30).toFixed(0)
+				// this.other = (Number(this.min_kw_station.otherCapacity)/30).toFixed(0)
+				// if(this.min_kw_station.kitchenfull){
+				// 	this.min_kw_station.kitchenCapacity = '暂满'
+				// }else{
+				// 	this.min_kw_station.kitchenCapacity += '%'
+				// }
+				// if(this.min_kw_station.otherfull){
+				// 	this.min_kw_station.otherCapacity = '暂满'
+				// }else{
+				// 	this.min_kw_station.otherCapacity += '%'
+				// }
 				
 			},
 			scanToDelivery(){
@@ -580,6 +541,7 @@
 	.location{
 		font-weight:500;
 		padding-top: 28rpx;
+		padding-bottom: 12rpx;
 	}
 	.site{
 		width: 36rpx;
@@ -712,24 +674,7 @@
 	.not-login.mbt-50{
 		margin-bottom: 50rpx;
 	}
-	.r-c-swiper{
-		height: 236rpx;
-	}
-	.c-dots{
-	  position: absolute;
-	  left: 50%;
-	  transform: translateX(-50%);
-	}
-	.c-dot{
-	  width: 10rpx;
-	  height: 10rpx;
-	  border-radius: 50%;
-	  background-color: rgba(183,183,183,.42);
-	  margin: 0 7rpx;
-	}
-	.c-dot.active{
-	  background-color: #FF5F62;
-	}
+	
 	.entry {
 	  padding: 44rpx 50rpx 66rpx;
 	  display: flex;

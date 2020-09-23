@@ -46,6 +46,12 @@
  	 align-items: center;
  	 justify-content: space-around;
  }
+ .elips{
+   overflow: hidden;    
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+ }
+ 
 
 
 
