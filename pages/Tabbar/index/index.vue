@@ -185,12 +185,12 @@
 				grandTotal:[
 					{name:"去提现",count:"10.70",url:"/pages/Money/withdraw/index"},
 					{name:"累计收益",count:"155",url:undefined},
-					{name:"我的积分",count:"2134",url:"/pages/Score/score/index"}
+					{name:"我的积分",count:"2134",url:"/pages/My/score/index"}
 				],
 				rank:[
-					{id:3,name:"公益值排名",ranking:"15",url:"/pages/Score/ranking/index",imgUrl:"/static/index/rank-1.png"},
-					{id:2,name:"投递次数排名",ranking:"12",url:"/pages/Score/ranking/index",imgUrl:"/static/index/rank-2.png"},
-					{id:1,name:"环保金排名",ranking:"9",url:"/pages/Score/ranking/index",imgUrl:"/static/index/rank-3.png"},
+					{id:3,name:"公益值排名",ranking:"15",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-1.png"},
+					{id:2,name:"投递次数排名",ranking:"12",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-2.png"},
+					{id:1,name:"环保金排名",ranking:"9",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-3.png"},
 				],
 				item6:false
 				

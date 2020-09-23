@@ -306,8 +306,7 @@ var _index2 = __webpack_require__(/*! ../../../common/index.js */ 27); //
 //
 var _default = { data: function data() {return { userInfo: {}, envData: {}, deliverDetailResult: [], canvasW: 412, canvasH: 932, rate: 1, scale: 1, show: false, bg1: '/static/score/cavsbg1.png', bg2: '/static/score/cavsbg2.png', bg3: '/static/score/cavsbg3.png', link: '/static/score/link.png', box3Height: 432, contentH: 1528, canvasDesH: 932, onSave: false };}, onLoad: function onLoad() {var _this = this;this.userInfo = uni.getStorageSync('userInfo') || {};this.getData(); // 设备像素比
     uni.getSystemInfo({ success: function success(res) {var windowWidth = res.windowWidth;_this.rate = 750 / windowWidth;_this.scale = 412 / 750;} }); // 创建context实例
-    this.context = uni.createCanvasContext('share', this);}, methods: { getData: function getData() {var _this2 = this;(0, _index.getEnvData)(this.userInfo.id).then(function (res) {if (res.code == 1) {_this2.envData = res.data; // this.deliverDetailResult = res.data.deliverDetailResult
-          setTimeout(function () {_this2.getCanvasContentHeight();}, 1000);}});}, // 获取内容高度
+    this.context = uni.createCanvasContext('share', this);}, methods: { getData: function getData() {var _this2 = this;(0, _index.getEnvData)(this.userInfo.id).then(function (res) {if (res.code == 1) {_this2.envData = res.data;_this2.deliverDetailResult = res.data.deliverDetailResult;setTimeout(function () {_this2.getCanvasContentHeight();}, 2000);}});}, // 获取内容高度
     getCanvasContentHeight: function getCanvasContentHeight() {var _this3 = this;var query = uni.createSelectorQuery().in(this);query.select('#box3').boundingClientRect(function (data) {//设计稿内容高度 1528 - 432
         _this3.box3Height = data.height * _this3.rate;_this3.contentH = _this3.box3Height + 590 + 506;_this3.canvasDesH = (_this3.contentH + 186) * _this3.scale; //186二维码高度
         // 画布宽高
@@ -318,6 +317,7 @@ var _default = { data: function data() {return { userInfo: {}, envData: {}, deli
       // ctx.clip();
       // 头像
       if (!headPic) {
+
 
 
 

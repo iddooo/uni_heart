@@ -39,7 +39,7 @@
 				
 				<image v-if="deliverDetailResult.length>0" class="link" src="/static/score/link.png" mode=""></image>
 			</view>
-			<view id="box3" class="box3" v-show="deliverDetailResult.length>0">
+			<view id="box3" class="box3" v-if="deliverDetailResult.length>0">
 				<image class="bg bg3" src="/static/score/cavsbg3.png"></image>
 				<view class="title">
 					已为环境保护贡献了
@@ -123,10 +123,10 @@
 				getEnvData(this.userInfo.id).then(res=>{
 					if(res.code==1){
 						this.envData = res.data
-						// this.deliverDetailResult = res.data.deliverDetailResult
+						this.deliverDetailResult = res.data.deliverDetailResult
 						setTimeout(()=>{
 							this.getCanvasContentHeight()
-						},1000)
+						},2000)
 					}
 				})
 			},

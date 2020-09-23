@@ -136,7 +136,7 @@
 				}
 				
 				uni.navigateTo({
-					url:"/pages/Score/welfareRule/index"
+					url:"/pages/My/welfareRule/index"
 				})
 			},
 			linkTo(item){
