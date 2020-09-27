@@ -31,33 +31,17 @@
 			<!-- 可回收/有害-->
 			<view v-show="type==1" class="staion-info">
 				<!-- 设备位置 -->
-				<view class="location flex-ct-bwt">
-					<view class="flex-ct loc">
-						<image class="site" src="/static/index/site.png" mode=""></image>
-						<text>{{min_station.complex}}</text>
-					</view>
-					<view class="flex-ct dist" @click="goMap">
-						<text class="about">约</text><text>{{min_dis}}</text>
-					</view>
-				</view>
+				<StationLoc :data="min_station" @click="goMap" />
 				<!-- 设备资源 -->
-				<Resources :data="resources"></Resources>
+				<Resources :data="resources"/>
 			</view>
 			
 			<!-- 厨余/其他-->
 			<view v-show="type==2" class="staion-info">
 				<!-- 设备位置 -->
-				<view class="location flex-ct-bwt">
-					<view class="flex-ct loc">
-						<image class="site" src="/static/index/site.png" mode=""></image>
-						<text>{{min_kw_station.complex}}</text>
-					</view>
-					<view class="flex-ct dist" @click="goMap">
-						<text class="about">约</text><text>{{min_kw_dis}}</text>
-					</view>
-				</view>
+				<StationLoc :data="min_kw_station" @click="goMap" />
 				<!-- 设备资源 -->
-				<KitchenWaste :data="min_kw_station"></KitchenWaste>
+				<KitchenWaste :data="min_kw_station" />
 			</view>
 		</view>
 		
@@ -113,6 +97,7 @@
 	import { goLoginPageTimeOut } from '../../../common/index.js'
 	import Banner from '../../../components/Banner.vue'
 	import HButton from '../../../components/HButton.vue'
+	import StationLoc from '../../../components/StationLoc.vue'
 	import Resources from '../../../components/Resources.vue'
 	import KitchenWaste from '../../../components/KitchenWaste.vue'
 	
@@ -120,6 +105,7 @@
 		components:{
 			Banner,
 			HButton,
+			StationLoc,
 			Resources,
 			KitchenWaste
 		},
@@ -164,8 +150,8 @@
 				type:1,
 				isLocation:false,
 				location:undefined,
+				
 				min_station:{},
-				min_dis:0,
 				resources:[
 					// {"id":"411560080522219520","name":"饮料瓶","price":0.04,"imgUrl":"http://47.103.51.182:8000/icon/bottles-s.png","contry":null,"unit":"个","state":0,"sno":null},
 					// {"id":"411560080522219521","name":"纸类","price":0.50,"imgUrl":"http://47.103.51.182:8000/icon/page-s.png","contry":null,"unit":"kg","state":0,"sno":null},
@@ -176,9 +162,6 @@
 				],
 				
 				min_kw_station:{},
-				min_kw_dis:0,
-				kitchen:0,
-				other:0,
 				
 				isLogin:false,
 				money:0,
@@ -309,31 +292,20 @@
 				let location = uni.getStorageSync('location')
 				let res = await getNearest(location)
 				this.min_station = res.data.min_station
-				this.min_dis = res.data.min_dis
+				this.min_station.min_dis = res.data.min_dis
+				uni.setStorageSync('station',this.min_station)
+				
 				let resp = await getClassify(this.min_station.id)
 				let resources = resp.data.concat(resp.data)
 				this.resources = resources
-				uni.setStorageSync('station',res.data)
 			},
 			async getNearestKcEqp(){
 				let location = uni.getStorageSync('location')
 				let res = await getNearestKc(location)
 				this.min_kw_station = res.data.min_station
-				this.min_kw_dis = res.data.min_dis
-				uni.setStorageSync('kw_station',res.data)
-				// this.kitchen = (Number(this.min_kw_station.kitchenCapacity)/30).toFixed(0)
-				// this.other = (Number(this.min_kw_station.otherCapacity)/30).toFixed(0)
-				// if(this.min_kw_station.kitchenfull){
-				// 	this.min_kw_station.kitchenCapacity = '暂满'
-				// }else{
-				// 	this.min_kw_station.kitchenCapacity += '%'
-				// }
-				// if(this.min_kw_station.otherfull){
-				// 	this.min_kw_station.otherCapacity = '暂满'
-				// }else{
-				// 	this.min_kw_station.otherCapacity += '%'
-				// }
-				
+				this.min_kw_station.min_dis = res.data.min_dis
+				this.min_kw_station.sno = res.data.sno
+				uni.setStorageSync('kw_station',this.min_kw_station)
 			},
 			scanToDelivery(){
 				// #ifdef H5
@@ -429,12 +401,12 @@
 			goAuthority(){
 				// #ifdef MP-WEIXIN
 				uni.navigateTo({
-					url:"../Authorize/wx/index"
+					url:"/pages/Authorize/wx/index"
 				})
 				// #endif
 				// #ifdef APP-PLUS || H5
 					uni.navigateTo({
-						url:"../Authorize/login/index"
+						url:"/pages/Authorize/login/index"
 					})
 				// #endif
 				
@@ -538,49 +510,9 @@
 	.station-type.is-active{
 		color: #FF5F62;
 	}
-	.location{
-		font-weight:500;
-		padding-top: 28rpx;
-		padding-bottom: 12rpx;
-	}
-	.site{
-		width: 36rpx;
-		height: 42rpx;
-		margin: 0 12rpx 0 26rpx;
-	}
-	.loc{
-		font-size:30rpx;
-	}
-	.dist{
-		font-size:28rpx;
-	}
-	.dist::after {
-		content: "";
-		display: inline-block;
-		width: 6rpx;
-		height: 6rpx;
-		margin: 6rpx 10rpx 10rpx 10rpx;
-		border-top: 2rpx solid #2c2c2c;
-		border-right: 2rpx solid #2c2c2c;
-		transform: rotate(45deg);
-	}
-	.about{
-		font-size:16rpx;
-		margin-right: 4rpx;
-	}
+	
 	.staion-info{
-		
-	}
-	.scan{
-		width:502rpx;
-		height:70rpx;
-		background:rgba(255,95,98,1);
-		border-radius:8rpx;
-		line-height: 70rpx;
-		color: #fff;
-		font-size:30rpx;
-		font-weight:500;
-		margin-bottom: 28rpx;
+		padding-top: 28rpx;
 	}
 	
 	.money{

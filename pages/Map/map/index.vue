@@ -23,7 +23,7 @@
 			</view>
 			<view class="describle flex-ct">
 				<image src="/static/map/site-d.png" mode=""></image>
-				<view class="elips">距您{{min_dis}} | {{station.address}}</view>
+				<view class="elips">距您{{station.min_dis}} | {{station.address}}</view>
 			</view>
 			<view class="describle flex-ct">
 				<image src="/static/map/time.png" mode=""></image>
@@ -100,8 +100,7 @@
 			}
 		},
 		onLoad(option) {
-			console.log(option)
-			this.type = option.type
+			this.type = option.type ? option.type : 1
 			console.log(this.type)
 		},
 		onShow() {
@@ -114,26 +113,26 @@
 			// 获取地图上所有设备点
 			this.getKwStaions()
 			this.getRecoveryStaions()
+			
 			if(this.type==2){
-				this.station = kw_station.min_station
-				this.min_dis = station.min_dis
+				this.station = kw_station
 				let pics = JSON.parse(this.station.pic || '[]')
 				this.pics = pics.map(v=>{
 					v.imgUrl = this.IMG_URL + v.value
 					return v
 				})
-				// 获取当前厨余设备的容量
-				this.getCurKwStation(this.station)
+				
 			}else{
-				this.station = station.min_station
-				this.min_dis = station.min_dis
+				this.station = station
 				let pics = JSON.parse(this.station.pic || '[]')
 				this.pics = pics.map(v=>{
 					v.imgUrl = this.IMG_URL + v.value
 					return v
 				})
 				// 获取当前设备的分类信息
-				this.getCurStation(this.station)
+				getClassify(this.station.id).then(res=>{
+					this.resources = res.data
+				})
 			}
 		},
 		methods:{
@@ -202,6 +201,7 @@
 			closePreview(){
 				this.visible = false
 			},
+			// 查看设备信息
 			checkStationInfo(e){
 				// console.log(e)
 				let id = e.markerId || e.detail.markerId;
@@ -217,11 +217,11 @@
 						console.log(b,i,b.id,this.allMarkers);
 					}
 				})
-				this.allMarkers.forEach((b,i)=>{
-					if(b.id==id){
-						console.log(i);
-					}
-				})
+				// this.allMarkers.forEach((b,i)=>{
+				// 	if(b.id==id){
+				// 		console.log(i);
+				// 	}
+				// })
 				this.kwStaions.forEach(b=>{
 					b.width = 37
 					b.height = 41
@@ -234,11 +234,13 @@
 					}
 				})
 			},
+			// 获取当前可回收设备信息
 			getCurStation(data){
 				console.log(data)
 				getSingleStation(data).then(res=>{
 					this.station = res.data.min_station
-					this.min_dis = res.data.min_dis
+					this.station.min_dis = res.data.min_dis
+					
 					let pics = JSON.parse(this.station.pic)
 					this.pics = pics.map(v=>{
 						v.imgUrl = this.IMG_URL + v.value
@@ -249,16 +251,18 @@
 					})
 				})
 			},
+			// 获取当前厨余设备信息
 			getCurKwStation(data){
 				console.log(data)
 				getKwStaion(data).then(res=>{
 					this.station = res.data
+					this.station.min_dis = res.data.square
+					
 					let pics = JSON.parse(this.station.pic || '[]')
 					this.pics = pics.map(v=>{
 						v.imgUrl = this.IMG_URL + v.value
 						return v
 					})
-					this.min_dis = res.data.square
 				})
 			},
 			lead(){

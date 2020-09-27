@@ -3,7 +3,7 @@
 		<view class="pop-bg"></view>
 		<view class="content">
 			<view class="close-btn" @click="close">
-				<image src="/static/authorize/clear.png" mode=""></image>
+				<image src="/static/authorize/close.png" mode=""></image>
 			</view>
 			<view class="title">
 				<span>{{title}}</span>
@@ -87,10 +87,9 @@
 		line-height:46rpx;
 	}
 	.msg.html{
-		padding: 36rpx 40rpx 52rpx;
+		padding: 36rpx 0rpx 52rpx;
 		text-align: left;
 		font-size:28rpx;
-		line-height:46rpx;
 	}
 	.btns button{
 		width:226rpx;

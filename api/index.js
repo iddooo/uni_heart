@@ -1,5 +1,5 @@
 //小程序支持commonJs规范，使用require和module.exports，exports
-const fetch  = require('./config.js')
+const fetch  = require('./config.js').fetch
 
 module.exports = {
 	//获取token
