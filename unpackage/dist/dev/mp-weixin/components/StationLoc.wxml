@@ -1,0 +1,1 @@
+<view class="location"><view class="flex-ct loc"><image class="site" src="/static/index/site.png" mode></image><text>{{data.complex}}</text></view><view data-event-opts="{{[['tap',[['goMap',['$event']]]]]}}" class="flex-ct dist" bindtap="__e"><text class="about">约</text><text>{{data.min_dis}}</text></view></view>

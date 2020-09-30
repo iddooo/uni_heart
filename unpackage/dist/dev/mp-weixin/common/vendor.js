@@ -754,7 +754,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7082,7 +7082,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7103,14 +7103,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7186,7 +7186,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8525,7 +8525,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/Tabbar/index/index": { "navigationBarTitleText": "小红心", "usingComponents": { "banner": "/components/Banner", "h-button": "/components/HButton", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Tabbar/foundList/index": { "navigationBarTitleText": "发现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/voiceRecognition/index": { "navigationBarTitleText": "语音识别", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/shop/index": { "navigationBarTitleText": "商城", "usingComponents": { "banner": "/components/Banner", "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/Tabbar/mine/index": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/AI/face/index": { "navigationBarTitleText": "人脸识别", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Authorize/login/index": { "navigationBarTitleText": "登录", "usingComponents": { "valid-code": "/components/validCode" }, "usingAutoImportComponents": {} }, "pages/Authorize/wx/index": { "navigationBarTitleText": "微信登录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/answer/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/knowledge/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/results/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/list/index": { "navigationBarTitleText": "分类列表", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/search/index": { "navigationBarTitleText": "小红心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/countDown/index": { "navigationBarTitleText": "领取倒计时", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/deliveryCode/index": { "navigationBarTitleText": "投递二维码", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/familyAccount/index": { "navigationBarTitleText": "家庭账户", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/exchangeRecord/index": { "navigationBarTitleText": "兑换记录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/goodsDetails/index": { "navigationBarTitleText": "商品详情", "usingComponents": { "banner": "/components/Banner" }, "usingAutoImportComponents": {} }, "pages/Mall/createOrder/index": { "navigationBarTitleText": "创建订单", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/address/index": { "navigationBarTitleText": "编辑地址信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/delivering/index": { "navigationBarTitleText": "扫码成功开始投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/deliveryFinish/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdraw/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdrawResult/index": { "navigationBarTitleText": "提现申请成功", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/score/index": { "navigationBarTitleText": "我的积分", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/energyData/index": { "navigationBarTitleText": "环保数据", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/gold/index": { "navigationBarTitleText": "环保金明细", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/delivery/index": { "navigationBarTitleText": "我的投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/welfareRule/index": { "navigationBarTitleText": "公益值", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/welfare/index": { "navigationBarTitleText": "公益值明细", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/ranking/index": { "navigationBarTitleText": "小区排名", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Map/map/index": { "navigationBarTitleText": "地图", "usingComponents": { "banner": "/components/Banner", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Setting/icCard/index": { "navigationBarTitleText": "绑定IC卡", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Setting/personal/index": { "navigationBarTitleText": "个人信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Setting/myCode/index": { "navigationBarTitleText": "完善信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/help/index": { "navigationBarTitleText": "帮助中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/aboutUs/index": { "navigationBarTitleText": "关于我们", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/guide/index": { "navigationBarTitleText": "引导页", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小红心", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/Tabbar/index/index": { "navigationBarTitleText": "小红心", "usingComponents": { "banner": "/components/Banner", "h-button": "/components/HButton", "station-loc": "/components/StationLoc", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Tabbar/foundList/index": { "navigationBarTitleText": "发现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/voiceRecognition/index": { "navigationBarTitleText": "语音识别", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/shop/index": { "navigationBarTitleText": "商城", "usingComponents": { "banner": "/components/Banner", "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/Tabbar/mine/index": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/AI/face/index": { "navigationBarTitleText": "人脸识别", "usingComponents": { "h-button": "/components/HButton" }, "usingAutoImportComponents": {} }, "pages/Authorize/login/index": { "navigationBarTitleText": "登录", "usingComponents": { "valid-code": "/components/validCode" }, "usingAutoImportComponents": {} }, "pages/Authorize/wx/index": { "navigationBarTitleText": "微信登录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/answer/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/knowledge/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/results/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/list/index": { "navigationBarTitleText": "分类列表", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/search/index": { "navigationBarTitleText": "小红心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/countDown/index": { "navigationBarTitleText": "领取倒计时", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/deliveryCode/index": { "navigationBarTitleText": "投递二维码", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/familyAccount/index": { "navigationBarTitleText": "家庭账户", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/exchangeRecord/index": { "navigationBarTitleText": "兑换记录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/goodsDetails/index": { "navigationBarTitleText": "商品详情", "usingComponents": { "banner": "/components/Banner" }, "usingAutoImportComponents": {} }, "pages/Mall/createOrder/index": { "navigationBarTitleText": "创建订单", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/address/index": { "navigationBarTitleText": "编辑地址信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/delivering/index": { "navigationBarTitleText": "扫码成功开始投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/deliveryFinish/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdraw/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdrawResult/index": { "navigationBarTitleText": "提现申请成功", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/score/index": { "navigationBarTitleText": "我的积分", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/energyData/index": { "navigationBarTitleText": "环保数据", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/gold/index": { "navigationBarTitleText": "环保金明细", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/delivery/index": { "navigationBarTitleText": "我的投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/welfareRule/index": { "navigationBarTitleText": "公益值", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/welfare/index": { "navigationBarTitleText": "公益值明细", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/ranking/index": { "navigationBarTitleText": "小区排名", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Map/map/index": { "navigationBarTitleText": "地图", "usingComponents": { "banner": "/components/Banner", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Setting/icCard/index": { "navigationBarTitleText": "绑定IC卡", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Setting/personal/index": { "navigationBarTitleText": "个人信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Setting/myCode/index": { "navigationBarTitleText": "完善信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/help/index": { "navigationBarTitleText": "帮助中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/aboutUs/index": { "navigationBarTitleText": "关于我们", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/guide/index": { "navigationBarTitleText": "引导页", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小红心", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -9806,9 +9806,11 @@ var getters = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.getLevel = exports.goLoginPageTimeOut = exports.URL = exports.IMG_URL = void 0;var IMG_URL = 'https://heart-score-mall.oss-cn-hangzhou.aliyuncs.com/goods/';exports.IMG_URL = IMG_URL;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.getLevel = exports.goLoginPageTimeOut = exports.URL = exports.IMG_URL = void 0; // 商品图片，资源分类图片
+var IMG_URL = 'https://heart-score-mall.oss-cn-hangzhou.aliyuncs.com/goods/';
 
-var URL = 'https://xiaohongxinheadpic.oss-cn-hangzhou.aliyuncs.com';exports.URL = URL;
+// 头像
+exports.IMG_URL = IMG_URL;var URL = 'https://xiaohongxinheadpic.oss-cn-hangzhou.aliyuncs.com';exports.URL = URL;
 
 var goLoginPageTimeOut = function goLoginPageTimeOut() {var str = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "登录后才能获取更多信息";
   uni.showModal({
@@ -10682,7 +10684,7 @@ if (hadRuntime) {
 
 "use strict";
  //小程序支持commonJs规范，使用require和module.exports，exports
-var fetch = __webpack_require__(/*! ./config.js */ 38);
+var fetch = __webpack_require__(/*! ./config.js */ 38).fetch;
 
 module.exports = {
   //获取token
@@ -10959,6 +10961,31 @@ module.exports = {
     return fetch({
       url: "/recover-api/deliver/getEnvironmentalData/" + userId });
 
+  },
+
+  /** 家庭账户 */
+  // 根据用户id获取家庭账户数据
+  familyByUserId: function familyByUserId(userId) {
+    return fetch({
+      url: "/user-api/family/familyByUserId/" + userId });
+
+  },
+
+  // 删除家庭成员
+  delFamilyMember: function delFamilyMember(userId) {
+    return fetch({
+      url: "/user-api/family/delFamilyMember/" + userId,
+      method: 'DELETE' });
+
+  },
+
+  // 用户绑定ic卡
+  bindIcCard: function bindIcCard(data) {
+    return fetch({
+      url: "/user-api/IcCard/bindIcCard",
+      method: 'post',
+      data: data });
+
   } };
 
 /***/ }),
@@ -10975,46 +11002,136 @@ module.exports = {
 
 var _index = __webpack_require__(/*! ../common/index.js */ 27); //测试
 var BASE_URL = "https://heart.synpowertech.com";
-module.exports = function (option) {
-  var token = uni.getStorageSync('token');
-  // 测试
-  //
+module.exports = {
+  fetch: function fetch(option) {
+    var token = uni.getStorageSync('token');
+    // 测试
+    //
 
 
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: BASE_URL + option.url,
-      method: option.method || 'GET', // 必须大写
-      header: option.header || {
-        'content-type': "application/json",
-        'Authorization': token && 'bearer ' + token },
+    return new Promise(function (resolve, reject) {
+      uni.request({
+        url: BASE_URL + option.url,
+        method: option.method || 'GET', // 必须大写
+        header: option.header || {
+          'content-type': "application/json",
+          'Authorization': token && 'bearer ' + token },
 
-      data: option.data,
-      success: function success(res) {
-        if (res.data.status == '401' || res.statusCode == 401) {
-          (0, _index.goLoginPageTimeOut)();
-        }
-
-        if (res.data.code == 0) {
-          var title = '服务器开小差了，请再试一次';
-          if (res.data.message != '' || res.data.message != null) {
-            title = res.data.message || res.data.msg;
+        data: option.data,
+        success: function success(res) {
+          if (res.data.status == '401' || res.statusCode == 401) {
+            (0, _index.goLoginPageTimeOut)();
           }
-          uni.showToast({
-            title: title,
-            icon: "none",
-            duration: 2000 });
 
-        }
-        resolve(res.data);
-      },
-      fail: function fail(err) {
-        console.log(err);
-        reject(err);
-      } });
+          if (res.data.code == 0) {
+            var title = '服务器开小差了，请再试一次';
+            if (res.data.message != '' || res.data.message != null) {
+              title = res.data.message || res.data.msg;
+            }
+            uni.showToast({
+              title: title,
+              icon: "none",
+              duration: 2000 });
 
-  });
-};
+          }
+          resolve(res.data);
+        },
+        fail: function fail(err) {
+          console.log(err);
+          reject(err);
+        } });
+
+    });
+  },
+  uploadOss: function uploadOss(path) {
+    var token = uni.getStorageSync('token');
+    return new Promise(function (resolve, reject) {
+      uni.uploadFile({
+        url: BASE_URL + '/recover-api/feedback/uploadFbPic',
+        filePath: path,
+        name: 'file',
+        header: {
+          'Authorization': "bearer " + token },
+
+        success: function success(res) {
+          // console.log(res)
+          if (res.statusCode != 200) {
+            uni.showToast({
+              title: '图片上传报错',
+              icon: "none" });
+
+            resolve(null);
+          }
+
+          var data = JSON.parse(res.data);
+          resolve(data.data);
+
+        },
+        fail: function fail(err) {
+          reject(err);
+        } });
+
+    });
+  },
+  uploadVoice: function uploadVoice(path) {
+    var token = uni.getStorageSync('token');
+    return new Promise(function (resolve, reject) {
+      uni.uploadFile({
+        url: BASE_URL + '/about-api/garbage/webVoice',
+        filePath: path,
+        name: 'file',
+        header: {
+          'Authorization': "bearer " + token },
+
+        success: function success(res) {
+          // console.log(res)
+          if (res.statusCode == 401) {
+            console.log('===token失效===');
+            app.goLoginPageTimeOut();
+          }
+
+          var data = JSON.parse(res.data);
+          resolve(data);
+
+        },
+        fail: function fail(err) {
+          reject(err);
+        } });
+
+    });
+  },
+  uploadFace: function uploadFace(data) {
+    var token = uni.getStorageSync('token');
+    // 重新上传 / 上传人脸
+    var url = data.hasPhoto ? BASE_URL + '/user-api/user/updateFace/' + data.userId : BASE_URL + '/user-api/user/facePic/' + data.userId;
+    return new Promise(function (resolve, reject) {
+      uni.uploadFile({
+        url: url,
+        header: {
+          'Authorization': 'bearer ' + token },
+
+        filePath: data.tempFilePath,
+        name: 'photo',
+        formData: {
+          'faceBase64': data.faceBase64 },
+
+        success: function success(res) {
+          if (res.statusCode != 200) {
+            uni.showToast({
+              title: '照片上传失败，请重新拍摄',
+              icon: "none" });
+
+            resolve(null);
+          }
+          var data = JSON.parse(res.data);
+          resolve(data);
+        },
+        fail: function fail(err) {
+          reject(err);
+        } });
+
+    });
+  } };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })

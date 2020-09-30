@@ -5,7 +5,7 @@
 				<image class="bg" src="/static/score/cavsbg1.png" mode="widthFix"></image>
 				<view class="user-photo">
 					<!-- #ifndef MP-WEIXIN -->
-						<image v-if="userInfo.headPic" class="headpic"  :src="IMG_URL+userInfo.headPic" mode=""></image>
+						<image v-if="userInfo.headPic" class="headpic"  :src="URL+userInfo.headPic" mode=""></image>
 						<image v-else class="headpic"  src="/static/index/head.png" mode=""></image>
 					<!-- #endif -->
 					<!-- #ifdef MP-WEIXIN -->
@@ -87,6 +87,7 @@
 		data(){
 			return{
 				userInfo:{},
+				URL:URL,
 				envData:{},
 				deliverDetailResult:[],
 				canvasW:412,
@@ -193,7 +194,7 @@
 					// #endif
 					
 				}else{
-					headPic = this.IMG_URL+this.userInfo.headPic
+					headPic = this.URL+this.userInfo.headPic
 					uni.downloadFile({
 						url:headPic,
 						success:(res)=>{

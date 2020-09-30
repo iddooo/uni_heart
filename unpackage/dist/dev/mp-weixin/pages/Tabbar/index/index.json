@@ -3,6 +3,7 @@
   "usingComponents": {
     "banner": "/components/Banner",
     "h-button": "/components/HButton",
+    "station-loc": "/components/StationLoc",
     "resources": "/components/Resources",
     "kitchen-waste": "/components/KitchenWaste"
   }

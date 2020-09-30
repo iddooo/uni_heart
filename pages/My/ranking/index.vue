@@ -20,10 +20,10 @@
 					v-for="(t,i) in top3"
 					:key="i">
 						<view class="u-name">
-							{{t.nickname}}
+							{{t.nickname || '-'}}
 						</view>
 						<view class="u-count">
-							{{t.count}}
+							{{t.count || '-'}}
 						</view>
 						<view class="u-des">
 							{{cur==3?"公益值":cur==2?"环保金":"投递次数"}}
@@ -89,7 +89,7 @@
 	export default{
 		data(){
 			return{
-				IMG_URL:URL,
+				URL:URL,
 				cur:1,
 				tabs:[
 					{id:3,name:"公益值榜"},
@@ -97,9 +97,9 @@
 					{id:1,name:"投递榜"},
 				],
 				top3:[
-					{complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云2",rank: 1,sno: "14537",userId: 4522},
-					{complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云1",rank: 1,sno: "14537",userId: 4522},
-					{complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云3",rank: 1,sno: "14537",userId: 4522},
+					// {complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云2",rank: 1,sno: "14537",userId: 4522},
+					// {complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云1",rank: 1,sno: "14537",userId: 4522},
+					// {complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云3",rank: 1,sno: "14537",userId: 4522},
 				],
 				rankList:[],
 				user:{
@@ -130,9 +130,10 @@
 						let b = Object.assign({},v,l)
 						return b
 					})
-					this.top3 = [rankList[2],rankList[0],rankList[1]]
+					// this.top3 = [rankList[2] || {},rankList[0],rankList[1] || {}]
+					this.top3 = [{},rankList[0],{}]
 					this.rankList = rankList.slice(3)
-					console.log(this.rankList)
+					console.log(this.top3,this.rankList)
 				})
 			}
 		}
@@ -199,6 +200,7 @@
 		font-size:28rpx;
 		font-weight:500;
 		color:rgba(30,30,30,1);
+		height:40rpx;
 		line-height:40rpx;
 		margin-bottom: 12rpx;
 	}
@@ -207,12 +209,14 @@
 		font-family:DINAlternate-Bold,DINAlternate;
 		font-weight:bold;
 		color:rgba(255,95,98,1);
+		height:32rpx;
 		line-height:32rpx;
 		margin-bottom: 10rpx;
 	}
 	.u-des{
 		font-size:26rpx;
 		color:rgba(144,144,144,1);
+		height:36rpx;
 		line-height:36rpx;
 	}
 	.user{

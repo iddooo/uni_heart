@@ -276,7 +276,32 @@ module.exports = {
 		return fetch({
 			url:"/recover-api/deliver/getEnvironmentalData/"+userId
 		})
-	}
+	},
+	
+	/** 家庭账户 */
+	// 根据用户id获取家庭账户数据
+	  familyByUserId(userId){
+	    return fetch({
+			url: "/user-api/family/familyByUserId/"+userId,
+		})
+	  },
+	  
+	  // 删除家庭成员
+	  delFamilyMember(userId){
+	    return fetch({
+			url:"/user-api/family/delFamilyMember/"+userId,
+			method:'DELETE'
+		})
+	  },
+	  
+	  // 用户绑定ic卡
+	  bindIcCard(data){
+	    return fetch({
+			url:"/user-api/IcCard/bindIcCard",
+			method:'post',
+			data
+		})
+	  }
 
 }
 

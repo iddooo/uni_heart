@@ -1,5 +1,7 @@
+// 商品图片，资源分类图片
 export const IMG_URL = 'https://heart-score-mall.oss-cn-hangzhou.aliyuncs.com/goods/'
 
+// 头像
 export const URL = 'https://xiaohongxinheadpic.oss-cn-hangzhou.aliyuncs.com'
 
 export const goLoginPageTimeOut = (str="登录后才能获取更多信息")=>{

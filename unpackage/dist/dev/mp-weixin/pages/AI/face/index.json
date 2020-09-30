@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "人脸识别",
-  "usingComponents": {}
+  "usingComponents": {
+    "h-button": "/components/HButton"
+  }
 }

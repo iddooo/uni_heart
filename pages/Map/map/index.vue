@@ -38,7 +38,7 @@
 			<view v-show="type==1">
 				<Resources :data="resources"></Resources>
 			</view>
-			<view v-show="type==2" class="resources flex">
+			<view v-show="type==2">
 				<KitchenWaste :data="station"></KitchenWaste>
 			</view>
 		</view>

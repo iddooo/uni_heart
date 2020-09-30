@@ -52,49 +52,8 @@
 .station-type.is-active.data-v-6da17b77{
 	color: #FF5F62;
 }
-.location.data-v-6da17b77{
-	font-weight:500;
-	padding-top: 28rpx;
-	padding-bottom: 12rpx;
-}
-.site.data-v-6da17b77{
-	width: 36rpx;
-	height: 42rpx;
-	margin: 0 12rpx 0 26rpx;
-}
-.loc.data-v-6da17b77{
-	font-size:30rpx;
-}
-.dist.data-v-6da17b77{
-	font-size:28rpx;
-}
-.dist.data-v-6da17b77::after {
-	content: "";
-	display: inline-block;
-	width: 6rpx;
-	height: 6rpx;
-	margin: 6rpx 10rpx 10rpx 10rpx;
-	border-top: 2rpx solid #2c2c2c;
-	border-right: 2rpx solid #2c2c2c;
-	-webkit-transform: rotate(45deg);
-	        transform: rotate(45deg);
-}
-.about.data-v-6da17b77{
-	font-size:16rpx;
-	margin-right: 4rpx;
-}
 .staion-info.data-v-6da17b77{
-}
-.scan.data-v-6da17b77{
-	width:502rpx;
-	height:70rpx;
-	background:rgba(255,95,98,1);
-	border-radius:8rpx;
-	line-height: 70rpx;
-	color: #fff;
-	font-size:30rpx;
-	font-weight:500;
-	margin-bottom: 28rpx;
+	padding-top: 28rpx;
 }
 .money.data-v-6da17b77{
 	padding-top: 46rpx;

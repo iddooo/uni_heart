@@ -250,10 +250,9 @@
 	line-height:46rpx;
 }
 .msg.html.data-v-7878773e{
-	padding: 36rpx 40rpx 52rpx;
+	padding: 36rpx 0rpx 52rpx;
 	text-align: left;
 	font-size:28rpx;
-	line-height:46rpx;
 }
 .btns button.data-v-7878773e{
 	width:226rpx;
