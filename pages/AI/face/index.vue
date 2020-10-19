@@ -33,6 +33,7 @@
 				人脸录入须知
 			</view>
 		</view>
+		<MessageBox></MessageBox>
 	</view>
 </template>
 
@@ -40,6 +41,7 @@
 	import HButton from '../../../components/HButton.vue'
 	import { pathToBase64 } from 'image-tools'
 	import { uploadFace } from '../../../api/config.js'
+	import { mapMutations } from 'vuex';
 	
 	export default{
 		components:{
@@ -54,6 +56,7 @@
 		onLoad(option) {
 		},
 		methods:{
+			...mapMutations(['MessageBox']),
 			takePicture(){
 				let _this = this
 				let userInfo = uni.getStorageSync('userInfo')
@@ -105,7 +108,7 @@
 				});
 			},
 			showTips(){
-				this.$MessageBox({
+				this.MessageBox({
 					title:'人脸录入须知',
 					type: 'HTML',
 					msg:'人脸照片拍摄及上传，仅用于设备的人脸识别开门方式，不会用作其他商业用途。',

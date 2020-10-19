@@ -301,7 +301,15 @@ module.exports = {
 			method:'post',
 			data
 		})
+	  },
+	  
+	  
+	  /** 人脸识别开关 */
+	  switchAI(){
+		  return fetch({
+			  url:"/user-api/user/ok1"
+		  })
 	  }
-
+	
 }
 

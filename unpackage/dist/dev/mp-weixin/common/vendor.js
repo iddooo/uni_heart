@@ -8525,7 +8525,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/Tabbar/index/index": { "navigationBarTitleText": "小红心", "usingComponents": { "banner": "/components/Banner", "h-button": "/components/HButton", "station-loc": "/components/StationLoc", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Tabbar/foundList/index": { "navigationBarTitleText": "发现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/voiceRecognition/index": { "navigationBarTitleText": "语音识别", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/shop/index": { "navigationBarTitleText": "商城", "usingComponents": { "banner": "/components/Banner", "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/Tabbar/mine/index": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/AI/face/index": { "navigationBarTitleText": "人脸识别", "usingComponents": { "h-button": "/components/HButton" }, "usingAutoImportComponents": {} }, "pages/Authorize/login/index": { "navigationBarTitleText": "登录", "usingComponents": { "valid-code": "/components/validCode" }, "usingAutoImportComponents": {} }, "pages/Authorize/wx/index": { "navigationBarTitleText": "微信登录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/answer/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/knowledge/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/results/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/list/index": { "navigationBarTitleText": "分类列表", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/search/index": { "navigationBarTitleText": "小红心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/countDown/index": { "navigationBarTitleText": "领取倒计时", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/deliveryCode/index": { "navigationBarTitleText": "投递二维码", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/familyAccount/index": { "navigationBarTitleText": "家庭账户", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/exchangeRecord/index": { "navigationBarTitleText": "兑换记录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/goodsDetails/index": { "navigationBarTitleText": "商品详情", "usingComponents": { "banner": "/components/Banner" }, "usingAutoImportComponents": {} }, "pages/Mall/createOrder/index": { "navigationBarTitleText": "创建订单", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/address/index": { "navigationBarTitleText": "编辑地址信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/delivering/index": { "navigationBarTitleText": "扫码成功开始投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/deliveryFinish/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdraw/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdrawResult/index": { "navigationBarTitleText": "提现申请成功", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/score/index": { "navigationBarTitleText": "我的积分", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/energyData/index": { "navigationBarTitleText": "环保数据", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/gold/index": { "navigationBarTitleText": "环保金明细", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/delivery/index": { "navigationBarTitleText": "我的投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/welfareRule/index": { "navigationBarTitleText": "公益值", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/welfare/index": { "navigationBarTitleText": "公益值明细", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/ranking/index": { "navigationBarTitleText": "小区排名", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Map/map/index": { "navigationBarTitleText": "地图", "usingComponents": { "banner": "/components/Banner", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Setting/icCard/index": { "navigationBarTitleText": "绑定IC卡", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Setting/personal/index": { "navigationBarTitleText": "个人信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Setting/myCode/index": { "navigationBarTitleText": "完善信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/help/index": { "navigationBarTitleText": "帮助中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/aboutUs/index": { "navigationBarTitleText": "关于我们", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/guide/index": { "navigationBarTitleText": "引导页", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小红心", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/Tabbar/index/index": { "navigationBarTitleText": "小红心" }, "pages/Tabbar/foundList/index": { "navigationBarTitleText": "发现" }, "pages/Tabbar/voiceRecognition/index": { "navigationBarTitleText": "语音识别" }, "pages/Tabbar/shop/index": { "navigationBarTitleText": "商城" }, "pages/Tabbar/mine/index": { "navigationBarTitleText": "我的" }, "pages/AI/face/index": { "navigationBarTitleText": "人脸识别" }, "pages/Authorize/login/index": { "navigationBarTitleText": "登录" }, "pages/Authorize/wx/index": { "navigationBarTitleText": "微信登录" }, "pages/Classification/answer/index": { "navigationBarTitleText": "环保知识竞赛" }, "pages/Classification/knowledge/index": { "navigationBarTitleText": "环保知识竞赛" }, "pages/Classification/results/index": { "navigationBarTitleText": "环保知识竞赛" }, "pages/Classification/list/index": { "navigationBarTitleText": "分类列表" }, "pages/Classification/search/index": { "navigationBarTitleText": "小红心" }, "pages/ICCard/countDown/index": { "navigationBarTitleText": "领取倒计时" }, "pages/ICCard/deliveryCode/index": { "navigationBarTitleText": "投递二维码" }, "pages/ICCard/familyAccount/index": { "navigationBarTitleText": "家庭账户" }, "pages/Mall/exchangeRecord/index": { "navigationBarTitleText": "兑换记录" }, "pages/Mall/goodsDetails/index": { "navigationBarTitleText": "商品详情" }, "pages/Mall/createOrder/index": { "navigationBarTitleText": "创建订单" }, "pages/Mall/address/index": { "navigationBarTitleText": "编辑地址信息" }, "pages/Money/delivering/index": { "navigationBarTitleText": "扫码成功开始投递" }, "pages/Money/deliveryFinish/index": { "navigationBarTitleText": "我的环保金" }, "pages/Money/withdraw/index": { "navigationBarTitleText": "我的环保金" }, "pages/Money/withdrawResult/index": { "navigationBarTitleText": "提现申请成功" }, "pages/My/score/index": { "navigationBarTitleText": "我的积分" }, "pages/My/energyData/index": { "navigationBarTitleText": "环保数据" }, "pages/My/gold/index": { "navigationBarTitleText": "环保金明细" }, "pages/My/delivery/index": { "navigationBarTitleText": "我的投递" }, "pages/My/welfareRule/index": { "navigationBarTitleText": "公益值" }, "pages/My/welfare/index": { "navigationBarTitleText": "公益值明细" }, "pages/My/ranking/index": { "navigationBarTitleText": "小区排名" }, "pages/Map/map/index": { "navigationBarTitleText": "地图" }, "pages/Setting/icCard/index": { "navigationBarTitleText": "绑定IC卡" }, "pages/Setting/personal/index": { "navigationBarTitleText": "个人信息" }, "pages/Setting/myCode/index": { "navigationBarTitleText": "完善信息" }, "pages/About/help/index": { "navigationBarTitleText": "帮助中心" }, "pages/About/aboutUs/index": { "navigationBarTitleText": "关于我们" }, "pages/About/guide/index": { "navigationBarTitleText": "引导页" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小红心", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -8665,75 +8665,6 @@ function normalizeComponent (
 
 /***/ }),
 /* 15 */
-/*!**********************************************************************!*\
-  !*** C:/Users/dell/Desktop/uni_heart/components/messageBox/index.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _messageBox = _interopRequireDefault(__webpack_require__(/*! ./messageBox.vue */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-//创建构造器
-var MessageBoxConstruct = _vue.default.extend(_messageBox.default);
-
-function MessageBox(option) {
-  var messageBox = new MessageBoxConstruct({
-    el: document.createElement('div'),
-    data: function data() {
-      return {
-        visible: false,
-        title: option.title,
-        type: option.type || 'text',
-        msg: option.msg,
-        reverse: option.reverse || true,
-        buttons: option.buttons || ['确认'],
-        success: option.success || function () {},
-        cancel: option.cancel || function () {} };
-
-    },
-    methods: {
-      open: function open() {
-        this.visible = true;
-      },
-      close: function close() {
-        this.visible = false;
-      },
-      _success: function _success() {
-        this.success();
-        this.close();
-      },
-      _cancel: function _cancel() {
-        this.cancel();
-        this.close();
-      } },
-
-    mounted: function mounted() {
-      this.open();
-    } });
-
-
-  document.body.appendChild(messageBox.$el);
-}
-
-function install() {
-  _vue.default.prototype.$MessageBox = MessageBox;
-};var _default =
-
-{
-  MessageBox: MessageBox,
-  install: install };exports.default = _default;
-
-/***/ }),
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */
 /*!******************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/store/index.js ***!
   \******************************************************/
@@ -8742,11 +8673,11 @@ function install() {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 _vue.default.use(_vuex.default);
 
-var modulesFiles = __webpack_require__(25);
+var modulesFiles = __webpack_require__(17);
 
 var modules = modulesFiles.keys().reduce(function (modules, modulePath) {
   var moduleName = modulePath.replace(/\.\/(.*)\.\w+$/, '$1');
@@ -8755,13 +8686,13 @@ var modules = modulesFiles.keys().reduce(function (modules, modulePath) {
   return modules;
 }, {});
 var store = new _vuex.default.Store({
-  modules: modules });var _default =
+  modules: modules });
 
-
+console.log(store);var _default =
 store;exports.default = _default;
 
 /***/ }),
-/* 24 */
+/* 16 */
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
   \********************************************/
@@ -9711,7 +9642,7 @@ var index_esm = {
 
 
 /***/ }),
-/* 25 */
+/* 17 */
 /*!*****************************************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/store/modules sync nonrecursive \.js$ ***!
   \*****************************************************************************/
@@ -9719,7 +9650,8 @@ var index_esm = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./user.js": 26
+	"./message.js": 18,
+	"./user.js": 19
 };
 
 
@@ -9741,10 +9673,59 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 25;
+webpackContext.id = 17;
 
 /***/ }),
-/* 26 */
+/* 18 */
+/*!****************************************************************!*\
+  !*** C:/Users/dell/Desktop/uni_heart/store/modules/message.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
+  messageBox: {
+    title: '',
+    type: '',
+    msg: '',
+    buttons: [],
+    reverse: false,
+    visible: false,
+    success: function success() {},
+    cancel: function cancel() {} } };
+
+
+
+var mutations = {
+  MessageBox: function MessageBox(_ref) {var messageBox = _ref.messageBox;var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    messageBox.title = option.title || '';
+    messageBox.type = option.type || 'text';
+    messageBox.msg = option.msg || '';
+    messageBox.buttons = option.buttons || ['确认'];
+    messageBox.reverse = option.reverse || false;
+    messageBox.visible = true;
+    messageBox.success = option.success || function () {},
+    messageBox.cancel = option.cancel || function () {};
+  } };
+
+
+var actions = {};
+
+
+
+var getters = {
+  messageBox: function messageBox(state) {return state.messageBox;} };var _default =
+
+
+{
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters };exports.default = _default;
+
+/***/ }),
+/* 19 */
 /*!*************************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/store/modules/user.js ***!
   \*************************************************************/
@@ -9798,7 +9779,7 @@ var getters = {
   getters: getters };exports.default = _default;
 
 /***/ }),
-/* 27 */
+/* 20 */
 /*!*******************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/common/index.js ***!
   \*******************************************************/
@@ -9880,24 +9861,24 @@ var getLevel = function getLevel(gold) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 35);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 28);
 
 
 /***/ }),
-/* 35 */
+/* 28 */
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -9928,7 +9909,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 36);
+module.exports = __webpack_require__(/*! ./runtime */ 29);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -9944,7 +9925,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 36 */
+/* 29 */
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -10675,7 +10656,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 37 */
+/* 30 */
 /*!****************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/api/index.js ***!
   \****************************************************/
@@ -10684,7 +10665,7 @@ if (hadRuntime) {
 
 "use strict";
  //小程序支持commonJs规范，使用require和module.exports，exports
-var fetch = __webpack_require__(/*! ./config.js */ 38).fetch;
+var fetch = __webpack_require__(/*! ./config.js */ 31).fetch;
 
 module.exports = {
   //获取token
@@ -10986,10 +10967,18 @@ module.exports = {
       method: 'post',
       data: data });
 
+  },
+
+
+  /** 人脸识别开关 */
+  switchAI: function switchAI() {
+    return fetch({
+      url: "/user-api/user/ok1" });
+
   } };
 
 /***/ }),
-/* 38 */
+/* 31 */
 /*!*****************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/api/config.js ***!
   \*****************************************************/
@@ -11000,7 +10989,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(uni) {
 
 
-var _index = __webpack_require__(/*! ../common/index.js */ 27); //测试
+var _index = __webpack_require__(/*! ../common/index.js */ 20); //测试
 var BASE_URL = "https://heart.synpowertech.com";
 module.exports = {
   fetch: function fetch(option) {

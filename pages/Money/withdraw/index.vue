@@ -48,11 +48,14 @@
 		</view>
 		
 		<button class="btn" @click="withdraw">提现</button>
+		<MessageBox></MessageBox>
+		
 	</view>
 </template>
 
 <script>
 	import { myMoney, fundCash } from '../../../api/index.js'
+	import { mapMutations } from 'vuex';
 	
 	export default{
 		data(){
@@ -79,8 +82,9 @@
 			}
 		},
 		methods:{
+			...mapMutations(['messageBox']),
 			rules(){
-				this.$MessageBox({
+				this.MessageBox({
 					title: '提现规则',
 					type: 'HTML',
 					msg: `1.单日最多可兑换1笔（以申请成功为准, <br>

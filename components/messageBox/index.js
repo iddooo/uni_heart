@@ -6,7 +6,7 @@ const MessageBoxConstruct = Vue.extend(MessageBoxComponent)
 
 function MessageBox(option){
 	const messageBox = new MessageBoxConstruct({
-		el:document.createElement('div'),
+		el: document.createElement('div'),
 		data(){
 			return{
 				visible: false,
@@ -39,8 +39,7 @@ function MessageBox(option){
 			this.open();
 		}
 	})
-	
-	document.body.appendChild(messageBox.$el)
+	document.body.appendChild(MessageBox.$el);
 }
 
 function install() {

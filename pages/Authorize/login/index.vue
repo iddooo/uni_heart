@@ -70,6 +70,7 @@
 				登录注册代表您已阅读并同意<text class="red">《小红心用户协议》</text>
 			</view>
 		</view>
+		<MessageBox></MessageBox>
 		
 	</view>
 </template>
@@ -77,6 +78,8 @@
 <script>
 	import ValidCode from '../../../components/validCode.vue'
 	import { getCode, phoneLogin, getTokenData,checkCode, updatePwd, passwordLogin} from '../../../api/index.js'
+	import { mapMutations } from 'vuex';
+	
 	export default {
 		components:{
 			ValidCode
@@ -133,6 +136,7 @@
 			this.step = e.step ? e.step : 1
 		},
 		methods:{
+			...mapMutations(['MessageBox']),
 			goStep(v){
 				this.step = v
 				this.regPhone()
@@ -214,7 +218,7 @@
 			// 通过密码登录
 			changeLoginMethodByPwd(){
 				this.goStep(3);
-				this.$MessageBox({
+				this.MessageBox({
 					title: '温馨提示',
 					type: 'HTML',
 					msg: '1.第一次登录建议使用验证码登录或微信登录；<br>2.若使用账户密码登录请点击忘记密码，重新设置密码。；',
