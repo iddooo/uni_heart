@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "环保数据",
-  "usingComponents": {}
+  "usingComponents": {
+    "resource-list": "/components/ResourceList"
+  }
 }

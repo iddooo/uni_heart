@@ -202,25 +202,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _index = __webpack_require__(/*! ../../../api/index.js */ 30);
 var _index2 = __webpack_require__(/*! ../../../common/index.js */ 20); //
 //
@@ -285,38 +266,54 @@ var _index2 = __webpack_require__(/*! ../../../common/index.js */ 20); //
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { userInfo: {}, URL: _index2.URL, envData: {}, deliverDetailResult: [], canvasW: 412, canvasH: 932, rate: 1, scale: 1, show: false, bg1: '/static/score/cavsbg1.png', bg2: '/static/score/cavsbg2.png', bg3: '/static/score/cavsbg3.png', link: '/static/score/link.png', box3Height: 432, contentH: 1528, canvasDesH: 932, onSave: false };}, onLoad: function onLoad() {var _this = this;this.userInfo = uni.getStorageSync('userInfo') || {};this.getData(); // 设备像素比
+var ResourceList = function ResourceList() {return __webpack_require__.e(/*! import() | components/ResourceList */ "components/ResourceList").then(__webpack_require__.bind(null, /*! ../../../components/ResourceList.vue */ 510));};var _default = { components: { ResourceList: ResourceList }, data: function data() {return { userInfo: {}, URL: _index2.URL, envData: {}, deliverDetailResult: [], list: [], canvasW: 412, canvasH: 932, rate: 1, scale: 1, show: false, bg1: '/static/score/cavsbg1.png', bg2: '/static/score/cavsbg2.png', bg3: '/static/score/cavsbg3.png', link: '/static/score/link.png', box3Height: 432, contentH: 1528, canvasDesH: 932, onSave: false };}, onLoad: function onLoad() {var _this = this;this.userInfo = uni.getStorageSync('userInfo') || {};this.getData(); // 设备像素比
     uni.getSystemInfo({ success: function success(res) {var windowWidth = res.windowWidth;_this.rate = 750 / windowWidth;_this.scale = 412 / 750;} }); // 创建context实例
-    this.context = uni.createCanvasContext('share', this);}, methods: { getData: function getData() {var _this2 = this;(0, _index.getEnvData)(this.userInfo.id).then(function (res) {if (res.code == 1) {_this2.envData = res.data;_this2.deliverDetailResult = res.data.deliverDetailResult;setTimeout(function () {_this2.getCanvasContentHeight();}, 2000);}});}, // 获取内容高度
-    getCanvasContentHeight: function getCanvasContentHeight() {var _this3 = this;var query = uni.createSelectorQuery().in(this);query.select('#box3').boundingClientRect(function (data) {//设计稿内容高度 1528 - 432
-        _this3.box3Height = data.height * _this3.rate;_this3.contentH = _this3.box3Height + 590 + 506;_this3.canvasDesH = (_this3.contentH + 186) * _this3.scale; //186二维码高度
+    this.context = uni.createCanvasContext('share', this);}, methods: { getData: function getData() {var _this2 = this;(0, _index.getEnvData)(this.userInfo.id).then(function (res) {if (res.code == 1) {_this2.envData = res.data;_this2.deliverDetailResult = res.data.deliverDetailResult;_this2.list = res.data.deliverDetailResult.reduce(function (a, b) {var unit = b.type == 1 ? "个" : "kg";a.push({ imgUrl: b.imgUrl, name: b.name, profit: b.profit, countUnit: b.count + unit });return a;}, []);setTimeout(function () {_this2.getCanvasContentHeight();}, 2000);}});}, // 获取内容高度
+    getCanvasContentHeight: function getCanvasContentHeight() {var _this3 = this;
+      var query = uni.createSelectorQuery().in(this);
+      query.select('#box3').boundingClientRect(function (data) {
+        //设计稿内容高度 1528 - 432
+        _this3.box3Height = data.height * _this3.rate;
+        _this3.contentH = _this3.box3Height + 590 + 506;
+        _this3.canvasDesH = (_this3.contentH + 186) * _this3.scale; //186二维码高度
         // 画布宽高
-        _this3.canvasH = _this3.canvasDesH / _this3.rate;_this3.canvasW = 412 / _this3.rate;}).exec();}, preview: function preview() {if (this.show) {uni.showToast({ title: "正在绘制中，请等待", icon: "none" });return;}this.show = true;this.drawImg();}, drawImg: function drawImg() {var _this4 = this;var _this$userInfo = this.userInfo,nickname = _this$userInfo.nickname,id = _this$userInfo.id,headPic = _this$userInfo.headPic;var _this$envData = this.envData,day = _this$envData.day,deliverNum = _this$envData.deliverNum,profit = _this$envData.profit,carbon = _this$envData.carbon,tree = _this$envData.tree,petroleum = _this$envData.petroleum,electric = _this$envData.electric;var ctx = this.context; // 渐变色背景
-      var grd = ctx.createLinearGradient(0, 0, 0, this.canvasH);grd.addColorStop(0, '#EB4B5A');grd.addColorStop(1, '#F19E4F');ctx.setFillStyle(grd);ctx.fillRect(0, 0, this.canvasW, this.canvasH); // 第一个背景框
-      this.drawCanvasImage(this.bg1, 10, 24, 730, 590); // 圆角
+        _this3.canvasH = _this3.canvasDesH / _this3.rate;
+        _this3.canvasW = 412 / _this3.rate;
+
+      }).exec();
+    },
+    preview: function preview() {
+      if (this.show) {
+        uni.showToast({
+          title: "正在绘制中，请等待",
+          icon: "none" });
+
+        return;
+      }
+      this.show = true;
+      this.drawImg();
+    },
+    drawImg: function drawImg() {var _this4 = this;var _this$userInfo =
+      this.userInfo,nickname = _this$userInfo.nickname,id = _this$userInfo.id,headPic = _this$userInfo.headPic;var _this$envData =
+      this.envData,day = _this$envData.day,deliverNum = _this$envData.deliverNum,profit = _this$envData.profit,carbon = _this$envData.carbon,tree = _this$envData.tree,petroleum = _this$envData.petroleum,electric = _this$envData.electric;
+
+      var ctx = this.context;
+      // 渐变色背景
+      var grd = ctx.createLinearGradient(0, 0, 0, this.canvasH);
+      grd.addColorStop(0, '#EB4B5A');
+      grd.addColorStop(1, '#F19E4F');
+      ctx.setFillStyle(grd);
+      ctx.fillRect(0, 0, this.canvasW, this.canvasH);
+
+      // 第一个背景框
+      this.drawCanvasImage(this.bg1, 10, 24, 730, 590);
+
+      // 圆角
       // this.drawCanvasArc(124, 124, 60, 0, 2 * Math.PI)
       // ctx.clip();
       // 头像
       if (!headPic) {
+
 
 
 

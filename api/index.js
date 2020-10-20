@@ -52,6 +52,17 @@ module.exports = {
 			 }
 		 })
 	 },
+	 myDelivery(data){
+		 return fetch({
+			 url:'/recover-api/deliver/wechat/deliverDetails/' + data.id + '/' + data.page + '/' + 10
+		 })
+	 },
+	 // 厨余垃圾投递记录
+	myKwDelivery(data){
+		return fetch({
+			url:'/kitchen/fl/getKwDeliver/' + data.id + '/' + data.page + '/' + 10,
+		})
+	},
 	/** 首页 */
 	//  轮播图 不需要token
 	getBanners(type){

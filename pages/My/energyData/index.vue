@@ -44,27 +44,8 @@
 				<view class="title">
 					已为环境保护贡献了
 				</view>
-				<view class="cate flex-ct-bwt"
-					v-for="(item,i) in deliverDetailResult"
-					:key="i"
-				>
-					<view class="flex-ct">
-						<image class="img" :src="item.imgUrl" mode=""></image>
-						<text>{{item.name}}</text>
-					</view>
-					<view class="flex-ct-ct">
-						<view class="num">
-							{{item.count}}
-						</view> 
-						<view class="unit">{{item.type==1 ? "个":"kg"}}</view>
-					</view>
-					<view class="flex-ct-end">
-						<view class="num">
-							{{item.profit}}
-						</view>
-						<image class="gold" src="/static/money/gold.png" mode=""></image>
-					</view>
-					
+				<view class="list">
+					<ResourceList :list="list"></ResourceList>
 				</view>
 			</view>
 			
@@ -83,13 +64,19 @@
 <script>
 	import { getEnvData } from '../../../api/index.js'
 	import { URL } from '../../../common/index.js'
-	export default{
+	import ResourceList from '../../../components/ResourceList.vue'
+	
+	export default {
+		components: {
+			ResourceList
+		},
 		data(){
 			return{
 				userInfo:{},
 				URL:URL,
 				envData:{},
 				deliverDetailResult:[],
+				list:[],
 				canvasW:412,
 				canvasH:932,
 				rate:1,
@@ -125,6 +112,16 @@
 					if(res.code==1){
 						this.envData = res.data
 						this.deliverDetailResult = res.data.deliverDetailResult
+						this.list = res.data.deliverDetailResult.reduce((a,b)=>{
+							let unit = b.type==1 ? "个":"kg"
+							a.push({
+								imgUrl:b.imgUrl,
+								name:b.name,
+								profit:b.profit,
+								countUnit:b.count + unit,
+							})
+							return a
+						},[])
 						setTimeout(()=>{
 							this.getCanvasContentHeight()
 						},2000)
@@ -349,7 +346,7 @@
 		margin-top: -12rpx;
 	}
 	.box3{
-		height: 412rpx;
+		min-height: 412rpx;
 		position: relative;
 		z-index: 1;
 		margin-top: -12rpx;
@@ -435,35 +432,11 @@
 		color:rgba(30,30,30,1);
 		line-height:42rpx;
 		font-size: 30rpx;
-		margin-bottom: 56rpx;
+		margin-bottom: 46rpx;
 	}
-	.cate{
+	.list{
 		padding-left: 84rpx;
 		padding-right: 70rpx;
-		font-size:26rpx;
-		color:rgba(30,30,30,1);
-		line-height:36rpx;
-		padding-bottom: 20rpx;
-	}
-	.cate .num {
-		font-size:28rpx;
-		font-family:DINAlternate-Bold,DINAlternate;
-		font-weight:bold;
-		color:rgba(30,30,30,1);
-		line-height:32rpx;
-	}
-	.cate > view{
-		width: 33.33%;
-	}
-	.img{
-		max-height: 32rpx;
-		max-width: 26rpx;
-		margin-right: 26rpx;
-	}
-	.gold{
-		width:28rpx;
-		height:28rpx;
-		margin-left: 6rpx;
 	}
 	.bg3{
 		height: 100%;

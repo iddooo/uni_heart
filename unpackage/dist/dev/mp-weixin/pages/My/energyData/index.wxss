@@ -35,7 +35,7 @@
 	margin-top: -12rpx;
 }
 .box3.data-v-3bb70915{
-	height: 412rpx;
+	min-height: 412rpx;
 	position: relative;
 	z-index: 1;
 	margin-top: -12rpx;
@@ -120,35 +120,11 @@
 	color:rgba(30,30,30,1);
 	line-height:42rpx;
 	font-size: 30rpx;
-	margin-bottom: 56rpx;
+	margin-bottom: 46rpx;
 }
-.cate.data-v-3bb70915{
+.list.data-v-3bb70915{
 	padding-left: 84rpx;
 	padding-right: 70rpx;
-	font-size:26rpx;
-	color:rgba(30,30,30,1);
-	line-height:36rpx;
-	padding-bottom: 20rpx;
-}
-.cate .num.data-v-3bb70915 {
-	font-size:28rpx;
-	font-family:DINAlternate-Bold,DINAlternate;
-	font-weight:bold;
-	color:rgba(30,30,30,1);
-	line-height:32rpx;
-}
-.cate > view.data-v-3bb70915{
-	width: 33.33%;
-}
-.img.data-v-3bb70915{
-	max-height: 32rpx;
-	max-width: 26rpx;
-	margin-right: 26rpx;
-}
-.gold.data-v-3bb70915{
-	width:28rpx;
-	height:28rpx;
-	margin-left: 6rpx;
 }
 .bg3.data-v-3bb70915{
 	height: 100%;

@@ -97,7 +97,7 @@
 	import { goLoginPageTimeOut } from '../../../common/index.js'
 	import Banner from '../../../components/Banner.vue'
 	import HButton from '../../../components/HButton.vue'
-	import StationLoc from '../../../components/StationLoc.vue'
+	import StationLoc from './StationLoc.vue'
 	import Resources from '../../../components/Resources.vue'
 	import KitchenWaste from '../../../components/KitchenWaste.vue'
 	
