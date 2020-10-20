@@ -14,7 +14,7 @@
 				<view class="font-sub">
 					{{content.time}}
 				</view>
-				<view v-show="content.active" class="font-sub">
+				<view v-show="activeIds.includes(content.id)" class="font-sub">
 					投递单号:{{content.deliverNo}}
 				</view>
 			</view>

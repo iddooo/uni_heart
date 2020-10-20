@@ -85,12 +85,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   var g0 = _vm.activeIds.includes(_vm.content.id)
   var g1 = _vm.activeIds.includes(_vm.content.id)
+  var g2 = _vm.activeIds.includes(_vm.content.id)
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
         g0: g0,
-        g1: g1
+        g1: g1,
+        g2: g2
       }
     }
   )
