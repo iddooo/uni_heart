@@ -56,7 +56,7 @@
 
 <script>
 	import { myDelivery,myKwDelivery,myMoney }  from '../../../api/index.js'
-	import KwDeliver from './kwDeliver.vue'
+	import KwDeliver from './KwDeliver.vue'
 	import RecyclableDeliver from './RecyclableDeliver.vue'
 	export default{
 		components:{

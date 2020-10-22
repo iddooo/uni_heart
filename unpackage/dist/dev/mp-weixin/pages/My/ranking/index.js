@@ -168,146 +168,77 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _index = __webpack_require__(/*! ../../../api/index.js */ 30);
-var _index2 = __webpack_require__(/*! ../../../common/index.js */ 20); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { URL: _index2.URL, cur: 1, tabs: [{ id: 3, name: "公益值榜" }, { id: 2, name: "环保金榜" }, { id: 1, name: "投递榜" }], top3: [// {complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云2",rank: 1,sno: "14537",userId: 4522},
+var _index2 = __webpack_require__(/*! ../../../common/index.js */ 20);
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var RankItem = function RankItem() {return __webpack_require__.e(/*! import() | pages/My/ranking/RankItem */ "pages/My/ranking/RankItem").then(__webpack_require__.bind(null, /*! ./RankItem.vue */ 567));};var UserCard = function UserCard() {return __webpack_require__.e(/*! import() | pages/My/ranking/UserCard */ "pages/My/ranking/UserCard").then(__webpack_require__.bind(null, /*! ./UserCard.vue */ 575));};var TopThree = function TopThree() {return __webpack_require__.e(/*! import() | pages/My/ranking/TopThree */ "pages/My/ranking/TopThree").then(__webpack_require__.bind(null, /*! ./TopThree.vue */ 583));};var _default =
+
+{
+  components: {
+    RankItem: RankItem,
+    UserCard: UserCard,
+    TopThree: TopThree },
+
+  data: function data() {
+    return {
+      cur: 1,
+      tabs: [
+      { id: 3, name: "公益值榜" },
+      { id: 2, name: "环保金榜" },
+      { id: 1, name: "投递榜" }],
+
+      top3: [
+        // {complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云2",rank: 1,sno: "14537",userId: 4522},
         // {complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云1",rank: 1,sno: "14537",userId: 4522},
         // {complex: "菁蓉汇",count: "8320",headPic: null,nickname: "希望是片云3",rank: 1,sno: "14537",userId: 4522},
-      ], rankList: [], user: { count: "4", nickname: "D儿", percent: "0.0%", rank: 17 } };}, onLoad: function onLoad(option) {console.log(option.id);this.cur = option.id;this.getList();}, methods: { changeTab: function changeTab(item) {this.cur = item.id;this.getList();}, getList: function getList() {var _this = this;(0, _index.getRankList)(this.cur).then(function (res) {var level = _this.$common.getLevel(res.data.count);_this.user = Object.assign({}, res.data, level);var rankList = res.data.rankList.map(function (v) {var l = _this.$common.getLevel(v.count);var b = Object.assign({}, v, l);return b;}); // this.top3 = [rankList[2] || {},rankList[0],rankList[1] || {}]
-        _this.top3 = [{}, rankList[0], {}];_this.rankList = rankList.slice(3);console.log(_this.top3, _this.rankList);});} } };exports.default = _default;
+      ],
+      rankList: [],
+      user: {
+        count: "4",
+        nickname: "D儿",
+        percent: "0.0%",
+        rank: 17 } };
+
+
+
+  },
+  onLoad: function onLoad(option) {
+    console.log(option.id);
+    this.cur = option.id;
+    this.getList();
+  },
+  methods: _objectSpread({},
+  (0, _vuex.mapMutations)(['MessageBox']), {
+    changeTab: function changeTab(item) {
+      this.cur = item.id;
+      this.getList();
+    },
+    getList: function getList() {var _this = this;
+      (0, _index.getRankList)(this.cur).then(function (res) {
+        var level = _this.$common.getLevel(res.data.count);
+        _this.user = Object.assign({}, res.data, level);
+        var rankList = res.data.rankList.map(function (v) {
+          var l = _this.$common.getLevel(v.count);
+          var b = Object.assign({}, v, l);
+          return b;
+        });
+        _this.top3 = [rankList[2] || {}, rankList[0] || {}, rankList[1] || {}];
+        // this.top3 = [{},rankList[0],{}]
+        _this.rankList = rankList.slice(3);
+        // console.log(this.top3,this.rankList)
+      });
+    },
+    showRules: function showRules() {
+      this.MessageBox({
+        title: '排名规则',
+        type: 'HTML',
+        msg: "1.\u7528\u6237\u6392\u540D\u6BCF\u592924\u65F6\u66F4\u65B0\uFF1B <br>\n\t\t\t\t\t  2.\u5C0F\u533A\u9009\u62E9\u9ED8\u8BA4\u4E3A\u7B2C\u4E00\u6B21\u8FDB\u884C\u6295\u9012\u5C0F\u533A\uFF1B <br>\n\t\t\t\t\t  3.\u6392\u540D\u76F8\u540C\uFF0C\u6309\u7167\u6CE8\u518C\u65F6\u95F4\u5148\u540E\u8FDB\u884C\u6392\u540D\u3002" });
+
+
+
+    } }) };exports.default = _default;
 
 /***/ }),
 

@@ -82,7 +82,7 @@
 			}
 		},
 		methods:{
-			...mapMutations(['messageBox']),
+			...mapMutations(['MessageBox']),
 			rules(){
 				this.MessageBox({
 					title: '提现规则',

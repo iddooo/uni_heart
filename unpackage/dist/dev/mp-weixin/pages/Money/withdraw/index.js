@@ -217,7 +217,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     }
   },
   methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['messageBox']), {
+  (0, _vuex.mapMutations)(['MessageBox']), {
     rules: function rules() {
       this.MessageBox({
         title: '提现规则',

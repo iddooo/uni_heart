@@ -1,0 +1,53 @@
+
+.flex-ct.data-v-8186ebd8{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.user.data-v-8186ebd8{
+	border-bottom: 20rpx solid #F6F6F6;
+	padding: 26rpx;
+}
+.user-photo.data-v-8186ebd8{
+	width:80rpx;
+	height:80rpx;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.user-photo .headpic.data-v-8186ebd8{
+	width: 100%;
+	height: 100%;
+}
+.user-info.data-v-8186ebd8{
+	width: 432rpx;
+	box-sizing:  border-box;
+	padding-left: 30rpx;
+}
+.user-name .name.data-v-8186ebd8{
+	font-size:28rpx;
+	font-weight:500;
+	color:rgba(30,30,30,1);
+	line-height:40rpx;
+}
+.user-rank.data-v-8186ebd8{
+	margin-top: 6rpx;
+	font-size:28rpx;
+	color:rgba(109,114,120,1);
+	line-height:40rpx;
+}
+.user-count.data-v-8186ebd8{
+	font-size:28rpx;
+	font-family:DINAlternate-Bold,DINAlternate;
+	font-weight:bold;
+	color:rgba(255,95,98,1);
+	line-height:32rpx;
+	-webkit-box-flex:1;
+	-webkit-flex:1;
+	        flex:1;
+	text-align: right;
+	padding-right: 28rpx;
+}
+

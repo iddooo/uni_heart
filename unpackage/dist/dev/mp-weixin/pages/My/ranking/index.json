@@ -1,4 +1,8 @@
 {
   "navigationBarTitleText": "小区排名",
-  "usingComponents": {}
+  "usingComponents": {
+    "rank-item": "/pages/My/ranking/RankItem",
+    "user-card": "/pages/My/ranking/UserCard",
+    "top-three": "/pages/My/ranking/TopThree"
+  }
 }

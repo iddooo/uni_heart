@@ -24,44 +24,44 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.flex-ct.data-v-2cb9697e, .flex-ct-bwt.data-v-2cb9697e {
+.flex-ct.data-v-5c58995e, .flex-ct-bwt.data-v-5c58995e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-align-content: center;
           align-content: center;
 }
-.flex-ct-bwt.data-v-2cb9697e {
+.flex-ct-bwt.data-v-5c58995e {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
           justify-content: space-between;
 }
-.content.data-v-2cb9697e {
+.content.data-v-5c58995e {
   padding-top: 20rpx;
   padding-left: 20rpx;
   padding-right: 50rpx;
   background-color: #fff;
   margin-bottom: 20rpx;
 }
-.loc-box.data-v-2cb9697e {
+.loc-box.data-v-5c58995e {
   margin-bottom: 10rpx;
 }
-.loc.data-v-2cb9697e {
+.loc.data-v-5c58995e {
   font-size: 30rpx;
   font-weight: 600;
   color: #1E1E1E;
   line-height: 42rpx;
 }
-.loc image.data-v-2cb9697e {
+.loc image.data-v-5c58995e {
   width: 32rpx;
   height: 36rpx;
   margin-right: 8rpx;
 }
-.sencond-box.data-v-2cb9697e {
+.sencond-box.data-v-5c58995e {
   padding-bottom: 18rpx;
   padding-left: 38rpx;
 }
-.font-sub.data-v-2cb9697e {
+.font-sub.data-v-5c58995e {
   font-size: 22rpx;
   color: #909090;
   line-height: 42rpx;

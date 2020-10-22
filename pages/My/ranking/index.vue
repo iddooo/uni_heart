@@ -10,86 +10,44 @@
 					{{item.name}}
 				</view>
 			</view>
-			<view class="top-3">
-				<image class="top-bg" src="/static/ranking/rank.png" mode=""></image>
-				<view class="top-rule">
-					排名规则
-				</view>
-				<view class="top-uers flex">
-					<view class="u-item"
-					v-for="(t,i) in top3"
-					:key="i">
-						<view class="u-name">
-							{{t.nickname || '-'}}
-						</view>
-						<view class="u-count">
-							{{t.count || '-'}}
-						</view>
-						<view class="u-des">
-							{{cur==3?"公益值":cur==2?"环保金":"投递次数"}}
-						</view>
-					</view>
-				</view>
+			<view class="top-rule" @click="showRules">
+				排名规则
 			</view>
+			<TopThree :cur='cur' :top="top3"></TopThree>
 		</view>
 		
 		<!-- 用户 -->
-		<view class="user flex-ct ">
-			<view class="user-photo">
-				<!-- #ifndef MP-WEIXIN -->
-					<image class="headpic" src="/static/index/head.png" mode=""></image>
-				<!-- #endif -->
-				<!-- #ifdef MP-WEIXIN -->
-					<open-data class="headpic" type="userAvatarUrl"></open-data>
-				<!-- #endif -->
-			</view>
-			<view class="user-info">
-				<view class="user-name flex-ct">
-					<text class="name">{{user.nickname}}</text>
-					<text v-if="cur==3" :class="'level level-'+user.level">{{user.des}}</text>
-				</view>
-				<view class="user-rank">
-					我的排名:{{user.rank}}
-				</view>
-			</view>
-			<view class="user-count">
-				{{user.count}}<text v-if="cur==1">次</text>
-			</view>
-		</view>
+		<UserCard :user="user" :cur="cur"></UserCard>
 		
 		<!-- 排名 -->
 		<view class="rank-list">
-			<view class="rank-item flex-ct"
-				v-for="(item,i) in rankList"
-				:key="i">
-				<view class="num">
-					{{item.rank}}
-				</view>
-				<view class="user-photo">
-					<image v-if="item.headPic" class="headpic" :src="IMG_URL+item.headPic" mode=""></image>
-					<image v-else class="headpic" src="/static/index/head.png" mode=""></image>
-				</view>
-				<view class="c-box user-name flex-ct">
-					<text class="name">{{item.nickname}}</text>
-					<text v-if="cur==3" :class="'level level-'+item.level">{{item.des}}</text>
-				</view>
-				<view class="user-count">
-					{{item.count}}<text v-if="cur==1">次</text>
-				</view>
-			</view>
-			
+			<RankItem 
+			v-for="(item,i) in rankList"
+			:key="i"
+			:rankItem="item"
+			:cur="cur"></RankItem>
 		</view>
+		
+		<MessageBox></MessageBox>
 	</view>
 </template>
 
 <script>
 	import { getRankList } from '../../../api/index.js'
-	import { URL,getLevel } from '../../../common/index.js'
+	import { getLevel } from '../../../common/index.js'
+	import RankItem from './RankItem.vue'
+	import UserCard from './UserCard.vue'
+	import TopThree from './TopThree.vue'
+	import { mapMutations } from 'vuex'
 	
-	export default{
+	export default {
+		components: {
+			RankItem,
+			UserCard,
+			TopThree
+		},
 		data(){
 			return{
-				URL:URL,
 				cur:1,
 				tabs:[
 					{id:3,name:"公益值榜"},
@@ -117,6 +75,7 @@
 			this.getList()
 		},
 		methods:{
+			...mapMutations(['MessageBox']),
 			changeTab(item){
 				this.cur = item.id
 				this.getList()
@@ -130,11 +89,20 @@
 						let b = Object.assign({},v,l)
 						return b
 					})
-					// this.top3 = [rankList[2] || {},rankList[0],rankList[1] || {}]
-					this.top3 = [{},rankList[0],{}]
+					this.top3 = [rankList[2] || {},rankList[0] || {},rankList[1] || {}]
+					// this.top3 = [{},rankList[0],{}]
 					this.rankList = rankList.slice(3)
-					console.log(this.top3,this.rankList)
+					// console.log(this.top3,this.rankList)
 				})
+			},
+			showRules(){
+				this.MessageBox({
+					title: '排名规则',
+					type: 'HTML',
+					msg: `1.用户排名每天24时更新； <br>
+						  2.小区选择默认为第一次进行投递小区； <br>
+						  3.排名相同，按照注册时间先后进行排名。`,
+				})	
 			}
 		}
 	}
@@ -145,6 +113,19 @@
 		width: 100%;
 		height: 556rpx;
 		background-color: #F3575A;
+	}
+	.top-rule{
+		position: absolute;
+		right: 0;
+		top: 112rpx;
+		width:128rpx;
+		height:46rpx;
+		background:rgba(255,110,113,1);
+		border-radius:31rpx 0 0 31rpx;
+		line-height: 46rpx;
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 24rpx;
 	}
 		
 	.tabs{
@@ -162,123 +143,8 @@
 		font-size: 34rpx;
 		color: #FFFFFF;
 	}
-	.top-3{
-		position: relative;
-		padding: 0 20rpx;
-		z-index: 1;
-	}
-	.top-bg{
-		position: absolute;
-		left: 20rpx;
-		top: 0;
-		width:710rpx;
-		height:372rpx;
-		z-index: -1;
-	}
-	.top-rule{
-		position: absolute;
-		right: 0;
-		top: -40rpx;
-		width:128rpx;
-		height:46rpx;
-		background:rgba(255,110,113,1);
-		border-radius:31rpx 0 0 31rpx;
-		line-height: 46rpx;
-		text-align: center;
-		color: #FFFFFF;
-		font-size: 24rpx;
-	}
-	.top-uers{
-		padding-top: 224rpx;
-		width: 100%;
-	}
-	.u-item{
-		flex: 1;
-		text-align: center;
-	}
-	.u-name{
-		font-size:28rpx;
-		font-weight:500;
-		color:rgba(30,30,30,1);
-		height:40rpx;
-		line-height:40rpx;
-		margin-bottom: 12rpx;
-	}
-	.u-count{
-		font-size:28rpx;
-		font-family:DINAlternate-Bold,DINAlternate;
-		font-weight:bold;
-		color:rgba(255,95,98,1);
-		height:32rpx;
-		line-height:32rpx;
-		margin-bottom: 10rpx;
-	}
-	.u-des{
-		font-size:26rpx;
-		color:rgba(144,144,144,1);
-		height:36rpx;
-		line-height:36rpx;
-	}
-	.user{
-		border-bottom: 20rpx solid #F6F6F6;
-		padding: 26rpx;
-	}
-	.user-photo{
-		width:80rpx;
-		height:80rpx;
-		border-radius: 50%;
-		overflow: hidden;
-	}
-	.user-photo .headpic{
-		width: 100%;
-		height: 100%;
-	}
-	.user-info{
-		width: 432rpx;
-		box-sizing:  border-box;
-		padding-left: 30rpx;
-	}
-	.user-name .name{
-		font-size:28rpx;
-		font-weight:500;
-		color:rgba(30,30,30,1);
-		line-height:40rpx;
-	}
-	.user-rank{
-		margin-top: 6rpx;
-		font-size:28rpx;
-		color:rgba(109,114,120,1);
-		line-height:40rpx;
-	}
-	.user-count{
-		font-size:28rpx;
-		font-family:DINAlternate-Bold,DINAlternate;
-		font-weight:bold;
-		color:rgba(255,95,98,1);
-		line-height:32rpx;
-		flex:1;
-		text-align: right;
-		padding-right: 28rpx;
-	}
+	
 	.rank-list{
 		padding: 0 26rpx;
-	}
-	.rank-item{
-		padding: 26rpx 0;
-		border-bottom: 2rpx solid #E2E2E2;
-	}
-	.num{
-		padding: 0 34rpx 0 36rpx;
-		font-size:28rpx;
-		font-weight:500;
-		color:rgba(30,30,30,1);
-		line-height:40rpx;
-		text-align: right;
-	}
-		
-	.c-box{
-		width: 328rpx;
-		box-sizing: border-box;
-		padding-left: 30rpx;
 	}
 </style>

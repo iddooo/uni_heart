@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "我的投递",
   "usingComponents": {
-    "kw-deliver": "/pages/My/delivery/kwDeliver",
+    "kw-deliver": "/pages/My/delivery/KwDeliver",
     "recyclable-deliver": "/pages/My/delivery/RecyclableDeliver"
   }
 }
