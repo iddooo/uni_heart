@@ -189,7 +189,7 @@ var _index2 = __webpack_require__(/*! ../../../common/index.js */ 20);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var FamilyTotal = function FamilyTotal() {return __webpack_require__.e(/*! import() | pages/ICCard/familyAccount/FamilyTotal */ "pages/ICCard/familyAccount/FamilyTotal").then(__webpack_require__.bind(null, /*! ./FamilyTotal.vue */ 489));};var ManagerMembers = function ManagerMembers() {return __webpack_require__.e(/*! import() | pages/ICCard/familyAccount/ManagerMembers */ "pages/ICCard/familyAccount/ManagerMembers").then(__webpack_require__.bind(null, /*! ./ManagerMembers.vue */ 496));};var DeliveryRecord = function DeliveryRecord() {return __webpack_require__.e(/*! import() | pages/ICCard/familyAccount/DeliveryRecord */ "pages/ICCard/familyAccount/DeliveryRecord").then(__webpack_require__.bind(null, /*! ./DeliveryRecord.vue */ 503));};
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var FamilyTotal = function FamilyTotal() {return __webpack_require__.e(/*! import() | pages/ICCard/familyAccount/FamilyTotal */ "pages/ICCard/familyAccount/FamilyTotal").then(__webpack_require__.bind(null, /*! ./FamilyTotal.vue */ 491));};var ManagerMembers = function ManagerMembers() {return __webpack_require__.e(/*! import() | pages/ICCard/familyAccount/ManagerMembers */ "pages/ICCard/familyAccount/ManagerMembers").then(__webpack_require__.bind(null, /*! ./ManagerMembers.vue */ 498));};var DeliveryRecord = function DeliveryRecord() {return __webpack_require__.e(/*! import() | pages/ICCard/familyAccount/DeliveryRecord */ "pages/ICCard/familyAccount/DeliveryRecord").then(__webpack_require__.bind(null, /*! ./DeliveryRecord.vue */ 505));};
 
 var entry = [
 { id: 1, name: "二维码", icon: "/static/card/code.png", handler: 'deliveryCode' },
@@ -348,13 +348,18 @@ var entry = [
       this.active = e.target.dataset.id;
     },
     AppShare: function AppShare() {
+      var userInfo = uni.getStorageSync('userInfo');
+      var userId = userInfo.userId;
+      var familyId = this.members[0].userId;
+      var photo = this.userPics[userId];
       uni.share({
         provider: "weixin",
-        title: "",
-        scene: "", //provider 为 weixin 时必选
-        imageUrl: "",
+        title: userInfo.nickName + '，邀请您加入小红心，一起垃圾分类做环保~',
+        scene: "WXSceneSession", //provider 为 weixin 时必选 : WXSceneSession	分享到聊天界面 WXSenceTimeline	分享到朋友圈 WXSceneFavorite	分享到微信收藏
+        imageUrl: "/static/card/family-img.png",
+        href: 'pages/tabBar/index/index?userId=' + userId + '&familyId=' + familyId + '&familyName=' + userInfo.nickName + '&photo=' + photo,
         success: function success() {
-
+          console.log('分享成功');
         } });
 
     } }),

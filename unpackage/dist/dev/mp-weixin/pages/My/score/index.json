@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "我的积分",
-  "usingComponents": {}
+  "usingComponents": {
+    "do-task": "/pages/My/score/DoTask",
+    "records": "/pages/My/score/Records"
+  }
 }

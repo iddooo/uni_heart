@@ -163,7 +163,7 @@ module.exports = {
 		})
 	},
 	// 用户积分明细 分页
-	wechatScore(data){
+	scoreRecords(data){
 		return fetch({
 			url: '/user-api/user/wechat/score',
 			method: "POST",
@@ -320,7 +320,7 @@ module.exports = {
 		  return fetch({
 			  url:"/user-api/user/ok1"
 		  })
-	  }
+	  },
 	
 }
 

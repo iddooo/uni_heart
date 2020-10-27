@@ -163,8 +163,12 @@ var _index = __webpack_require__(/*! ../../../api/index.js */ 30); //
 //
 //
 var _default = { data: function data() {return { stepStatus: 1, // 授权提示信息
-      tip: '授权并同意使用微信账号登录当前小程序' };}, onLoad: function onLoad() {// console.log(mapActions)
-  }, methods: { getUserInfo: function getUserInfo(e) {var detail = e.detail;
+      tip: '授权并同意使用微信账号登录当前小程序' };}, onLoad: function onLoad(options) {// console.log(mapActions)
+    var step = options.step;var isLogin = uni.getStorageSync('isLogin');if (step == 2 && isLogin) {this.stepStatus = 2;}
+  },
+  methods: {
+    getUserInfo: function getUserInfo(e) {
+      var detail = e.detail;
       if (detail.errMsg == 'getUserInfo:ok') {
         console.log('获取用户信息ok======');
         uni.setStorageSync('userDetail', detail);

@@ -6,18 +6,6 @@
 			</view>
 		</Banner>
 		<view class="header-container">
-			<!-- <swiper class="swiper" 
-				:indicator-dots="indicatorDots" 
-				:autoplay="autoplay" 
-				interval="2000"
-				@change="swiperChange">
-				<swiper-item v-for="v in imgs" :key="v.id">
-					<image class="banner-img" :src="IMG_URL + v.value"></image>
-				</swiper-item>
-			</swiper>
-			<view class="dots">
-				<view>{{currentIndex + '/' + imgs.length}}</view>
-			</view> -->
 			<view class="name">
 				{{goods.name}}<text class="score">{{goods.score}}</text><text class="unit">积分</text>
 			</view>

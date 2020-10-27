@@ -1,4 +1,4 @@
-<template>
+  <template>
 	<view class="page page-grey">
 		<view class="state-tab flex">
 			<view v-for="(item,index) in orderState" :key="index" 

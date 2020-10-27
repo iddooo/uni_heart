@@ -23,9 +23,13 @@
 				tip: '授权并同意使用微信账号登录当前小程序',
 			}
 		},
-		onLoad() {
+		onLoad(options) {
 			// console.log(mapActions)
-			
+			let step = options.step
+			let isLogin = uni.getStorageSync('isLogin')
+			if(step==2 && isLogin){
+				this.stepStatus = 2
+			}
 		},
 		methods:{
 			getUserInfo(e){

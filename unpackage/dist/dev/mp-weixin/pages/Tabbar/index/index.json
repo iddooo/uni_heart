@@ -5,6 +5,9 @@
     "h-button": "/components/HButton",
     "station-loc": "/pages/Tabbar/index/StationLoc",
     "resources": "/components/Resources",
-    "kitchen-waste": "/components/KitchenWaste"
+    "kitchen-waste": "/components/KitchenWaste",
+    "rank": "/pages/Tabbar/index/Rank",
+    "entry": "/pages/Tabbar/index/Entry",
+    "gold": "/pages/Tabbar/index/Gold"
   }
 }

@@ -195,40 +195,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _index = __webpack_require__(/*! ../../../common/index.js */ 20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
@@ -288,53 +254,58 @@ var _index = __webpack_require__(/*! ../../../common/index.js */ 20);function _i
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners = api.getBanners,getNearest = api.getNearest,getClassify = api.getClassify,getNearestKc = api.getNearestKc,myMoney = api.myMoney,getAllRank = api.getAllRank,deliveringToken = api.deliveringToken,userDelivering = api.userDelivering;var Banner = function Banner() {return __webpack_require__.e(/*! import() | components/Banner */ "components/Banner").then(__webpack_require__.bind(null, /*! ../../../components/Banner.vue */ 440));};var HButton = function HButton() {return __webpack_require__.e(/*! import() | components/HButton */ "components/HButton").then(__webpack_require__.bind(null, /*! ../../../components/HButton.vue */ 447));};var StationLoc = function StationLoc() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/StationLoc */ "pages/Tabbar/index/StationLoc").then(__webpack_require__.bind(null, /*! ./StationLoc.vue */ 454));};var Resources = function Resources() {return __webpack_require__.e(/*! import() | components/Resources */ "components/Resources").then(__webpack_require__.bind(null, /*! ../../../components/Resources.vue */ 461));};var KitchenWaste = function KitchenWaste() {return __webpack_require__.e(/*! import() | components/KitchenWaste */ "components/KitchenWaste").then(__webpack_require__.bind(null, /*! ../../../components/KitchenWaste.vue */ 468));};var _default = { components: { Banner: Banner, HButton: HButton, StationLoc: StationLoc, Resources: Resources, KitchenWaste: KitchenWaste }, data: function data() {return { banners: [{}], entries: [{ url: "", icon: "/static/index/scan.png", name: "扫码开箱", scan: true, need: true }, { url: "/pages/Classification/list/index", icon: "/static/index/classify.png", name: "回收分类" }, { url: "/pages/ICCard/familyAccount/index", icon: "/static/index/family.png", name: "家庭账户", need: true, needPhone: true }, { url: "/pages/About/guide/index", icon: "/static/index/guide.png", name: "新手指南", need: false }], stationType: [{ name: "可回收/有害", id: 1 }, { name: "厨余/其他", id: 2 }], type: 1, isLocation: false, location: undefined, min_station: {}, resources: [// {"id":"411560080522219520","name":"饮料瓶","price":0.04,"imgUrl":"http://47.103.51.182:8000/icon/bottles-s.png","contry":null,"unit":"个","state":0,"sno":null},
+var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners = api.getBanners,getNearest = api.getNearest,getClassify = api.getClassify,getNearestKc = api.getNearestKc,myMoney = api.myMoney,getAllRank = api.getAllRank,deliveringToken = api.deliveringToken,userDelivering = api.userDelivering;var Banner = function Banner() {return __webpack_require__.e(/*! import() | components/Banner */ "components/Banner").then(__webpack_require__.bind(null, /*! ../../../components/Banner.vue */ 442));};var HButton = function HButton() {return __webpack_require__.e(/*! import() | components/HButton */ "components/HButton").then(__webpack_require__.bind(null, /*! ../../../components/HButton.vue */ 449));};var StationLoc = function StationLoc() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/StationLoc */ "pages/Tabbar/index/StationLoc").then(__webpack_require__.bind(null, /*! ./StationLoc.vue */ 456));};var Resources = function Resources() {return __webpack_require__.e(/*! import() | components/Resources */ "components/Resources").then(__webpack_require__.bind(null, /*! ../../../components/Resources.vue */ 463));};var KitchenWaste = function KitchenWaste() {return __webpack_require__.e(/*! import() | components/KitchenWaste */ "components/KitchenWaste").then(__webpack_require__.bind(null, /*! ../../../components/KitchenWaste.vue */ 470));};var Rank = function Rank() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Rank */ "pages/Tabbar/index/Rank").then(__webpack_require__.bind(null, /*! ./Rank.vue */ 610));};var Entry = function Entry() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Entry */ "pages/Tabbar/index/Entry").then(__webpack_require__.bind(null, /*! ./Entry.vue */ 618));};var Gold = function Gold() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Gold */ "pages/Tabbar/index/Gold").then(__webpack_require__.bind(null, /*! ./Gold.vue */ 626));};var _default = { components: { Banner: Banner, HButton: HButton, StationLoc: StationLoc, Resources: Resources, KitchenWaste: KitchenWaste, Rank: Rank, Entry: Entry, Gold: Gold }, data: function data() {return { banners: [{}], entries: [{ url: "", icon: "/static/index/scan.png", name: "扫码开箱", scan: true, needToken: true }, { url: "/pages/Classification/list/index", icon: "/static/index/classify.png", name: "回收分类" }, { url: "/pages/ICCard/familyAccount/index", icon: "/static/index/family.png", name: "家庭账户", needToken: true, needPhone: true }, { url: "/pages/About/guide/index", icon: "/static/index/guide.png", name: "新手指南" }], stationType: [{ name: "可回收/有害", id: 1 }, { name: "厨余/其他", id: 2 }], type: 1, isLocation: false,
+      location: undefined,
+
+      min_station: {},
+      resources: [
+        // {"id":"411560080522219520","name":"饮料瓶","price":0.04,"imgUrl":"http://47.103.51.182:8000/icon/bottles-s.png","contry":null,"unit":"个","state":0,"sno":null},
         // {"id":"411560080522219521","name":"纸类","price":0.50,"imgUrl":"http://47.103.51.182:8000/icon/page-s.png","contry":null,"unit":"kg","state":0,"sno":null},
         // {"id":"411560080522219522","name":"纺织物","price":0.30,"imgUrl":"http://47.103.51.182:8000/icon/clothes-s.png","contry":null,"unit":"kg","state":0,"sno":null},
         // {"id":"411560080522219523","name":"有害","price":0.00,"imgUrl":"http://47.103.51.182:8000/icon/harmful-s.png","contry":null,"unit":"kg","state":0,"sno":null},
         // {"id":"411560080522219524","name":"塑料/金属","price":0.40,"imgUrl":"http://47.103.51.182:8000/icon/suliao-red.png","contry":null,"unit":"kg","state":2,"sno":null},
         // {"id":"411560080522219525","name":"玻璃","price":0.00,"imgUrl":"http://47.103.51.182:8000/icon/boli-red.png","contry":null,"unit":"kg","state":2,"sno":null}
-      ], min_kw_station: {}, isLogin: false, money: 0, grandTotal: [{ name: "去提现", count: "10.70", url: "/pages/Money/withdraw/index" }, { name: "累计收益", count: "155", url: undefined }, { name: "我的积分", count: "2134", url: "/pages/My/score/index" }], rank: [{ id: 3, name: "公益值排名", ranking: "15", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-1.png" }, { id: 2, name: "投递次数排名", ranking: "12", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-2.png" }, { id: 1, name: "环保金排名", ranking: "9", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-3.png" }], item6: false };}, onLoad: function onLoad(e) {// console.log(e)
+      ],
+
+      min_kw_station: {},
+
+      isLogin: false,
+      money: 0,
+      grandTotal: [
+      { name: "去提现", count: "0", url: "/pages/Money/withdraw/index" },
+      { name: "累计收益", count: "0", url: undefined },
+      { name: "我的积分", count: "0", url: "/pages/My/score/index" }],
+
+      rank: [
+      { id: 3, name: "公益值排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-1.png" },
+      { id: 2, name: "投递次数排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-2.png" },
+      { id: 1, name: "环保金排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-3.png" }],
+
+      item6: false };
+
+
+  },
+  onLoad: function onLoad(e) {
+    // console.log(e)
     //首页启动存储被分享人的id
-    var invitedId = e.userId;uni.setStorageSync('invitedId', invitedId);}, onShow: function onShow() {// 轮播图
-    this.initPageData(); // 获取定位
-    this.initLocation(); //是否登录
-    var isLogin = uni.getStorageSync('isLogin');this.isLogin = isLogin; //获取我的环保金
-    this.getMyScore();},
+    var invitedId = e.userId;
+    uni.setStorageSync('invitedId', invitedId);
+  },
+  onShow: function onShow() {
+    // 轮播图
+    this.initPageData();
+    // 获取定位
+
+
+
+    this.initLocation();
+    //是否登录
+    var isLogin = uni.getStorageSync('isLogin');
+    this.isLogin = isLogin;
+    //获取我的环保金
+    this.getMyScore();
+
+  },
   methods: {
     initPageData: function initPageData() {var _this2 = this;
       getBanners(1).then(function (res) {
@@ -551,16 +522,13 @@ var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners =
         url: "/pages/Map/map/index?type=" + this.type });
 
     },
-    linkTo: function linkTo(e) {
-      var url = e.currentTarget.dataset.url;
-      var need = e.currentTarget.dataset.need;
-      var needPhone = e.currentTarget.dataset.needPhone;
-      var scan = e.currentTarget.dataset.scan;
+    linkTo: function linkTo(item) {var
+      url = item.url,needToken = item.needToken,needPhone = item.needPhone,scan = item.scan;
 
       var token = uni.getStorageSync('token');
       var userInfo = uni.getStorageSync('userInfo');
 
-      if (need && !token) {
+      if (needToken && !token) {
         (0, _index.goLoginPageTimeOut)();
         return;
       }

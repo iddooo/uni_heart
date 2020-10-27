@@ -1,11 +1,23 @@
 <template>
-	<view class="page">
-		积分
+	<view class="page page-grey">
+		
 	</view>
 </template>
 
 <script>
+	
+	export default {
+		components: {
+			
+		},
+		data(){
+			return{
+				
+			}
+		},
+		methods:{},
+	}
 </script>
 
-<style>
+<style scoped>
 </style>

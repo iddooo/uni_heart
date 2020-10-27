@@ -213,13 +213,18 @@
 				this.active = e.target.dataset.id
 			},
 			AppShare(){
+				let userInfo = uni.getStorageSync('userInfo')
+				let userId = userInfo.userId
+				let familyId = this.members[0].userId
+				let photo = this.userPics[userId]
 				uni.share({
 					provider:"weixin",
-					title:"",
-					scene:"",//provider 为 weixin 时必选
-					imageUrl:"",
+					title:userInfo.nickName + '，邀请您加入小红心，一起垃圾分类做环保~',
+					scene:"WXSceneSession",//provider 为 weixin 时必选 : WXSceneSession	分享到聊天界面 WXSenceTimeline	分享到朋友圈 WXSceneFavorite	分享到微信收藏
+					imageUrl:"/static/card/family-img.png",
+					href:'pages/tabBar/index/index?userId=' + userId + '&familyId=' + familyId+ '&familyName=' + userInfo.nickName + '&photo=' + photo,
 					success:()=>{
-						
+						console.log('分享成功')
 					}
 				})
 			}

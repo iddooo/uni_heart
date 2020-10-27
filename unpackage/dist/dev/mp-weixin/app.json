@@ -152,6 +152,5 @@
   },
   "usingComponents": {
     "message-box": "/components/MessageBox"
-  },
-  "sitemapLocation": "sitemap54.json"
+  }
 }

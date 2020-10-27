@@ -1,22 +1,8 @@
 <template>
 	<view class="page">
 		<Banner :banners="banners"></Banner>
-		
 		<!-- 入口 -->
-		<view class="entry">
-		    <view class="entry-item" 
-			v-for="(item,index) in entries" 
-			:key="index" 
-			:data-url="item.url"
-			:data-need="item.need"
-			:data-need-phone="item.needPhone"
-			:data-scan="item.scan"
-			@click="linkTo">
-			  <image class="badge" :src="item.badge"></image>
-			  <image class="icon" :src="item.icon"></image>
-			  <view>{{item.name}}</view>
-			</view>
-		</view>
+		<Entry :data="entries" @linkTo="linkTo"/>
 		  
 		<view class="title">附近回收设备</view>
 		
@@ -44,7 +30,6 @@
 				<KitchenWaste :data="min_kw_station" />
 			</view>
 		</view>
-		
 		<view v-else class="station no-station">
 			<image src="/static/index/not-local.png" mode=""></image>
 			<view class="tips">
@@ -57,31 +42,12 @@
 			<!-- 环保金 -->
 			<view class="money">
 				<view class="title">我的环保金</view>
-				<view class="grand-total flex-ct-bwt">
-					<view class="box" 
-					@click="navigatorToUrl(item)" 
-					v-for="(item,index) in grandTotal" :key="index">
-						<view class="count">{{item.count}}</view>
-						<view :class="{'name':true,'btn':index==0}">{{item.name}}</view>
-					</view>
-				</view>
+				<Gold :data="grandTotal" @navigatorToUrl="navigatorToUrl"/>
 			</view>
 			<!-- 排名 -->
 			<view class="rank">
 				<view class="title">小区排名</view>
-				<view class="rank-type flex-ct-bwt">
-					<view class="type-box" 
-					@click="goRanking(item)"
-					v-for="item in rank" :key="item.id">
-						<view class="rank-name">
-							<image :src="item.imgUrl" mode=""></image>
-							<text>{{item.name}}</text>
-						</view>
-						<view class="cur">
-							{{item.ranking}}
-						</view>
-					</view>
-				</view>
+				<Rank :data="rank" @goRanking="goRanking"/>
 			</view>
 		</view>
 		<view v-else class="not-login">
@@ -100,6 +66,9 @@
 	import StationLoc from './StationLoc.vue'
 	import Resources from '../../../components/Resources.vue'
 	import KitchenWaste from '../../../components/KitchenWaste.vue'
+	import Rank from './Rank.vue'
+	import Entry from './Entry.vue'
+	import Gold from './Gold.vue'
 	
 	export default {
 		components:{
@@ -107,7 +76,10 @@
 			HButton,
 			StationLoc,
 			Resources,
-			KitchenWaste
+			KitchenWaste,
+			Rank,
+			Entry,
+			Gold
 		},
 		data() {
 			return {
@@ -118,7 +90,7 @@
 					icon: "/static/index/scan.png",
 					name: "扫码开箱",
 					scan: true,
-					need:true,
+					needToken:true,
 				  },
 				  {
 					url: "/pages/Classification/list/index",
@@ -129,14 +101,13 @@
 					url: "/pages/ICCard/familyAccount/index",
 					icon: "/static/index/family.png",
 					name: "家庭账户",
-					need: true,
+					needToken: true,
 					needPhone: true
 				  },
 				  {
 					url: "/pages/About/guide/index",
 					icon: "/static/index/guide.png",
-					name: "新手指南",
-					need: false
+					name: "新手指南"
 				  },
 				  // {
 				  //   url: "/pages/Third/wallet/index",
@@ -166,14 +137,14 @@
 				isLogin:false,
 				money:0,
 				grandTotal:[
-					{name:"去提现",count:"10.70",url:"/pages/Money/withdraw/index"},
-					{name:"累计收益",count:"155",url:undefined},
-					{name:"我的积分",count:"2134",url:"/pages/My/score/index"}
+					{name:"去提现",count:"0",url:"/pages/Money/withdraw/index"},
+					{name:"累计收益",count:"0",url:undefined},
+					{name:"我的积分",count:"0",url:"/pages/My/score/index"}
 				],
 				rank:[
-					{id:3,name:"公益值排名",ranking:"15",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-1.png"},
-					{id:2,name:"投递次数排名",ranking:"12",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-2.png"},
-					{id:1,name:"环保金排名",ranking:"9",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-3.png"},
+					{id:3,name:"公益值排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-1.png"},
+					{id:2,name:"投递次数排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-2.png"},
+					{id:1,name:"环保金排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-3.png"},
 				],
 				item6:false
 				
@@ -416,16 +387,13 @@
 					url:"/pages/Map/map/index?type="+ this.type
 				})
 			},
-			linkTo(e) {
-			    let url = e.currentTarget.dataset.url
-			    let need = e.currentTarget.dataset.need
-			    let needPhone = e.currentTarget.dataset.needPhone
-			    let scan = e.currentTarget.dataset.scan
+			linkTo(item) {
+				let { url, needToken, needPhone, scan } = item
 			
 			    let token = uni.getStorageSync('token');
 			    let userInfo = uni.getStorageSync('userInfo');
 			
-			    if(need && !token){
+			    if(needToken && !token){
 			      goLoginPageTimeOut()
 			      return
 			    }
@@ -537,103 +505,13 @@
 		background:rgba(255,95,98,1);
 		border-radius:5rpx;
 	}
-	.grand-total{
-		padding: 46rpx 70rpx 0;
-	}
-	.box{
-		text-align: center;
-	}
-	.box .count{
-		font-size:50rpx;
-		font-family:DINAlternate-Bold,DINAlternate;
-		font-weight:bold;
-		color:rgba(51,51,51,1);
-		line-height:58rpx;
-		margin-bottom: 12rpx;
-	}
-	.box .name{
-		font-size:24rpx;
-		font-family:PingFangSC-Regular,PingFang SC;
-		font-weight:400;
-		color:rgba(144,144,144,1);
-		line-height:34rpx;
-	}
-	.box .name.btn{
-		border-radius:19rpx;
-		border:1rpx solid rgba(255,95,98,1);
-		padding: 0 20rpx;
-		color: #FF5F62;
-	}
-	.rank-type{
-		padding: 46rpx 38rpx;
-	}
-	.type-box{
-		width:208rpx;
-		height:130rpx;
-		background:rgba(255,255,255,1);
-		border-radius:10rpx;
-		border:1rpx solid rgba(226,226,226,1);
-		box-sizing: border-box;
-		padding: 16rpx 8rpx;
-	}
-	.rank-name{
-		display: flex;
-		align-items: center;
-		margin-bottom: 14rpx;
-	}
-	.rank-name image{
-		width: 30rpx;
-		height: 30rpx;
-		margin-right: 14rpx;
-	}
-	.rank-name text{
-		font-size:24rpx;
-		font-weight:500;
-		line-height:34rpx;
-	}
-	.cur{
-		font-size:46rpx;
-		font-family:DINAlternate-Bold,DINAlternate;
-		font-weight:bold;
-		line-height:54rpx;	
-		text-align: center;
-		padding-left: 22rpx;
-	}
+	
 	.not-login{
 		padding-top: 50rpx;
 	}
 		
 	.not-login.mbt-50{
 		margin-bottom: 50rpx;
-	}
-	
-	.entry {
-	  padding: 44rpx 50rpx 66rpx;
-	  display: flex;
-	  justify-content: space-between;
-	}
-	
-	.entry .entry-item {
-	  position: relative;
-	  text-align: center;
-	  font-size: 24rpx;
-	  font-weight: 400;
-	  color: rgba(59, 59, 59, 1);
-	  line-height: 34rpx;
-	}
-	
-	.entry-item .icon {
-	  width: 100rpx;
-	  height: 100rpx;
-	  margin-bottom: 28rpx;
-	}
-	
-	.entry-item .badge {
-	  width: 84rpx;
-	  height: 30rpx;
-	  position: absolute;
-	  right: -28rpx;
-	  top: -10rpx;
 	}
 	
 </style>

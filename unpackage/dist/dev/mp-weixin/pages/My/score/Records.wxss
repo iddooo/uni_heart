@@ -1,0 +1,29 @@
+
+.li-item.data-v-4fe30ad6{
+	margin: 0 28rpx;
+	padding: 28rpx 0;
+	position: relative;
+	border-bottom: 2rpx solid #F6F6F6;
+}
+.type.data-v-4fe30ad6{
+	margin-bottom: 22rpx;
+	font-size: 28rpx;
+	color: #000000;
+	line-height: 40rpx;
+}
+.time.data-v-4fe30ad6{
+	font-size: 20rpx;
+	color: #888888;
+	line-height: 28rpx;
+}
+.score.data-v-4fe30ad6{
+	position: absolute;
+	right: 0;
+	top: 60rpx;
+	font-size: 32rpx;
+	font-family: DINAlternate-Bold, DINAlternate;
+	font-weight: bold;
+	color: #FF5F62;
+	line-height: 38rpx;
+}
+
