@@ -52,6 +52,7 @@ module.exports = {
 			 }
 		 })
 	 },
+	 // 可回收投递记录
 	 myDelivery(data){
 		 return fetch({
 			 url:'/recover-api/deliver/wechat/deliverDetails/' + data.id + '/' + data.page + '/' + 10
@@ -321,6 +322,21 @@ module.exports = {
 			  url:"/user-api/user/ok1"
 		  })
 	  },
+	  
+	  /** 环保金*/
+	  // 环保金支出
+	  expend(data){
+		 return fetch({
+			  url:'/fund-common-api/fund/wechat/' + data.id + '/' + data.page + '/' + data.pageSize
+		 })
+	  },
+	  // 环保金扣除
+	  deduct(data){
+		  return fetch({
+			  url:'/recover-api/deliver/deduct/' + data.id + '/' + data.page + '/' + data.pageSize
+		  })
+	  }
+	  
 	
 }
 

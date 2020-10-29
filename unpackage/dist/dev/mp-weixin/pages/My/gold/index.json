@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "环保金明细",
-  "usingComponents": {}
+  "usingComponents": {
+    "end": "/components/End",
+    "item": "/pages/My/gold/Item"
+  }
 }
