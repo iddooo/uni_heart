@@ -311,7 +311,6 @@ module.exports = {
 	  bindIcCard(data){
 	    return fetch({
 			url:"/user-api/IcCard/bindIcCard",
-			method:'post',
 			data
 		})
 	  },
@@ -321,6 +320,14 @@ module.exports = {
 	  switchAI(){
 		  return fetch({
 			  url:"/user-api/user/ok1"
+		  })
+	  },
+	  // 获取人脸识别头像
+	  getFaceUrl(data){
+	      return fetch({ 
+			  url:'/user-api/user/base64Img',
+			  method:'post',
+			  data
 		  })
 	  },
 	  

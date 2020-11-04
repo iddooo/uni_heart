@@ -1,8 +1,8 @@
 <template>
 	<view class="list">
 		<view class="li-item"
-			v-for="item in list"
-			:key="item.id">
+			v-for="(item,i) in list"
+			:key="i">
 			<view class="type">
 				{{item.content}}
 			</view>

@@ -114,7 +114,7 @@
 					}
 				})
 				this.task2[0].todo = userInfo.phone ? false : true
-				this.task2[0].todo = userInfo.birthday ? false : true
+				this.task2[1].todo = userInfo.birthday ? false : true
 				
 				myMoney(userId).then(res=>{
 					if(res.code==1){
