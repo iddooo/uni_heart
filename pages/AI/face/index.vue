@@ -42,6 +42,7 @@
 	import { pathToBase64 } from 'image-tools'
 	import { uploadFace } from '../../../api/config.js'
 	import { mapMutations } from 'vuex';
+	import { getFaceUrl } from '../../../api/index.js'
 	
 	export default{
 		components:{
@@ -54,9 +55,21 @@
 			}
 		},
 		onLoad(option) {
+			let faceUrl = uni.getStorageSync('userInfo').faceUrl;
+			if (faceUrl) {
+			  this.getFaceUrl(faceUrl);
+			} else {
+			  this.hasPhoto= false
+			}
 		},
 		methods:{
 			...mapMutations(['MessageBox']),
+			getFaceUrl(faceUrl){
+				getFaceUrl({faceUrl}).then(res=>{
+					this.faceUrl = res.data
+					this.hasPhoto = truck
+				})
+			},
 			takePicture(){
 				let _this = this
 				let userInfo = uni.getStorageSync('userInfo')

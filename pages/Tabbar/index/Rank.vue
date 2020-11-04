@@ -7,7 +7,13 @@
 				<image :src="item.imgUrl" mode=""></image>
 				<text>{{item.name}}</text>
 			</view>
-			<view class="cur">
+			<view v-if="item.id==1" class="flex-ct-ct">
+				<view v-for="(p,index) in item.pics" :key="index" :class="['photo-box', index==0 ? 'photo-box-0':'border']">
+				  <image v-if="p" :src="URL + p"></image>
+				  <image v-else src="/static/index/head.png"></image>
+				</view>
+			</view>
+			<view v-else class="cur">
 				{{item.ranking}}
 			</view>
 		</view>
@@ -15,6 +21,8 @@
 </template>
 
 <script>
+	import { URL } from '../../../common/index.js'
+	
 	export default{
 		props:{
 			data:{
@@ -23,6 +31,11 @@
 					return []
 				},
 				required:false
+			}
+		},
+		data(){
+			return{
+				URL,
 			}
 		},
 		methods:{
@@ -34,6 +47,25 @@
 </script>
 
 <style scoped>
+	.photo-box {
+	  width: 54rpx;
+	  height: 54rpx;
+	  border-radius: 50%;
+	  overflow: hidden;
+	}
+	.photo-box image{
+		width: 100%;
+		height: 100%;
+	}
+	.photo-box-0{
+	  width: 50rpx;
+	  height: 50rpx;
+	}
+	
+	.border {
+	  border: 2rpx solid #fff;
+	  margin-left: -10rpx;
+	}
 	.rank-type{
 		padding: 46rpx 38rpx;
 	}
@@ -44,7 +76,7 @@
 		border-radius:10rpx;
 		border:1rpx solid rgba(226,226,226,1);
 		box-sizing: border-box;
-		padding: 16rpx 8rpx;
+		padding: 14rpx 8rpx;
 	}
 	.rank-name{
 		display: flex;

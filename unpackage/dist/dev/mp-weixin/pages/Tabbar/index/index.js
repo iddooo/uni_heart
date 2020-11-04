@@ -254,7 +254,7 @@ var _index = __webpack_require__(/*! ../../../common/index.js */ 20);function _i
 //
 //
 //
-var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners = api.getBanners,getNearest = api.getNearest,getClassify = api.getClassify,getNearestKc = api.getNearestKc,myMoney = api.myMoney,getAllRank = api.getAllRank,deliveringToken = api.deliveringToken,userDelivering = api.userDelivering;var Banner = function Banner() {return __webpack_require__.e(/*! import() | components/Banner */ "components/Banner").then(__webpack_require__.bind(null, /*! ../../../components/Banner.vue */ 442));};var HButton = function HButton() {return __webpack_require__.e(/*! import() | components/HButton */ "components/HButton").then(__webpack_require__.bind(null, /*! ../../../components/HButton.vue */ 449));};var StationLoc = function StationLoc() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/StationLoc */ "pages/Tabbar/index/StationLoc").then(__webpack_require__.bind(null, /*! ./StationLoc.vue */ 456));};var Resources = function Resources() {return __webpack_require__.e(/*! import() | components/Resources */ "components/Resources").then(__webpack_require__.bind(null, /*! ../../../components/Resources.vue */ 463));};var KitchenWaste = function KitchenWaste() {return __webpack_require__.e(/*! import() | components/KitchenWaste */ "components/KitchenWaste").then(__webpack_require__.bind(null, /*! ../../../components/KitchenWaste.vue */ 470));};var Rank = function Rank() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Rank */ "pages/Tabbar/index/Rank").then(__webpack_require__.bind(null, /*! ./Rank.vue */ 634));};var Entry = function Entry() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Entry */ "pages/Tabbar/index/Entry").then(__webpack_require__.bind(null, /*! ./Entry.vue */ 525));};var Gold = function Gold() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Gold */ "pages/Tabbar/index/Gold").then(__webpack_require__.bind(null, /*! ./Gold.vue */ 626));};var _default = { components: { Banner: Banner, HButton: HButton, StationLoc: StationLoc, Resources: Resources, KitchenWaste: KitchenWaste, Rank: Rank, Entry: Entry, Gold: Gold }, data: function data() {return { banners: [{}], entries: [{ url: "", icon: "/static/index/scan.png", name: "扫码开箱", scan: true, needToken: true }, { url: "/pages/Classification/list/index", icon: "/static/index/classify.png", name: "回收分类" }, { url: "/pages/ICCard/familyAccount/index", icon: "/static/index/family.png", name: "家庭账户", needToken: true, needPhone: true }, { url: "/pages/About/guide/index", icon: "/static/index/guide.png", name: "新手指南" }], stationType: [{ name: "可回收/有害", id: 1 }, { name: "厨余/其他", id: 2 }], type: 1, isLocation: false,
+var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners = api.getBanners,getNearest = api.getNearest,getClassify = api.getClassify,getNearestKc = api.getNearestKc,myMoney = api.myMoney,getAllRank = api.getAllRank,deliveringToken = api.deliveringToken,userDelivering = api.userDelivering;var Banner = function Banner() {return __webpack_require__.e(/*! import() | components/Banner */ "components/Banner").then(__webpack_require__.bind(null, /*! ../../../components/Banner.vue */ 448));};var HButton = function HButton() {return __webpack_require__.e(/*! import() | components/HButton */ "components/HButton").then(__webpack_require__.bind(null, /*! ../../../components/HButton.vue */ 455));};var StationLoc = function StationLoc() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/StationLoc */ "pages/Tabbar/index/StationLoc").then(__webpack_require__.bind(null, /*! ./StationLoc.vue */ 462));};var Resources = function Resources() {return __webpack_require__.e(/*! import() | components/Resources */ "components/Resources").then(__webpack_require__.bind(null, /*! ../../../components/Resources.vue */ 469));};var KitchenWaste = function KitchenWaste() {return __webpack_require__.e(/*! import() | components/KitchenWaste */ "components/KitchenWaste").then(__webpack_require__.bind(null, /*! ../../../components/KitchenWaste.vue */ 476));};var Rank = function Rank() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Rank */ "pages/Tabbar/index/Rank").then(__webpack_require__.bind(null, /*! ./Rank.vue */ 483));};var Entry = function Entry() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Entry */ "pages/Tabbar/index/Entry").then(__webpack_require__.bind(null, /*! ./Entry.vue */ 490));};var Gold = function Gold() {return __webpack_require__.e(/*! import() | pages/Tabbar/index/Gold */ "pages/Tabbar/index/Gold").then(__webpack_require__.bind(null, /*! ./Gold.vue */ 497));};var _default = { components: { Banner: Banner, HButton: HButton, StationLoc: StationLoc, Resources: Resources, KitchenWaste: KitchenWaste, Rank: Rank, Entry: Entry, Gold: Gold }, data: function data() {return { banners: [{}], entries: [{ url: "", icon: "/static/index/scan.png", name: "扫码开箱", scan: true, needToken: true }, { url: "/pages/Classification/list/index", icon: "/static/index/classify.png", name: "回收分类" }, { url: "/pages/ICCard/familyAccount/index", icon: "/static/index/family.png", name: "家庭账户", needToken: true, needPhone: true }, { url: "/pages/About/guide/index", icon: "/static/index/guide.png", name: "新手指南" }], stationType: [{ name: "可回收/有害", id: 1 }, { name: "厨余/其他", id: 2 }], type: 1, isLocation: false,
       location: undefined,
 
       min_station: {},
@@ -278,8 +278,8 @@ var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners =
 
       rank: [
       { id: 3, name: "公益值排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-1.png" },
-      { id: 2, name: "投递次数排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-2.png" },
-      { id: 1, name: "环保金排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-3.png" }],
+      { id: 2, name: "环保金排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-2.png" },
+      { id: 1, name: "投递次数排名", ranking: "1", url: "/pages/My/ranking/index", imgUrl: "/static/index/rank-3.png", pics: [] }],
 
       item6: false };
 
@@ -304,13 +304,21 @@ var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners =
     this.isLogin = isLogin;
     //获取我的环保金
     this.getMyScore();
-
+    this.getRank();
   },
   methods: {
-    initPageData: function initPageData() {var _this2 = this;
+    getRank: function getRank() {var _this2 = this;
+      getAllRank().then(function (res) {
+        _this2.rank[0].ranking = res.data.welfareRank || '--';
+        _this2.rank[1].ranking = res.data.profitRank || '--';
+        _this2.rank[2].ranking = res.data.timesRank || '--';
+        _this2.rank[2].pics = res.data.pics;
+      });
+    },
+    initPageData: function initPageData() {var _this3 = this;
       getBanners(1).then(function (res) {
-        _this2.banners = res.data.map(function (v) {
-          v.imgUrl = v.redirectUrl;
+        _this3.banners = res.data.map(function (v) {
+          v.imgUrl = v.url;
           return v;
         });
       });
@@ -493,15 +501,15 @@ var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners =
     goRanking: function goRanking(item) {
       uni.navigateTo({ url: item.url + "?id=" + item.id });
     },
-    getMyScore: function getMyScore() {var _this3 = this;
+    getMyScore: function getMyScore() {var _this4 = this;
       var userId = uni.getStorageSync('userId');
       myMoney(userId).then(function (res) {
         if (res.code != 1) return;
-        _this3.grandTotal[0].count = res.data.currentProfit;
-        _this3.grandTotal[1].count = res.data.countProfit;
-        _this3.grandTotal[2].count = res.data.currScore;
-        _this3.money = res.data.currentProfit;
-        uni.setStorageSync('money', _this3.money);
+        _this4.grandTotal[0].count = res.data.currentProfit;
+        _this4.grandTotal[1].count = res.data.countProfit;
+        _this4.grandTotal[2].count = res.data.currScore;
+        _this4.money = res.data.currentProfit;
+        uni.setStorageSync('money', _this4.money);
       });
     },
     goAuthority: function goAuthority() {
@@ -557,6 +565,26 @@ var api = __webpack_require__(/*! .../../../api/index.js */ 30);var getBanners =
       }
       uni.switchTab({ url: url });
       uni.navigateTo({ url: url });
+    },
+    itemClick: function itemClick(index) {
+      // console.log(index)
+      var name = this.banners[index].name;
+      //shop 商城
+      //share 文章发现
+      //guide 引导页
+      //score 我的积分
+      //ai 语音识别
+      var map = {
+        shop: '/pages/Tabbar/shop/index',
+        share: "/pages/Tabbar/foundList/index",
+        guide: "/pages/About/guide/index",
+        score: "/pages/My/score/index",
+        ai: "/pages/Tabbar/voiceRecognition/index" };
+
+      var url = map[name];
+      uni.switchTab({ url: url });
+      uni.navigateTo({ url: url });
+      // console.log(name)
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

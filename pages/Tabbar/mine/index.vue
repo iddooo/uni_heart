@@ -13,7 +13,7 @@
 						青铜
 					</view>
 					<view class="welfare">
-						公益值:12983
+						公益值:{{welfare}}
 					</view>
 				</view>
 				<image class="level-icon" src="/static/mine/level-1.png" mode=""></image>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-	import { myMoney } from '../../../api/index.js'
+	import { myMoney, getEnvData } from '../../../api/index.js'
 	import { goLoginPageTimeOut } from '../../../common/index.js'
 	
 	export default{
@@ -115,6 +115,12 @@
 						this.welfare = res.data.currWelfare
 					}
 					
+				})
+				getEnvData(userId).then(res=>{
+					if(res.code==1){
+						this.days = res.data.day
+						this.times = res.data.deliverNum
+					}
 				})
 			},
 			goEnergyData(){

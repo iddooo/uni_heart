@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "公益值明细",
-  "usingComponents": {}
+  "usingComponents": {
+    "end": "/components/End"
+  }
 }

@@ -10,11 +10,7 @@
 			<view class="tips">
 				1元=1000积分，兑换商品可直接抵扣现金
 			</view>
-			<view class="rule-box flex-ct-bwt" @click="rules">
-				<image class="rule-img" src="/static/mine/rule-i.png"></image>
-				<view>积分规则</view>
-				<view class="arrow"></view>
-			</view>
+			<RuleTag @click="rules" />
 		</view>
 		<view class="content">
 			<view class="tabs flex">
@@ -42,12 +38,14 @@
 <script>
 	import DoTask from './DoTask.vue'
 	import Records from './Records.vue'
+	import RuleTag from './RuleTag.vue'
 	import {myMoney,scoreRecords,getDailyTask } from '../../../api/index.js'
 	import { mapMutations } from 'vuex';
 	export default {
 		components: {
 			DoTask,
-			Records
+			Records,
+			RuleTag
 		},
 		data(){
 			return{
@@ -208,30 +206,6 @@
 </script>
 
 <style scoped>
-	.rule-box{
-		position: absolute;
-		top: 50rpx;
-		right: 0;
-		width: 220rpx;
-		height: 62rpx;
-		padding: 0 14rpx 0 30rpx;
-		border-top-left-radius: 31rpx;
-		border-bottom-left-radius: 31rpx;
-		background: rgba(0, 0, 0, 0.05);
-		font-size: 24rpx;
-	}
-	.rule-img{
-		width: 22rpx;
-		height: 22rpx;
-	}
-	.arrow{
-		width: 16rpx;
-		height: 16rpx;
-		margin-left: 12rpx;
-		border-top: 2rpx solid #fff;
-		border-right: 2rpx solid #fff;
-		transform: rotate(45deg);
-	}
 	.divide{
 		border-bottom: 22rpx solid #F6F6F6;
 	}

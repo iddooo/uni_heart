@@ -51,37 +51,52 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default2 =
-{
-  props: {
-    data: {
-      type: Array,
-      default: function _default() {
-        return [];
-      },
-      required: false } },
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
-  methods: {
-    goRanking: function goRanking(item) {
-      this.$emit('goRanking', item);
-    } } };exports.default = _default2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _index = __webpack_require__(/*! ../../../common/index.js */ 20); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default2 = { props: { data: { type: Array, default: function _default() {return [];}, required: false } }, data: function data() {return { URL: _index.URL };}, methods: { goRanking: function goRanking(item) {this.$emit('goRanking', item);} } };exports.default = _default2;
 
 /***/ }),
 

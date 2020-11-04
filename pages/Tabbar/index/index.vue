@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<Banner :banners="banners"></Banner>
+		<Banner :banners="banners" @click="itemClick"></Banner>
 		<!-- 入口 -->
 		<Entry :data="entries" @linkTo="linkTo"/>
 		  
@@ -143,8 +143,8 @@
 				],
 				rank:[
 					{id:3,name:"公益值排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-1.png"},
-					{id:2,name:"投递次数排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-2.png"},
-					{id:1,name:"环保金排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-3.png"},
+					{id:2,name:"环保金排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-2.png"},
+					{id:1,name:"投递次数排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-3.png",pics:[]},
 				],
 				item6:false
 				
@@ -169,13 +169,21 @@
 			this.isLogin = isLogin
 			//获取我的环保金
 			this.getMyScore()
-		
+			this.getRank()
 		},
 		methods: {
+			getRank(){
+				getAllRank().then(res=>{
+					this.rank[0].ranking = res.data.welfareRank || '--'
+					this.rank[1].ranking = res.data.profitRank || '--'
+					this.rank[2].ranking = res.data.timesRank || '--'
+					this.rank[2].pics = res.data.pics
+				})
+			},
 			initPageData(){
 				getBanners(1).then(res=>{
 					this.banners = res.data.map(v=>{
-						v.imgUrl = v.redirectUrl
+						v.imgUrl = v.url
 						return v
 					})
 				})
@@ -422,8 +430,27 @@
 			    }
 				uni.switchTab({ url })
 			    uni.navigateTo({ url })
-			  },
-				
+			 },
+			itemClick(index){
+				// console.log(index)
+				let name = this.banners[index].name
+				//shop 商城
+				//share 文章发现
+				//guide 引导页
+				//score 我的积分
+				//ai 语音识别
+				let map = {
+					shop:'/pages/Tabbar/shop/index',
+					share:"/pages/Tabbar/foundList/index",
+					guide:"/pages/About/guide/index",
+					score:"/pages/My/score/index",
+					ai:"/pages/Tabbar/voiceRecognition/index",
+				}
+				let url = map[name]
+				uni.switchTab({ url })
+				uni.navigateTo({ url })
+				// console.log(name)
+			}
 		}
 	}
 </script>

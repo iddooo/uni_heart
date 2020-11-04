@@ -1,4 +1,8 @@
 {
   "navigationBarTitleText": "公益值",
-  "usingComponents": {}
+  "usingComponents": {
+    "rule-tag": "/pages/My/welfareRule/RuleTag",
+    "step-box": "/pages/My/welfareRule/StepBox",
+    "table": "/pages/My/welfareRule/Table"
+  }
 }

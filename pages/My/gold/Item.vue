@@ -20,42 +20,44 @@
 			</view>
 		</view>
 		<!-- 违规扣款 -->
-		<view class="reason flex-ct-bwt" v-show="active==3">
-			<view class="font-sub">
-				{{data.dno}}
-			</view>
-			<view :class="['font-sub', 'arrow',{'fold':onFold}]" @click="expand">
-				违规原因
-			</view>
-		</view>
-		<!-- 扣除明细 -->
-		<view class="result" v-show="active==3 && onFold">
-			<view class="li"
-				v-for="li in data.result"
-				:key="li.id">
-				<view class="flex-ct">
-					<view class="flex-ct icon-name">
-						<image class="icon" :src="li.icon" mode=""></image>
-						<text>{{li.name}}</text>
-					</view>
-					<view class="num">
-						{{li.countNuit}}
-					</view>
-					<view class="flex-ct num">
-						<text>{{li.countNuit}}</text>
-						<image class="gold" src="../../../static/money/gold.png" mode=""></image>
-					</view>
-					<view class="flex-ct-end num">
-						<text>{{li.countNuit}}</text>
-						<image class="gold" src="../../../static/money/gold.png" mode=""></image>
-					</view>
+		<view v-show="active==3">
+			<!-- 违规原因  -->
+			<view class="reason flex-ct-bwt">
+				<view class="font-sub">
+					{{data.dno}}
 				</view>
-				<view class="des">
-					{{li.des}}
+				<view :class="['font-sub', 'arrow',{'fold':onFold}]" @click="expand">
+					违规原因
 				</view>
 			</view>
+			<!-- 扣除明细 -->
+			<view class="result" v-show="onFold">
+				<view class="li"
+					v-for="li in data.result"
+					:key="li.id">
+					<view class="flex-ct">
+						<view class="flex-ct icon-name">
+							<image class="icon" :src="li.icon" mode=""></image>
+							<text>{{li.name}}</text>
+						</view>
+						<view class="num">
+							{{li.countNuit}}
+						</view>
+						<view class="flex-ct num">
+							<text>{{li.countNuit}}</text>
+							<image class="gold" src="../../../static/money/gold.png" mode=""></image>
+						</view>
+						<view class="flex-ct-end num">
+							<text>{{li.countNuit}}</text>
+							<image class="gold" src="../../../static/money/gold.png" mode=""></image>
+						</view>
+					</view>
+					<view class="des">
+						{{li.des}}
+					</view>
+				</view>
+			</view>
 		</view>
-		
 	</view>
 </template>
 

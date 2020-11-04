@@ -1,0 +1,33 @@
+
+.line.data-v-37ed0f7f{
+	border-bottom: 2rpx solid rgba(246,246,246,1);
+	padding: 28rpx 58rpx 26rpx;
+	position: relative;
+}
+.content.data-v-37ed0f7f{
+	font-size: 28rpx;
+	color: #000000;
+	line-height: 40rpx;
+	margin-bottom: 22rpx;
+}
+.time.data-v-37ed0f7f{
+	font-size: 20rpx;
+	color: #888888;
+	line-height: 28rpx;
+}
+.num.data-v-37ed0f7f{
+	position: absolute;
+	right: 58rpx;
+	top: 54rpx;
+	font-size: 32rpx;
+	font-family: DINAlternate-Bold, DINAlternate;
+	font-weight: bold;
+	line-height: 38px;
+}
+.red.data-v-37ed0f7f{
+	color: #FF5F62;
+}
+.blue.data-v-37ed0f7f{
+	color: #44D7B6;
+}
+

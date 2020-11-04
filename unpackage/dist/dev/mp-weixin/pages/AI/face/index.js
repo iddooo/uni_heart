@@ -176,7 +176,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var _imageTools = __webpack_require__(/*! image-tools */ 68);
 var _config = __webpack_require__(/*! ../../../api/config.js */ 31);
-var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var HButton = function HButton() {return __webpack_require__.e(/*! import() | components/HButton */ "components/HButton").then(__webpack_require__.bind(null, /*! ../../../components/HButton.vue */ 449));};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 16);
+var _index = __webpack_require__(/*! ../../../api/index.js */ 30);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var HButton = function HButton() {return __webpack_require__.e(/*! import() | components/HButton */ "components/HButton").then(__webpack_require__.bind(null, /*! ../../../components/HButton.vue */ 449));};var _default =
 
 {
   components: {
@@ -189,9 +190,21 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
 
   },
   onLoad: function onLoad(option) {
+    var faceUrl = uni.getStorageSync('userInfo').faceUrl;
+    if (faceUrl) {
+      this.getFaceUrl(faceUrl);
+    } else {
+      this.hasPhoto = false;
+    }
   },
   methods: _objectSpread({},
   (0, _vuex.mapMutations)(['MessageBox']), {
+    getFaceUrl: function getFaceUrl(faceUrl) {var _this2 = this;
+      (0, _index.getFaceUrl)({ faceUrl: faceUrl }).then(function (res) {
+        _this2.faceUrl = res.data;
+        _this2.hasPhoto = truck;
+      });
+    },
     takePicture: function takePicture() {
       var _this = this;
       var userInfo = uni.getStorageSync('userInfo');

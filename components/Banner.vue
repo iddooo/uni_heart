@@ -6,7 +6,7 @@
 				:autoplay="options.autoplay" 
 				interval="2000"
 				@change="swiperChange">
-				<swiper-item v-for="v in banners" :key="v.id">
+				<swiper-item v-for="(v,i) in banners" :key="v.id" @click="tapItem(i)">
 					<image class="banner-img" :src="v.imgUrl" mode="scaleToFill"></image>
 				</swiper-item>
 			</swiper>
@@ -56,6 +56,9 @@
 				this.currentIndex = e.detail.current
 				this.$emit('change',this.currentIndex)
 			},
+			tapItem(i){
+				this.$emit('click',i)
+			}
 		}
 	}
 </script>

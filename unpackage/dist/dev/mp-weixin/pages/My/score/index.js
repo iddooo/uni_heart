@@ -174,15 +174,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
 var _index = __webpack_require__(/*! ../../../api/index.js */ 30);
-var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var DoTask = function DoTask() {return __webpack_require__.e(/*! import() | pages/My/score/DoTask */ "pages/My/score/DoTask").then(__webpack_require__.bind(null, /*! ./DoTask.vue */ 512));};var Records = function Records() {return __webpack_require__.e(/*! import() | pages/My/score/Records */ "pages/My/score/Records").then(__webpack_require__.bind(null, /*! ./Records.vue */ 519));};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var DoTask = function DoTask() {return __webpack_require__.e(/*! import() | pages/My/score/DoTask */ "pages/My/score/DoTask").then(__webpack_require__.bind(null, /*! ./DoTask.vue */ 539));};var Records = function Records() {return __webpack_require__.e(/*! import() | pages/My/score/Records */ "pages/My/score/Records").then(__webpack_require__.bind(null, /*! ./Records.vue */ 546));};var RuleTag = function RuleTag() {return __webpack_require__.e(/*! import() | pages/My/score/RuleTag */ "pages/My/score/RuleTag").then(__webpack_require__.bind(null, /*! ./RuleTag.vue */ 553));};var _default =
 {
   components: {
     DoTask: DoTask,
-    Records: Records },
+    Records: Records,
+    RuleTag: RuleTag },
 
   data: function data() {
     return {

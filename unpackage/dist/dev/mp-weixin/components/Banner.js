@@ -173,6 +173,9 @@ var _default2 =
     swiperChange: function swiperChange(e) {
       this.currentIndex = e.detail.current;
       this.$emit('change', this.currentIndex);
+    },
+    tapItem: function tapItem(i) {
+      this.$emit('click', i);
     } } };exports.default = _default2;
 
 /***/ }),

@@ -30,7 +30,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! ./store/index.js */ 
 var _index2 = _interopRequireDefault(__webpack_require__(/*! common/index.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}_vue.default.config.productionTip = false; // 全局组件
 // import MessageBox from 'components/messageBox/index.js'
 // Vue.use(MessageBox)
-var MessageBox = function MessageBox() {return __webpack_require__.e(/*! import() | components/MessageBox */ "components/MessageBox").then(__webpack_require__.bind(null, /*! ./components/MessageBox.vue */ 435));};_vue.default.component('MessageBox', MessageBox); // 设置全局的数据和全局的方法
+var MessageBox = function MessageBox() {return __webpack_require__.e(/*! import() | components/MessageBox */ "components/MessageBox").then(__webpack_require__.bind(null, /*! ./components/MessageBox.vue */ 441));};_vue.default.component('MessageBox', MessageBox); // 设置全局的数据和全局的方法
 _vue.default.prototype.$common = _index2.default;_App.default.mpType = 'app';
 var app = new _vue.default(_objectSpread({},
 _App.default, {

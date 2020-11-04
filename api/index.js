@@ -106,6 +106,7 @@ module.exports = {
 			url: '/user-api/user/wechat/user/' + userId
 		})
 	},
+	
 	// 小区所有排名
 	getAllRank(){
 		return fetch({
@@ -334,6 +335,15 @@ module.exports = {
 	  deduct(data){
 		  return fetch({
 			  url:'/recover-api/deliver/deduct/' + data.id + '/' + data.page + '/' + data.pageSize
+		  })
+	  },
+	  /**公益值*/
+	  // 公益值明细
+	  welfareRecord(data){
+		  return fetch({
+			  url:'/user-api/user/wechat/welfare',
+			  method:'post',
+			  data
 		  })
 	  }
 	  

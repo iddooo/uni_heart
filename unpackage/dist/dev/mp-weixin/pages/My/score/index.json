@@ -2,6 +2,7 @@
   "navigationBarTitleText": "我的积分",
   "usingComponents": {
     "do-task": "/pages/My/score/DoTask",
-    "records": "/pages/My/score/Records"
+    "records": "/pages/My/score/Records",
+    "rule-tag": "/pages/My/score/RuleTag"
   }
 }

@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['handlerClick',['$event']]]]]}}" class="rule-box flex-ct-bwt data-v-0b7f1d51" bindtap="__e"><image class="rule-img data-v-0b7f1d51" src="/static/mine/rule-i.png"></image><view class="data-v-0b7f1d51">积分规则</view><view class="arrow data-v-0b7f1d51"></view></view>
