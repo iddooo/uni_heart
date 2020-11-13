@@ -399,5 +399,26 @@ module.exports = {
 		  url:'/about-api/problem/wechat/' + 1
 	  })
 	},
+	// 垃圾搜索
+	typeList(data){
+		return fetch({
+			  url:'/about-api/garbage/typeList',
+			  method:'post',
+			  data
+		})
+	},
+	searchKeywords(str){
+		return fetch({
+				  url:'/about-api/garbage/list/voice/' + str
+		})
+	},
+	garbageFeedback(data){
+		 return fetch({
+		 	  url:'/about-api/garbage/feedback/',
+		 	  method:'post',
+		 	  data
+		 })
+	}
+	
 }
 

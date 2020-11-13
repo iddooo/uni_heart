@@ -65,3 +65,25 @@
 	  	color: #CDCDCD;
 	  	line-height: 40rpx;
 	  }
+	  /* 颜色 */
+	  .blue {
+	    /* background: rgba(79, 160, 248, 1); */
+	    background: #53a1f8;
+	  
+	  }
+	  
+	  .red {
+	    /* background: rgba(237, 106, 103, 1); */
+	    background: #ea6a67;
+	  
+	  }
+	  
+	  .green {
+	    /* background: rgba(99, 204, 171, 1); */
+	    background: #33C894;
+	  }
+	  
+	  .grey {
+	    /* background: rgba(157, 157, 157, 1); */
+	    background: #9d9d9d;
+	  }
