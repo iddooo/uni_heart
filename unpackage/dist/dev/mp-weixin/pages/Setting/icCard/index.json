@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "绑定IC卡",
-  "usingComponents": {}
+  "usingComponents": {
+    "simple-address": "/components/simple-address/simple-address",
+    "h-button": "/components/HButton"
+  }
 }

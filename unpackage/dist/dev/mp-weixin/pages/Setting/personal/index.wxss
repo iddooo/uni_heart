@@ -1,0 +1,121 @@
+
+.mask.data-v-728e7bb5{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #000000;
+	opacity: 0.4;
+}
+.box.data-v-728e7bb5{
+	width: 654rpx;
+	height: 498rpx;
+	background: #FFFFFF;
+	border-radius: 10rpx;
+	box-sizing: border-box;
+	padding: 40rpx 50rpx;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	        transform: translate(-50%,-50%);
+	background-color: #fff;
+}
+.title.data-v-728e7bb5{
+	font-size: 34rpx;
+	font-weight: 500;
+	margin-bottom: 64rpx;
+}
+.ipt-box.data-v-728e7bb5{
+	width: 554rpx;
+	height: 82rpx;
+	background: #FFFFFF;
+	border: 2rpx solid #E2E2E2;
+	color: #000000;
+	font-size: 30rpx;
+	margin-bottom: 118rpx;
+	padding-left: 18rpx;
+	box-sizing: border-box;
+	padding-right: 24rpx;
+}
+.ipt.data-v-728e7bb5{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
+.ipt-box .clear-box.data-v-728e7bb5{
+	padding: 10rpx;
+}
+.clear-box image.data-v-728e7bb5{
+	display: block;
+	width: 34rpx;
+	height: 36rpx;
+}
+.btns button.data-v-728e7bb5{
+	width:244rpx;
+	height:80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	border-radius:4rpx;
+	background:rgba(255,95,98,1);
+	font-size:32rpx;
+	color: #FFFFFF;
+}
+.btns button.plain.data-v-728e7bb5{
+	background-color: #FFFFFF;
+	border:2rpx solid rgba(255,95,98,1);
+	color: rgba(255,95,98,1);
+}
+.btm.data-v-728e7bb5{
+	position: absolute;
+	bottom: 96rpx;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+}
+.line.data-v-728e7bb5{
+	height: 102rpx;
+	border-bottom: 2rpx solid #F6F6F6;
+	padding: 0 20rpx 0 30rpx;
+	font-size: 28rpx;
+	color: #000000;
+}
+.content.data-v-728e7bb5{
+	text-align: right;
+	padding-right: 20rpx;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.arrow.data-v-728e7bb5::after{
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 15rpx;
+	height: 15rpx;
+	-webkit-transform:translateY(-50%) rotate(45deg);
+	        transform:translateY(-50%) rotate(45deg);
+	border-width: 2rpx;
+	border-style: solid;
+	border-color: #CDCDCD #CDCDCD transparent transparent;
+}
+.head-photo.data-v-728e7bb5{
+	width: 64rpx;
+	height: 64rpx;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.headpic.data-v-728e7bb5{
+	width: 100%;
+	height: 100%;
+}
+.fc.data-v-728e7bb5{
+	color: #CDCDCD;
+}
+

@@ -2,15 +2,21 @@
 	<view class="page page-grey">
 		<view class="header-container">
 			<view class="user">
-				<view class="pic radius">
-					<image src="/static/mine/img.png" mode=""></image>
+				<view class="pic radius" @click="goSetting">
+					<!-- #ifdef MP-WEIXIN -->
+						<open-data class="headpic" type="userAvatarUrl"></open-data>
+					<!-- #endif -->
+					<!-- #ifndef MP-WEIXIN -->
+						<image v-if="userInfo.headPic" class="headpic"  :src="userInfo.headPic" mode=""></image>
+						<image v-else class="headpic"  src="/static/index/head.png" mode=""></image>
+					<!-- #endif -->
 				</view>
 				<view class="username">
-					AWER BORRY
+					{{userInfo.nickname}}
 				</view>
 				<view class="level-box flex" @click="goWelfareRule">
 					<view class="level-des">
-						青铜
+						{{level}}
 					</view>
 					<view class="welfare">
 						公益值:{{welfare}}
@@ -71,40 +77,76 @@
 				</view>
 			</view>
 		</view>
+		
+		<!-- 我的二维码 -->
+		<view v-show="show" class="pop" @click="show=false">
+		</view>
+		<view :class="['content',{'block':show}]">
+		  <image class="head-s" src="/static/mine/head-s.png"></image>
+		  <view class="user-photo">
+			<!-- #ifdef MP-WEIXIN -->
+				<open-data class="headpic" type="userAvatarUrl"></open-data>
+			<!-- #endif -->
+			<!-- #ifndef MP-WEIXIN -->
+				<image v-if="userInfo.headPic" class="headpic"  :src="userInfo.headPic" mode=""></image>
+				<image v-else class="headpic"  src="/static/index/head.png" mode=""></image>
+			<!-- #endif -->
+		  </view>
+		  <view class="s-title">我的二维码</view>
+		  <view class="code-ctn">
+			<canvas class="code" :style="{'width':qrcode_s_w + 'px','height':qrcode_s_H + 'px'}" canvas-id="shareCanvas"></canvas>
+			<view class="line">仅可用于督导员验证身份信息</view>
+			<view class="save-btn" bindtap="saveMyCode">保存二维码</view>
+		  </view>
+		</view>
+		  
+		<MessageBox></MessageBox>
 	</view>
 </template>
 
 <script>
-	import { myMoney, getEnvData } from '../../../api/index.js'
-	import { goLoginPageTimeOut } from '../../../common/index.js'
-	
+	import { myMoney, getEnvData, getCodeInfo, getUserInfo } from '../../../api/index.js'
+	import { goLoginPageTimeOut, getLevel } from '../../../common/index.js'
+	import { mapMutations } from 'vuex'
+	var drawQrcode = require('../../../utils/weapp.qrcode.esm.js')
+
 	export default{
 		data(){
 			return{
+				userInfo:{},
 				grandTotal:[
 					{name:"环保金",count:"0",url:undefined},//"/pages/Money/withdraw/index"
 					{name:"累计收益",count:"0",url:undefined},
 					{name:"我的积分",count:"0",url:"/pages/My/score/index",need:true}
 				],
 				welfare:0,
+				level:'青铜',
 				times:0,
 				days:0,
 				servers:[
-					{name:"我的投递",image:"/static/mine/delivery.png",url:"/pages/My/delivery/index",need:true},
-					{name:"人脸识别",image:"/static/mine/face.png",url:"/pages/AI/face/index",need:true},
-					{name:"环保金明细",image:"/static/mine/gold.png",url:"/pages/My/gold/index",need:true},
-					{name:"帮助中心",image:"/static/mine/help.png",url:"/pages/About/help/index"},
-					{name:"二维码分享",image:"/static/mine/sharecode.png",url:undefined},//app新增
-					{name:"意见反馈",image:"/static/mine/feedback.png",url:undefined},//app新增
-					{name:"账户与安全",image:"/static/mine/secure.png",url:undefined},
-					{name:"关于我们",image:"/static/mine/us.png",url:"/pages/About/aboutUs/index"},
-				]
+					{id:1, name:"我的投递",image:"/static/mine/delivery.png",url:"/pages/My/delivery/index",need:true},
+					{id:2, name:"人脸识别",image:"/static/mine/face.png",url:"/pages/AI/face/index",need:true},
+					{id:3, name:"环保金明细",image:"/static/mine/gold.png",url:"/pages/My/gold/index",need:true},
+					{id:4, name:"帮助中心",image:"/static/mine/help.png",url:"/pages/About/help/index"},
+					{id:5, name:"二维码分享",image:"/static/mine/sharecode.png",url:undefined,callback:"showTips"},
+					{id:6, name:"意见反馈",image:"/static/mine/feedback.png",url:undefined},//app新增
+					{id:7, name:"账户与安全",image:"/static/mine/secure.png",url:undefined},
+					{id:8, name:"关于我们",image:"/static/mine/us.png",url:"/pages/About/aboutUs/index"},
+				],
+				isFinish:false, //二维码分享，供督导员扫码
+				settingCodePage:'/pages/Setting/myCode/index',
+				qrcode_s_w:100,
+				qrcode_s_H:100,
+				show:false,
+				codeFilePath:undefined
 			}
 		},
 		onShow(){
+			this.userInfo = uni.getStorageSync('userInfo')
 			this.getMyScore()
 		},
 		methods:{
+			...mapMutations(['MessageBox']),
 			getMyScore(){
 				let userId = uni.getStorageSync('userId')
 				myMoney(userId).then(res=>{
@@ -113,13 +155,60 @@
 						this.grandTotal[1].count = res.data.countProfit
 						this.grandTotal[2].count = res.data.currScore
 						this.welfare = res.data.currWelfare
+						this.level = getLevel(this.welfare).des
 					}
 					
 				})
+				// getUserInfo(userId).then(res=>{
+				// 	// todo 内容太少
+				// 	/** "data":{"id":"306","sno":"1000","phone":"18583027254","nickname":"D儿","age":1,"sex":0,"createTime":"2020-03-23 14:16","lastLoginTime":"2020-11-11 16:50:21","address":"四川省成都市锦江区成都菁蓉汇","birthday":"2020-10-10"}*/
+				// 	// this.userInfo = res.data
+				// })
+				
 				getEnvData(userId).then(res=>{
 					if(res.code==1){
 						this.days = res.data.day
 						this.times = res.data.deliverNum
+					}
+				})
+				
+				getCodeInfo(userId).then(res=>{
+					if(res.code==0){
+						this.isFinish = false
+					}else{
+						let qrStr = res.data.houseNum
+						this.isFinish = true
+						this.content = qrStr
+						//设备像素比
+						const W = uni.getSystemInfoSync().windowWidth;
+						const rate = 750 / W;
+						this.qrcode_s_w = 200 / rate //分享图片宽
+						this.qrcode_s_H = 200 / rate //分享图片高
+						// 画二维码
+						this.drawMyCode()
+					}
+					this.servers.forEach(v=>{
+						if(v.id==5){
+							v.callback = this.isFinish ?  'showCode' : 'showTips'
+						}
+					})
+				})
+			},
+			showCode(){
+				this.show = true
+			},
+			showTips(){
+				let _this = this
+				this.MessageBox({
+					title:'提示',
+					msg:'生成二维码前请先完善用户信息',
+					visible: true,
+					reverse:false,
+					buttons:['取消','确认'],
+					success:()=>{
+						uni.navigateTo({
+							url:_this.settingCodePage
+						})
 					}
 				})
 			},
@@ -152,18 +241,162 @@
 					return
 				}
 				
-				if(!item.url) return
+				if(!item.url){
+					item.callback && this[item.callback]()
+					return
+				}
 				
 				uni.navigateTo({
 					url:item.url
 				})
-			}
+			},
+			goSetting(){
+				uni.navigateTo({
+					url:"/pages/Setting/personal/index"
+				})
+			},
+			drawMyCode(){
+			    let that = this
+			    drawQrcode({
+					width: that.qrcode_s_H,
+					height: that.qrcode_s_w,
+					canvasId: 'shareCanvas',
+					text: that.content,
+					callback:(e)=>{
+						// console.log('e',e)
+						uni.canvasToTempFilePath({
+						  canvasId: 'shareCanvas',
+						  fail: function (res) {
+							// console.log('fail tempfilepath',res)
+						  },
+						  success: function (res) {
+							// console.log(res);
+							this.codeFilePath= res.tempFilePath
+						  }
+						})
+					}
+				})
+			},
+			saveMyCode(){
+				uni.saveImageToPhotosAlbum({
+					filePath: this.codeFilePath,
+					success: (res) => {
+						uni.showToast({
+							title: '图片已保存至相册',
+							icon: 'success',
+							duration: 2000
+						})
+						this.show=false
+					},
+					fail: (err) => {
+						uni.showToast({
+							title: '保存失败',
+							icon:"none"
+						})
+					}
+				})
+			},
 		}
 		
 	}
 </script>
 
 <style scoped>
+	.page{
+		overflow: hidden;
+		position: relative;
+	}
+	.pop{
+	  position: fixed;
+	  top: 0;
+	  width: 100vw;
+	  height: 100%;
+	  background: rgba(0, 0, 0, 0.4043);
+	  z-index: 9999;
+	  z-index: 9;
+	}
+	.content {
+	  width: 610rpx;
+	  height: 680rpx;
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  margin-left: -305rpx;
+	  transform: translateY(200%);
+	  z-index: 99999;
+	  transition: 1s;
+	}
+	.block{
+		transform: translateY(-50%);
+	}
+	
+	.head-s {
+	  height: 240rpx;
+	  width: 100%;
+	  display: block;
+	}
+	
+	.code-ctn {
+	  height: 440rpx;
+	  background-color: #fff;
+	  border-radius: 0 0 15rpx 15rpx;
+	  padding-top: 20rpx;
+	}
+	
+	.code {
+	  margin: 0 auto;
+	  width: 200rpx;
+	  height: 200rpx;
+	  /* background-color: yellow; */
+	}
+	
+	.line {
+	  padding: 20rpx 0;
+	  font-size: 28rpx;
+	  text-align: center;
+	  color: #7A7A7A;
+	  line-height: 40rpx;
+	  border-bottom: 1rpx solid rgba(28, 28, 28, 0.05);
+	}
+	
+	.save-btn {
+	  width: 464rpx;
+	  height: 80rpx;
+	  background: #FF5F62;
+	  border-radius: 42rpx;
+	  margin: 30rpx auto;
+	  text-align: center;
+	  line-height: 80rpx;
+	  font-size: 32rpx;
+	  color: #fff;
+	  font-weight: 500;
+	}
+	.user-photo {
+	  width: 106rpx;
+	  height: 106rpx;
+	  background: #FFFFFF;
+	  border: 6rpx solid #FFFFFF;
+	  box-sizing: content-box;
+	  position: absolute;
+	  left: 50%;
+	  top: 0;
+	  transform: translate(-50%, -50%);
+	  border-radius: 50%;
+	  overflow: hidden;
+	}
+	
+	
+	.s-title {
+	  position: absolute;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  top: 114rpx;
+	  font-size: 34rpx;
+	  font-weight: 600;
+	  color: #FFFFFF;
+	  line-height: 48rpx;
+	}
+	
 	.header-container{
 		background-color: #FFFFFF;
 	}
@@ -183,7 +416,7 @@
 		border-radius: 50%;
 		overflow: hidden;
 	}
-	.user .pic image{
+	.headpic{
 		width: 100%;
 		height: 100%;
 	}

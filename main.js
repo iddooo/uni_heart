@@ -13,6 +13,10 @@ Vue.config.productionTip = false
 // Vue.use(MessageBox)
 import MessageBox from './components/MessageBox.vue'
 Vue.component('MessageBox',MessageBox)
+import Form from './components/Form/Form.vue'
+import FormItem from './components/Form/FormItem.vue'
+Vue.component('d-form',Form)
+Vue.component('d-form-item',FormItem)
 
 // 设置全局的数据和全局的方法
 import store from './store/index.js'

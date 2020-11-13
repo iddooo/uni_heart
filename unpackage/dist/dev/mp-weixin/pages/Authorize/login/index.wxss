@@ -37,27 +37,6 @@
 	outline: 0;
 	padding: 0;
 }
-.uni-input::-webkit-input-placeholder {
-	color: #CDCDCD;
-	font-size:32rpx;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	line-height:44rpx;
-}
-.uni-input::-moz-input-placeholder {
-	color: #CDCDCD;
-	font-size:32rpx;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	line-height:44rpx;
-}
-.uni-input::-ms-input-placeholder {
-	color: #CDCDCD;
-	font-size:32rpx;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	line-height:44rpx;
-}
 button{
 	width:606rpx;
 	height:88rpx;

@@ -74,6 +74,37 @@ module.exports = {
 			  })
 		})
 	},
+	// 用户设置头像
+	uploadHeadPic(data){
+		let token = uni.getStorageSync('token')
+		return new Promise((resolve, reject)=>{
+			uni.uploadFile({
+				url: BASE_URL + '/user-api/uploadHeadPic/' + data.userId,
+				filePath: data.path,
+				name: 'file',
+				header:{
+				  'Authorization':"bearer " + token
+				},
+				success:(res)=>{
+					console.log(res)
+					if(res.statusCode!=200){
+						uni.showToast({
+						  title: '图片上传报错',
+						  icon:"none"
+						})
+						resolve(null)
+					}
+							
+					let data = JSON.parse(res.data)
+					resolve(data)	
+				},
+				fail: (err) => {
+					reject(err)
+				}
+			  })
+		})
+	},
+	// 语音识别
 	uploadVoice(path){
 		let token = uni.getStorageSync('token')
 		return new Promise((resolve, reject)=>{
@@ -101,10 +132,14 @@ module.exports = {
 			})
 		})
 	},
+	// 人脸识别
 	uploadFace(data){
 		let token = uni.getStorageSync('token')
-		// 重新上传 / 上传人脸
-		let url = data.hasPhoto ? BASE_URL + '/user-api/user/updateFace/' + data.userId : BASE_URL + '/user-api/user/facePic/' + data.userId
+		//  上传人脸 / 重新上传
+		let url = BASE_URL + '/user-api/user/facePic/' + data.userId
+		if(data.hasPhoto){
+			url = BASE_URL + '/user-api/user/updateFace/' + data.userId
+		}
 		return new Promise((resolve,reject)=>{
 			uni.uploadFile({
 				url: url,

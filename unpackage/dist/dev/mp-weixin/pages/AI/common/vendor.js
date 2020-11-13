@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/AI/common/vendor"],{
 
-/***/ 68:
+/***/ 69:
 /*!*************************************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/node_modules/image-tools/index.js ***!
   \*************************************************************************/

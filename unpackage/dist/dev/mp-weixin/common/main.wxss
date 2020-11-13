@@ -104,38 +104,25 @@
   	text-overflow: ellipsis;
   	white-space: nowrap;
 }
-/* 输入框placeholder样式 */
-.uni-input-placeholder{
+/* 密码输入框placeholder样式 */
+.login-plc{
 		color: #CDCDCD;
-		/* color: red; */
 		font-size:32rpx;
-		font-family:PingFangSC-Regular,PingFang SC;
-		font-weight:400;
 		line-height:44rpx;
 }
-/* 密码输入框placeholder样式 */
 .uni-input::-webkit-input-placeholder {
 		color: #CDCDCD;
-		/* color: red; */
 		font-size:32rpx;
-		font-family:PingFangSC-Regular,PingFang SC;
-		font-weight:400;
 		line-height:44rpx;
 }
 .uni-input::-moz-input-placeholder {
-	color: #CDCDCD;
-	/* color: red; */
-	font-size:32rpx;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	line-height:44rpx;
+		color: #CDCDCD;
+		font-size:32rpx;
+		line-height:44rpx;
 }
 .uni-input::-ms-input-placeholder {
 		color: #CDCDCD;
-		/* color: red; */
 		font-size:32rpx;
-		font-family:PingFangSC-Regular,PingFang SC;
-		font-weight:400;
 		line-height:44rpx;
 }
 /* 等级 */
@@ -176,6 +163,12 @@
 .level-5{
 	  	color: #BC682E;
 	  	background-color: #FFF4BD;
+}
+/* 绑定IC卡，我的二维码，收获地址 */
+.plc{
+	  	font-size: 28rpx;
+	  	color: #CDCDCD;
+	  	line-height: 40rpx;
 }
 /* 商城banner */
 /* .shop-banner .swiper-container{

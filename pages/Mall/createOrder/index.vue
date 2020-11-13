@@ -117,7 +117,6 @@
 						this.hasAddress = true
 						this.address = res.data
 						uni.setStorageSync('address', res.data)
-
 					}
 				})
 			},
@@ -173,7 +172,7 @@
 				})
 			},
 			goAddress(){
-				uni.navigateTo({
+				uni.redirectTo({
 					url:'../address/index'
 				})
 			}

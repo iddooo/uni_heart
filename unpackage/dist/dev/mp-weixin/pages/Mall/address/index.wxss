@@ -1,0 +1,27 @@
+
+.mtp.data-v-0051408f{
+	margin-top: 200rpx;
+}
+/* input框样式 */
+.txt.data-v-0051408f{
+	font-size:28rpx;
+	color:#333333;
+	line-height:40rpx;
+}
+input.data-v-0051408f{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	height: 40rpx;
+	font-size:28rpx;
+	color:#333333;
+	line-height:40rpx;
+}
+/* end---- */
+.txt.data-v-0051408f{
+	font-size:28rpx;
+	color:#333333;
+	line-height:40rpx;
+}
+
+

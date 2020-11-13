@@ -35,6 +35,12 @@ module.exports = {
 			data
 		})
 	 },
+	 // 获取用户信息
+	getUserInfo(userId){
+		return fetch({
+			url: '/user-api/user/userInfo/' + userId
+		})
+	},
 	 // 开始投递
 	deliveringToken(code){
 		 return fetch({
@@ -208,6 +214,14 @@ module.exports = {
 	getAddress:(userId) => {
 		return fetch({url:'/user-api/user/getUserAdress/' + userId})
 	},
+	// 更新地址
+	updateAddress(data){
+		return fetch({
+			url:'/user-api/user/addUserAdress',
+			method:"POST",
+			data
+		})
+	},
 	
 	
 	
@@ -311,6 +325,7 @@ module.exports = {
 	  bindIcCard(data){
 	    return fetch({
 			url:"/user-api/IcCard/bindIcCard",
+			method:'post',
 			data
 		})
 	  },
@@ -352,8 +367,37 @@ module.exports = {
 			  method:'post',
 			  data
 		  })
-	  }
-	  
+	  },
+	  /**我的二维码*/
+	  // 查询二维码完善信息
+	    getCodeInfo(id){
+	      return fetch({
+			  url:'/user-api/mycode/'+ id,
+			})
+	    },
+	    // 完善二维码信息
+	    updateUserInfo(data){
+	      return fetch({
+			  url:'/user-api/mycode',
+			  method:'post',
+			  data
+		  })
+	    },
+	/**用户设置*/
+	// 设置性别，生日
+	setInfo(data){
+	  return fetch({
+		  url:'/user-api/user/setInfo',
+		  method:'post',
+		  data
+	  })
+	},
 	
+	// 常见问题
+	commonProblem(data){
+	  return fetch({
+		  url:'/about-api/problem/wechat/' + 1
+	  })
+	},
 }
 

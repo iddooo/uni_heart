@@ -1,0 +1,1 @@
+<view class="data-v-4d9e2cb1"><view class="form-item data-v-4d9e2cb1"><view class="label data-v-4d9e2cb1"><block wx:if="{{$slots.title}}"><slot name="title"></slot></block><block wx:else>{{label}}</block></view><view class="content data-v-4d9e2cb1"><slot></slot></view></view><slot name="error"></slot></view>

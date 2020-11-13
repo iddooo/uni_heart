@@ -151,6 +151,9 @@
     }
   },
   "usingComponents": {
-    "message-box": "/components/MessageBox"
-  }
+    "message-box": "/components/MessageBox",
+    "d-form": "/components/Form/Form",
+    "d-form-item": "/components/Form/FormItem"
+  },
+  "sitemapLocation": "sitemap67.json"
 }
