@@ -19,18 +19,18 @@
 				<view class="preview" @click="preview">
 					查看街景图片
 				</view>
-				<image @click="lead" class="lead" src="/static/map/lead.png" mode=""></image>
+				<image @click="lead" class="lead" src="/imgs/map/lead.png" mode=""></image>
 			</view>
 			<view class="describle flex-ct">
-				<image src="/static/map/site-d.png" mode=""></image>
+				<image src="/imgs/map/site-d.png" mode=""></image>
 				<view class="elips">距您{{station.min_dis}} | {{station.address}}</view>
 			</view>
 			<view class="describle flex-ct">
-				<image src="/static/map/time.png" mode=""></image>
+				<image src="/imgs/map/time.png" mode=""></image>
 				<view>{{station.startDate}}至{{station.endDate}}  {{station.startTime}}-{{station.endTime}}</view>
 			</view>
 			<view class="describle flex-ct">
-				<image src="/static/map/sno-img.png" mode=""></image>
+				<image src="/imgs/map/sno-img.png" mode=""></image>
 				<view>编号：{{station.sno}}</view>
 			</view>
 			<view class="dashed"></view>
@@ -47,7 +47,7 @@
 		<view class="preview-pop" v-if="visible">
 			<Banner className="preview-banner" :banners="pics"></Banner>
 			<view class="touch-close" @click="closePreview">
-			  <image src="/static/map/closepreview.png"></image>
+			  <image src="/imgs/map/closepreview.png"></image>
 			</view>
 		</view>
 	</view>
@@ -145,7 +145,7 @@
 						b.latitude = latitude
 						// b.longitude = Number(b.lng)
 						// b.latitude = Number(b.lat)
-						b.iconPath = '/static/map/marker.png'
+						b.iconPath = '/imgs/map/marker.png'
 						b.width = 37
 						b.height = 41
 						if(b.id == this.station.id){
@@ -170,7 +170,7 @@
 						b.latitude = latitude
 						// b.longitude = Number(b.lng)
 						// b.latitude = Number(b.lat)
-						b.iconPath = '/static/map/marker2.png'
+						b.iconPath = '/imgs/map/marker2.png'
 						b.width = 37
 						b.height = 41
 						if(b.sno == this.station.sno){

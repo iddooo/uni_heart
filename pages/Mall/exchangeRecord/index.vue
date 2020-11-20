@@ -79,7 +79,12 @@
 <script>
 	import { getOrderList, updateOrder } from '../../../api/index.js'
 	import { IMG_URL, goLoginPageTimeOut } from '../../../common/index.js'
+	import End from '../../../components/End.vue'
+	
 	export default{
+		components: {
+			End
+		},
 		data(){
 			return{
 				IMG_URL:IMG_URL,

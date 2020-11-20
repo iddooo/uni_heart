@@ -3,7 +3,7 @@
 		<view class="pop-bg"></view>
 		<view class="content">
 			<view class="close-btn" @click="close">
-				<image src="/static/authorize/close.png" mode=""></image>
+				<image src="/static/index/close.png" mode=""></image>
 			</view>
 			<view class="title">
 				<span>{{messageBox.title}}</span>

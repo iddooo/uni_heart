@@ -63,7 +63,7 @@
 				<view class="ipt-box flex-ct">
 					<input class="ipt" type="text" :value="nickname" @input="inputName"/>
 					<view class="clear-box" @click="clear" >
-						<image src="/static/authorize/clear.png" mode=""></image>
+						<image src="/static/index/clear.png" mode=""></image>
 					</view>
 				</view>
 				<view class="btns flex-ct-bwt">

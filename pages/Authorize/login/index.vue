@@ -11,9 +11,9 @@
 			<!-- 输入手机号码获取验证码登录 / 输入手机号码设置密码 -->
 			<view v-show="step==1 || step==4" class="phone-logins">
 				<view class="phone-input input-box flex-ct-bwt">
-					<image class="icon" src="/static/authorize/phone.png" mode=""></image>
+					<image class="icon" src="/imgs/authorize/phone.png" mode=""></image>
 					<input @input="regPhone" v-model="phone" placeholder-class="login-plc" class="uni-input" focus type="number" placeholder="请输入手机号码 (新号码自动注册)" />
-					<image @click="clearPhone" class="oprt" src="/static/authorize/clear.png" mode=""></image>
+					<image @click="clearPhone" class="oprt" src="/static/index/clear.png" mode=""></image>
 				</view>
 				<!-- 获取验证码 -->
 				<button @click="getCode" :class="{'is-disable':!isPhoneValid}">获取验证码</button>
@@ -35,23 +35,23 @@
 			<!-- 设置密码 -->
 			<view v-if="step==6" class="password-logins">
 				<view class="password-input input-box flex-ct-bwt">
-					<image class="icon" src="/static/authorize/lock.png" mode=""></image>
+					<image class="icon" src="/imgs/authorize/lock.png" mode=""></image>
 					<input @input="regPwd" :type="pwdType" v-model="password" placeholder-class="login-plc" class="uni-input" placeholder="请输入密码"/>
-					<image @click="changPwdType" class="oprt" src="/static/authorize/eye.png" mode=""></image>
+					<image @click="changPwdType" class="oprt" src="/imgs/authorize/eye.png" mode=""></image>
 				</view>
 				<button @click="updatePwd" :class="{'is-disable':!isPwdValid}">提交</button>
 			</view>
 			<!-- 账号密码登录 -->
 			<view v-if="step==3" class="password-logins">
 				<view class="input-box flex-ct-bwt">
-					<image class="icon" src="/static/authorize/phone.png" mode=""></image>
+					<image class="icon" src="/imgs/authorize/phone.png" mode=""></image>
 					<input @input="regPhone" v-model="phone" placeholder-class="login-plc" class="uni-input" placeholder="请输入手机号" />
-					<image @click="clearPhone" class="oprt" src="/static/authorize/clear.png" mode=""></image>
+					<image @click="clearPhone" class="oprt" src="/static/index/clear.png" mode=""></image>
 				</view>
 				<view class="password-input input-box flex-ct-bwt">
-					<image class="icon" src="/static/authorize/lock.png" mode=""></image>
+					<image class="icon" src="/imgs/authorize/lock.png" mode=""></image>
 					<input @input="regPwd" :type="pwdType" v-model="password" placeholder-class="login-plc" class="uni-input" placeholder="请输入密码"/>
-					<image @click="changPwdType" class="oprt" src="/static/authorize/eye.png" mode=""></image>
+					<image @click="changPwdType" class="oprt" src="/imgs/authorize/eye.png" mode=""></image>
 				</view>
 				<button @click="loginByPwd" :class="{'is-disable':!isPhoneValid || !isPwdValid}">登录</button>
 				<view class="tips flex-ct-bwt">
@@ -65,7 +65,7 @@
 			<view class="tips center">
 				第三方账号登录
 			</view>
-			<image src="/static/authorize/wx.png" mode=""></image>
+			<image src="/imgs/authorize/wx.png" mode=""></image>
 			<view class="protocol center">
 				登录注册代表您已阅读并同意<text class="red">《小红心用户协议》</text>
 			</view>
@@ -77,7 +77,7 @@
 
 <script>
 	import ValidCode from '../../../components/validCode.vue'
-	import { getCode, phoneLogin, getTokenData,checkCode, updatePwd, passwordLogin} from '../../../api/index.js'
+	import { getCode, phoneLogin, getTokenData,checkCode, updatePwd, passwordLogin} from '../../../api/login.js'
 	import { mapMutations } from 'vuex';
 	
 	export default {

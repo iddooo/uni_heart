@@ -2,39 +2,6 @@
 const fetch  = require('./config.js').fetch
 
 module.exports = {
-	//获取token
-	/** 请求体参数：获取token */
-	// username：userName-shu  例：10801-shu
-	// password：123456        注：固定不变
-	// grant_type：password     注：固定不变
-	// client_id：smart-heart     注：固定不变
-	// client_secret：smart-heart-secret   注：固定不变
-	getTokenData(data){
-		return fetch({
-			url: "/auth/oauth/token",
-			header: {
-				'content-type': 'application/x-www-form-urlencoded'
-			},
-			method: "POST",
-			data,
-		})
-	},
-	// 用户登录获取userId 不需要token
-	postCode(data){
-		return fetch({
-			url: '/user-api/user/wechat/binding',
-			method: 'POST',
-			data
-		})
-	},
-	// 绑定手机号
-	bindMobile(data){
-		return fetch({
-			url: '/user-api/user/wechat/phone',
-			method: 'POST',
-			data
-		})
-	 },
 	 // 获取用户信息
 	getUserInfo(userId){
 		return fetch({
@@ -328,6 +295,12 @@ module.exports = {
 			method:'post',
 			data
 		})
+	  },
+	  // 获取ic卡领取垃圾袋倒计时
+	  getICRemianDays(data){
+	    return fetch({
+	  			url:'/user-api/IcCard/ICRemianDays/' + data.phone
+	  		})
 	  },
 	  
 	  

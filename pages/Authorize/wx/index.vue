@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<image class="logo" src="/static/authorize/weixin.png" mode="widthFix" />
+		<image class="logo" src="/imgs/authorize/weixin.png" mode="widthFix" />
 		<view class="title">微信授权页面</view>
 		<view class="profile">{{tip}}</view>
 	
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-	import { postCode, getTokenData, bindMobile } from '../../../api/index.js'
+	import { postCode, getTokenData, bindMobile } from '../../../api/login.js'
 	
 	export default {
 		data(){

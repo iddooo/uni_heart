@@ -11,11 +11,12 @@
 				{{data.profit}}
 			</view>
 			<!-- [0'驳回',1'待审核',2'已审核',3"已到账",4'异常',5'转账中',6"转账失败", 7"审核中"] -->
-			<view :class="{ 
+			<view v-show="data.statusdes" 
+				:class="{ 
 				'status':true,
-				'red':data.state==0||data.state==4||data.state==6,
-				'yellow':data.state==1 || data.state==7 || data.state==5,
-				'green':data.state==2 || data.state==3} ">
+				'f-red':data.state==0||data.state==4||data.state==6,
+				'f-yellow':data.state==1 || data.state==7 || data.state==5,
+				'f-green':data.state==2 || data.state==3} ">
 				{{data.statusdes}}
 			</view>
 		</view>
@@ -135,13 +136,13 @@
 		font-weight: 500;
 		line-height: 40rpx;
 	}
-	.yellow{
+	.f-yellow{
 		color: #F7B500;
 	}
-	.green{
+	.f-green{
 		color: #44D7B6;
 	}
-	.red{
+	.f-red{
 		color: #FF5F62;
 	}
 	.deduce{

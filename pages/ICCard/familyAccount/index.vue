@@ -1,12 +1,12 @@
 <template>
 	<view class="page">
-		<image class="hd-img" src="/static/card/family-hd.png" mode=""></image>
+		<image class="hd-img" src="/imgs/card/family-hd.png" mode=""></image>
 		<view class="f-content">
 			<FamilyTotal  
 				:entry="entry" 
 				:profit="profit" 
 				@click="handler"/>
-			<image class="f-img" src="/static/card/family-img.png" mode=""></image>
+			<image class="f-img" src="/imgs/card/family-img.png" mode=""></image>
 			<!-- 家庭成员 -->
 			<ManagerMembers 
 				:members="members"
@@ -57,10 +57,10 @@
 	import { mapMutations } from 'vuex';
 
 	const entry = [
-		{id:1,name:"二维码",icon:"/static/card/code.png",handler:'deliveryCode'},
-		{id:2,name:"上传人脸",icon:"/static/card/face.png",handler:'uploadFace'},
-		{id:3,name:"规则",icon:"/static/card/rule.png",handler:'showRule'},
-		{id:4,name:"家人管理",icon:"/static/card/del.png",iconOn:"/static/card/del-s.png",handler:'managerMembers'},
+		{id:1,name:"二维码",icon:"/imgs/card/code.png",handler:'deliveryCode'},
+		{id:2,name:"上传人脸",icon:"/imgs/card/face.png",handler:'uploadFace'},
+		{id:3,name:"规则",icon:"/imgs/card/rule.png",handler:'showRule'},
+		{id:4,name:"家人管理",icon:"/imgs/card/del.png",iconOn:"/imgs/card/del-s.png",handler:'managerMembers'},
 	]
 	export default{
 		components:{
@@ -188,7 +188,7 @@
 				this.entry.forEach(v=>{
 					if(v.id===4){
 						v.name= this.onManager ? '完成' : '家人管理'
-						v.icon = this.onManager ? "/static/card/del-s.png" :'/static/card/del.png'
+						v.icon = this.onManager ? "/imgs/card/del-s.png" :'/imgs/card/del.png'
 					}
 				})
 			},
@@ -221,7 +221,7 @@
 					provider:"weixin",
 					title:userInfo.nickName + '，邀请您加入小红心，一起垃圾分类做环保~',
 					scene:"WXSceneSession",//provider 为 weixin 时必选 : WXSceneSession	分享到聊天界面 WXSenceTimeline	分享到朋友圈 WXSceneFavorite	分享到微信收藏
-					imageUrl:"/static/card/family-img.png",
+					imageUrl:"/imgs/card/family-img.png",
 					href:'pages/tabBar/index/index?userId=' + userId + '&familyId=' + familyId+ '&familyName=' + userInfo.nickName + '&photo=' + photo,
 					success:()=>{
 						console.log('分享成功')
@@ -238,7 +238,7 @@
 			return {
 			  path: 'pages/tabBar/index/index?userId=' + userId + '&familyId=' + familyId+ '&familyName=' + userInfo.nickName + '&photo=' + photo,
 			  title: userInfo.nickName + '，邀请您加入小红心，一起垃圾分类做环保~',
-			  imageUrl: '/static/card/family-img.png',
+			  imageUrl: '/imgs/card/family-img.png',
 			}
 		},
 		onPageScroll(e){

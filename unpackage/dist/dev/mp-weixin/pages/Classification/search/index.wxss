@@ -1,1 +1,75 @@
-/* pages/Classification/search/index.wxss */
+
+.cancel.data-v-414fc271 {
+  font-size: 26rpx;
+  color: rgba(47, 47, 47, 1);
+  line-height: 36rpx;
+  text-align: center;
+  padding: 0 14rpx 0 20rpx;
+}
+.swiper-container.data-v-414fc271{
+	width: 100%;
+	height: 340rpx;
+	border-radius: 12rpx;
+	padding-top: 44rpx;
+	padding-bottom: 44rpx;
+	background-color: #fff;
+}
+.swiper.data-v-414fc271{
+	height: 100%;
+}
+.swiper-card.data-v-414fc271{
+	height: 340rpx;
+	border-radius: 12rpx;
+	margin: 0 10rpx;
+	box-sizing: border-box;
+	padding-top: 34rpx;
+	padding-left: 30rpx;
+	position: relative;
+	color: #fff;
+}
+.swiper-card .type.data-v-414fc271 {
+  font-size: 44rpx;
+  font-weight: 600;
+  line-height: 60rpx;
+  margin-bottom: 6rpx;
+}
+.swiper-card .name.data-v-414fc271 {
+  font-size: 26rpx;
+  line-height: 36rpx;
+  margin-bottom: 78rpx;
+}
+.swiper-card .des.data-v-414fc271 {
+  width: 508rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  letter-spacing: 1rpx;
+}
+.swiper-card .icon.data-v-414fc271 {
+  width: 102rpx;
+  height: 102rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 34rpx;
+}
+.list-container.data-v-414fc271{
+	/* padding-top: 492rpx; //64 + 44 + 340 + 44 */
+	height:60vh;
+	overflow-y: scroll;
+}
+.dot.data-v-414fc271{
+	width: 20rpx;
+	height: 20rpx;
+	border-radius: 50%;
+	margin: 22rpx auto 6rpx;
+}
+.li-line.data-v-414fc271{
+	height: 80rpx;
+	font-size: 28rpx;
+	font-weight: 500;
+	color: rgba(47, 47, 47, 1);
+	line-height: 80rpx;
+	text-align: center;
+}
+
+

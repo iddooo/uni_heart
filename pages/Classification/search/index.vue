@@ -1,28 +1,19 @@
 <template>
 	<view class="page">
 		<!-- 搜索框 -->
-		<view class="search flex-ct">
-			<view class="search-box flex-ct">
-				<icon class="search-icon" type="search" color="#333" size="14"></icon>
-				<input class="weui-input" placeholder-class="plc" @input="inputkwd" @confirm="cfmkwd" confirm-type="搜索" :value="keyword" placeholder="请输入识别的垃圾名称" />
-			</view>
-			<view @click="clear" class="cancel">取消</view>
-		</view>
+		<SearchBox @reset="reset" @input="inputkwd" @confirm="cfmkwd" :value="keyword">
+			<view @click="cancel" class="cancel">取消</view>
+		</SearchBox>
+		
 		<!-- 搜索结果 -->
-		<view class="keywords-container" v-show="keyword">
-			<view class="k-line"
-				v-for="(item,i) in keywordsList"
-				:key="i"
-				@click="chooseItem(item)">
-				{{item.name}}
-			</view>
-			<view class="no-container" v-show="keywordsList.length===0">
-				<image class="no-res" src="/static/ai/nores.png"></image>
-				<view class="no-words">抱歉，未找到该垃圾</view>
-				<view v-if="!isFadeback" @click="fadeback" class="no-words">点击此处反馈“{{keyword}}”让小红心收录</view>
-				<view v-else class="no-words">感谢您的反馈</view>
-			</view>
-		</view>
+		<KeywordsList 
+			:data="keywordsList"
+			:keyword="keyword"
+			:isFadeback="isFadeback"
+			@click="chooseItem"
+			@fadeback="fadeback">
+		</KeywordsList>
+		
 		<!-- 轮播图 -->
 		<view class="swiper-container" v-show="!keyword">
 			<swiper class="swiper" previous-margin="18rpx" next-margin="18rpx" @change="swiperChange">
@@ -43,7 +34,8 @@
 			<view :class="['dot',classify[type].bgClass]"></view>
 			<view class="li-line"
 				v-for="(item,i) in classifyList"
-				:key="i">
+				:key="i"
+				@click="chooseItem(item)">
 				{{item.name}}
 			</view>
 		</view>
@@ -52,8 +44,14 @@
 
 <script>
 	import { typeList, searchKeywords, garbageFeedback } from '../../../api/index.js'
+	import SearchBox from '../../../components/SearchBox.vue'
+	import KeywordsList from '../../../components/KeywordsList.vue'
 	
-	export default{
+	export default {
+		components: {
+			SearchBox,
+			KeywordsList
+		},
 		data(){
 			return{
 				classify: [{
@@ -131,6 +129,7 @@
 						if(this.hasNextPage) ++this.page
 					})
 				},
+				// 搜索
 				inputkwd(e){
 					console.log(e);
 					let k = e.detail.value
@@ -142,14 +141,20 @@
 						}
 					})
 				},
-				clear(){
+				reset(){
 					this.keyword = undefined
+				},
+				cancel(){
+					uni.switchTab({
+						url:'/pages/Tabbar/voiceRecognition/index'
+					})
 				},
 				cfmkwd(){
 					// 弹出所有关联项
 				},
 				chooseItem(item){
 					// 弹出当前关联项
+					console.log(item);
 				},
 				fadeback(){
 					let userInfo = uni.getStorageSync('userInfo')
@@ -169,68 +174,12 @@
 </script>
 
 <style scoped>
-	.search {
-	  position: fixed;
-	  width: 100%;
-	  height: 64rpx;
-	  background-color: #fff;
-	  padding: 0 30rpx;
-	}
-	
-	.search-box {
-	  width: 602rpx;
-	  height: 64rpx;
-	  background: rgba(245, 246, 250, 1);
-	  border-radius: 33rpx;
-	  color: #2F2F2F;
-	  line-height: 36rpx;
-	  font-size: 26rpx;
-	  padding-left: 26rpx;
-	  box-sizing: border-box;
-	}
-	.plc{
-	  color: rgba(202, 203, 203, 1);
-	}
-	
-	.search-icon {
-	  margin-right: 10rpx;
-	  height: 28rpx;
-	}
-	
-	.weui-input {
-	  flex: 1;
-	}
-	
 	.cancel {
 	  font-size: 26rpx;
 	  color: rgba(47, 47, 47, 1);
 	  line-height: 36rpx;
-	  padding-left: 20rpx;
-	}
-	.keywords-container{
-		padding-top: 86rpx;
-	}
-	.k-line{
-		font-size: 28rpx;
-		font-weight: 500;
-		color: rgba(47, 47, 47, 1);
-		line-height: 40rpx;
-		padding: 20rpx 40rpx;
-	}
-	.no-res{
-		display: block;
-		width: 568rpx;
-		height: 458rpx;
-		margin: 190rpx auto 26rpx;
-	}
-	.no-words {
-	  font-size: 28rpx;
-	  font-family: PingFangSC-Regular, PingFang SC;
-	  font-weight: 400;
-	  color: rgba(144, 144, 144, 1);
-	  line-height: 40rpx;
 	  text-align: center;
-	  margin-bottom: 18rpx;
+	  padding: 0 14rpx 0 20rpx;
 	}
 	
 	.swiper-container{
@@ -239,12 +188,6 @@
 		border-radius: 12rpx;
 		padding-top: 44rpx;
 		padding-bottom: 44rpx;
-		position: fixed;
-		top: 64rpx;
-		/* #ifdef H5 */
-		top: 148rpx;
-		/* #endif */
-		left: 0;
 		background-color: #fff;
 	}
 	.swiper{
@@ -259,8 +202,8 @@
 		padding-left: 30rpx;
 		position: relative;
 		color: #fff;
-
 	}
+	
 	.swiper-card .type {
 	  font-size: 44rpx;
 	  font-weight: 600;
@@ -290,7 +233,9 @@
 	  top: 34rpx;
 	}
 	.list-container{
-		padding-top: 492rpx; //64 + 44 + 340 + 44
+		/* padding-top: 492rpx; //64 + 44 + 340 + 44 */
+		height:60vh;
+		overflow-y: scroll;
 	}	
 	.dot{
 		width: 20rpx;

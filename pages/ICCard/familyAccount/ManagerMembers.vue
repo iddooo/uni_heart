@@ -9,7 +9,7 @@
 					<image v-else class="user-photo" src="/static/index/head.png" mode=""></image>
 				</view>
 				<view @click="delMember(item.userId)" class="minus" v-show="item.onManager">
-					<image src="/static/card/minus.png"></image>
+					<image src="/imgs/card/minus.png"></image>
 				</view>
 			</view>
 			<view class="font24">
@@ -25,7 +25,7 @@
 		<view class="member" @click="handlerShare">
 			<view class="head-pic">
 				<view class="pic-box flex-ct-ct">
-					<image class="add-icon" src="/static/card/add.png" mode=""></image>
+					<image class="add-icon" src="/imgs/card/add.png" mode=""></image>
 				</view>
 			</view>
 			<view class="add">

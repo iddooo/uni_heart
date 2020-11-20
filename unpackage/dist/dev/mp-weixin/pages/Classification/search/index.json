@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "小红心",
-  "usingComponents": {}
+  "usingComponents": {
+    "search-box": "/components/SearchBox",
+    "keywords-list": "/components/KeywordsList"
+  }
 }

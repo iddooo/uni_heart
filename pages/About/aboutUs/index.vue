@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
-		<image class="icon" src="/static/about/heart.png" mode=""></image>
-		<image class="des" src="/static/about/company.png" mode=""></image>
+		<image class="icon" src="/imgs/about/heart.png" mode=""></image>
+		<image class="des" src="/imgs/about/company.png" mode=""></image>
 	</view>
 </template>
 

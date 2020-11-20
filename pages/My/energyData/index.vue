@@ -2,10 +2,10 @@
 	<view class="page">
 		<view id="canvas-content">
 			<view class="box1">
-				<image class="bg" src="/static/score/cavsbg1.png" mode="widthFix"></image>
+				<image class="bg" src="/imgs/score/cavsbg1.png" mode="widthFix"></image>
 				<view class="user-photo">
 					<!-- #ifndef MP-WEIXIN -->
-						<image v-if="userInfo.headPic" class="headpic"  :src="URL+userInfo.headPic" mode=""></image>
+						<image v-if="userInfo.headPic" class="headpic"  :src="userInfo.headPic" mode=""></image>
 						<image v-else class="headpic"  src="/static/index/head.png" mode=""></image>
 					<!-- #endif -->
 					<!-- #ifdef MP-WEIXIN -->
@@ -27,20 +27,20 @@
 					<view>{{envData.profit}}</view>
 					<view>{{envData.carbon}}</view>
 				</view>
-				<image class="link" src="/static/score/link.png" mode=""></image>
+				<image class="link" src="/imgs/score/link.png" mode=""></image>
 			</view>
 			
 			<view class="box2">
-				<image class="bg" src="/static/score/cavsbg2.png" mode="widthFix"></image>
+				<image class="bg" src="/imgs/score/cavsbg2.png" mode="widthFix"></image>
 			
 				<view class="tree">{{envData.tree}}</view>
 				<view class="petroleum">{{envData.petroleum}}</view>
 				<view class="electric">{{envData.electric}}</view>
 				
-				<image v-if="deliverDetailResult.length>0" class="link" src="/static/score/link.png" mode=""></image>
+				<image v-if="deliverDetailResult.length>0" class="link" src="/imgs/score/link.png" mode=""></image>
 			</view>
 			<view id="box3" class="box3" v-if="deliverDetailResult.length>0">
-				<image class="bg bg3" src="/static/score/cavsbg3.png"></image>
+				<image class="bg bg3" src="/imgs/score/cavsbg3.png"></image>
 				<view class="title">
 					已为环境保护贡献了
 				</view>
@@ -82,10 +82,10 @@
 				rate:1,
 				scale:1,
 				show:false,
-				bg1:'/static/score/cavsbg1.png',
-				bg2:'/static/score/cavsbg2.png',
-				bg3:'/static/score/cavsbg3.png',
-				link:'/static/score/link.png',
+				bg1:'/imgs/score/cavsbg1.png',
+				bg2:'/imgs/score/cavsbg2.png',
+				bg3:'/imgs/score/cavsbg3.png',
+				link:'/imgs/score/link.png',
 				box3Height:432,
 				contentH:1528,
 				canvasDesH:932,
@@ -221,7 +221,7 @@
 					this.drawCanvasText({text:'已为环境保护贡献了',x:68,y:1200,fontSize:30,color:"#1E1E1E",textAlign:"left",baseline:"middle"})
 					
 					let h = 56 , top = 1270 ,l1=82, l2=128,l3=376,l4=642
-					let icon = '/static/score/cate.png'
+					let icon = '/imgs/score/cate.png'
 					let gold = '/static/money/gold.png'
 					for(let i = 0 ; i < len ; i++ ){
 						let item = this.deliverDetailResult[i]
@@ -239,7 +239,7 @@
 					this.drawCanvasImage(this.link, 72, 1024, 606, 104)
 				}
 				// 二维码
-				let qrcode = '/static/score/qcode.png'
+				let qrcode = '/imgs/score/qcode.png'
 				let qtop = this.contentH
 				this.drawCanvasImage(qrcode,157,qtop+15,120,120)
 				this.drawCanvasText({text:"环保赚现金",x:486,y:qtop+32,fontSize:25,color:"#FFFFFF",textAlign:"center",baseline:"middle"})

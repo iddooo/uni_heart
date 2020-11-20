@@ -1,0 +1,25 @@
+
+.keywords-container.data-v-47134309{
+	padding-top: 38rpx;
+}
+.k-line.data-v-47134309{
+	font-size: 28rpx;
+	font-weight: 500;
+	color: rgba(47, 47, 47, 1);
+	line-height: 40rpx;
+	padding: 20rpx 40rpx;
+}
+.no-res.data-v-47134309{
+	display: block;
+	width: 568rpx;
+	height: 458rpx;
+	margin: 190rpx auto 26rpx;
+}
+.no-words.data-v-47134309 {
+  font-size: 28rpx;
+  color: rgba(144, 144, 144, 1);
+  line-height: 40rpx;
+  text-align: center;
+  margin-bottom: 18rpx;
+}
+

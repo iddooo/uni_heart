@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "兑换记录",
-  "usingComponents": {}
+  "usingComponents": {
+    "end": "/components/End"
+  }
 }

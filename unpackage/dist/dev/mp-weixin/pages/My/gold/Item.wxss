@@ -46,13 +46,13 @@
 	font-weight: 500;
 	line-height: 40rpx;
 }
-.yellow.data-v-3546281c{
+.f-yellow.data-v-3546281c{
 	color: #F7B500;
 }
-.green.data-v-3546281c{
+.f-green.data-v-3546281c{
 	color: #44D7B6;
 }
-.red.data-v-3546281c{
+.f-red.data-v-3546281c{
 	color: #FF5F62;
 }
 .deduce.data-v-3546281c{

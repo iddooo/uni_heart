@@ -19,7 +19,7 @@
 				</view>
 			</view>
 			<view :class="['arrow',activeIds.includes(content.id) ? 'active' :'']">
-				<image src="/static/order/arrow.png" mode=""></image>
+				<image src="/static/index/arrow.png" mode=""></image>
 			</view>
 		</view>
 		<view class="list" v-show="activeIds.includes(content.id)">

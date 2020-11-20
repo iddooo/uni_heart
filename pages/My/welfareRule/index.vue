@@ -1,13 +1,13 @@
 <template>
 	<view class="page">
 		<view class="head">
-			<image class="bg" src="../../../static/welfare/headbg.png" mode=""></image>
-			<image class="level" :src='"../../../static/welfare/level-icon-"+ 1 +".png"' mode=""></image>
+			<image class="bg" src="/imgs/welfare/headbg.png" mode=""></image>
+			<image class="level" :src='"/imgs/welfare/level-icon-"+ 1 +".png"' mode=""></image>
 			<RuleTag @click="linkToWelfare" />
 		</view>
 		<StepBox :data="currWelfare" :percent="percent" :levels="levels"/>
 		<view class="tips">
-			 距离下一级还差35000公益值
+			 距离下一级还差35000公益值
 		</view>
 		<Table :columns="columns" :data="table"></Table>
 	</view>

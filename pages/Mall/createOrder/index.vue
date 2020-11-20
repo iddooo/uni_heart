@@ -6,7 +6,7 @@
 			</view>
 			<view v-else class="address">
 				<view class="user flex-ct">
-					<image class="site" src="/static/order/site.png" mode=""></image>
+					<image class="site" src="/imgs/order/site.png" mode=""></image>
 					<text class="marginlr">{{address.name}}</text>
 					<text>{{address.phone}}</text>
 				</view>
@@ -15,16 +15,16 @@
 				</view>
 			</view>
 			<view class="arrow">
-				<image src="/static/order/arrow.png" mode=""></image>
+				<image src="/static/index/arrow.png" mode=""></image>
 			</view>
 			<view class="line">
-				<image src="/static/order/line.png" mode=""></image>
+				<image src="/imgs/order/line.png" mode=""></image>
 			</view>
 		</view>
 		
 		<view class="product-box">
 			<view class="heart flex-ct">
-				<image src="/static/order/heart.png" mode=""></image>
+				<image src="/imgs/order/heart.png" mode=""></image>
 				<text>小红心</text>
 			</view>
 			<view class="product">
@@ -45,17 +45,17 @@
 					</view>
 					<view class="num-box flex-ct">
 						<view class="rdc flex-ct-ct" @click="reduceNum">
-							<image src="/static/order/rdc.png" mode=""></image>
+							<image src="/imgs/order/rdc.png" mode=""></image>
 						</view>
 						<view class="num flex-ct-ct">
 							{{num}}
 						</view>
 						<view class="add flex-ct-ct" @click="addNum">
-							<image src="/static/order/add.png" mode=""></image>
+							<image src="/imgs/order/add.png" mode=""></image>
 						</view>
 					</view>
 					<view class="close">
-						<image src="/static/order/x.png" mode=""></image>
+						<image src="/imgs/order/x.png" mode=""></image>
 					</view>
 				</view>
 			</view>

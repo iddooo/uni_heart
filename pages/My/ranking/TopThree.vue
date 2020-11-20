@@ -1,6 +1,6 @@
 <template>
 	<view class="top-3">
-		<image class="top-bg" src="/static/score/rank.png" mode=""></image>
+		<image class="top-bg" src="/imgs/score/rank.png" mode=""></image>
 		<view class="top-uers">
 			<view class="u-item"
 			v-for="(t,i) in top"
