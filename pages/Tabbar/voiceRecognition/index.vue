@@ -34,14 +34,14 @@
 		<!-- step===5 识别出来 未能找到关键字-->
 		<view class="tips-box" v-show="step===5">
 			<view class="title mb-40">未能找到</view>
-			<view class="title">" {{keyword}} "</view>
+			<view class="title mb-40"> {{keyword}} </view>
 			<view v-if="!isFadeback" @click="fadeback" class="no-words">点击此处反馈“{{keyword}}”让小红心收录</view>
 			<view v-else class="no-words">感谢您的反馈</view>
 		</view>
 		
 		<!-- step===6 识别出来 找到关键字-->
 		<view class="tips-box" v-show="step===6">
-			<view class="title">" {{keyword}} "</view>
+			<view class="title"> {{ keyword}} </view>
 		</view>
 		
 		<view class="vioce-wave" v-show="step===2">
@@ -49,8 +49,10 @@
 		</view>
 		
 		<view class="vioce-icon">
-			<image class="icon" @click="authModel" v-if="step===2 || !openVoice" src="/static/index/voice-hd.png" mode=""></image>
-			<image class="icon" @touchstart="handleTouchStart" @touchend="handleTouchEnd" v-else src="/static/index/voice-on.png" mode=""></image>
+			<image class="icon" @click="authModel" v-if="step===3 || !openVoice" src="/static/index/voice-hd.png" mode=""></image>
+			<view class="icon" @touchstart="handleTouchStart" @touchend="handleTouchEnd" v-else >
+				<image src="/static/index/voice-on.png" mode=""></image>
+			</view>
 			<view class="txt">按住说话</view>
 		</view>
 		
@@ -58,7 +60,8 @@
 </template>
 
 <script scoped>
-	import { searchKeywords, garbageFeedback, uploadVoice } from '../../../api/index.js'
+	import { searchKeywords, garbageFeedback } from '../../../api/index.js'
+	import { uploadVoice } from '../../../api/config.js'
 	import SearchBox from '../../../components/SearchBox.vue'
 	
 	export default{
@@ -87,13 +90,16 @@
 				let that = this
 				uni.getSetting({
 				  success: function (res) {
-				    console.log(res)
+				    console.log('获取授权信息',res)
 				      if (!res.authSetting['scope.record']) {
 				          uni.authorize({
 				            scope: 'scope.record',
 				            fail:()=>{
-				              that.openVoice = false
-				            }
+								that.openVoice = false
+				            },
+							success: () => {
+								that.openVoice = true
+							}
 				          })
 				      }else{
 				        that.openVoice = true
@@ -173,6 +179,30 @@
 			      },
 			    })
 			},
+			compareVersion(v1, v2) {
+			    v1 = v1.split('.')
+			    v2 = v2.split('.')
+			    var len = Math.max(v1.length, v2.length)
+			  
+			    while (v1.length < len) {
+			      v1.push('0')
+			    }
+			    while (v2.length < len) {
+			      v2.push('0')
+			    }
+			  
+			    for (var i = 0; i < len; i++) {
+			      var num1 = parseInt(v1[i])
+			      var num2 = parseInt(v2[i])
+			  
+			      if (num1 > num2) {
+			        return 1
+			      } else if (num1 < num2) {
+			        return -1
+			      }
+			    }
+			    return 0
+			},
 			initRecorderManager() {
 			    const recorderManager = uni.getRecorderManager()
 			    this.recorderManager = recorderManager
@@ -216,39 +246,41 @@
 				uploadVoice(tempFilePath).then(result=>{
 					
 					if(res.code===0){
-						// 接口连接失败
+						console.log('uploadVoice 接口连接失败');
 						this.step = 4
 						return
 					}
 					
 					let data = JSON.parse(result.data)
 					let resultArr = data.result //识别结果
+					console.log('识别完成:',data);
 					
 					if(resultArr){
 						let text = resultArr[0].replace(/。/g,'')
-						console.log('识别完成:',text);
-						
 						if(text.indexOf('我不知道')!=-1){
-						  text = ''
-						  // 结果不明白 未识别出来
-						  this.step = 4
-						  return
+							console.log('结果不明白');
+							text = ''
+							this.step = 4
+							return
 						}
 						
 						// 识别出来 模糊搜素关键字
 						this.keyword = text
-						that.fuzzySearch()
+						this.fuzzySearch()
 						
 					}else{
 					  //没有结果 未识别出来
+					  console.log('没有结果');
 					  this.step = 4
 					}
 				},reject=>{
 					// 接口连接失败
+					console.log('uploadVoice 接口连接失败');
 					this.step = 4
 				})
 			},
 			fuzzySearch(){
+				console.log('搜索关键字',this.keyword);
 				searchKeywords(this.keyword).then(res=>{
 					if(res.code==1){
 						this.keywordsList = res.data
@@ -277,6 +309,8 @@
 				garbageFeedback(data).then(res=>{
 					if(res.code==1){
 						this.isFadeback = true
+					}else{
+						this.step = 4
 					}
 				})
 			}
@@ -325,6 +359,12 @@
 		display: block;
 		margin-bottom: 20rpx;
 	}
+	.icon image{
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+	
 	.vioce-wave{
 		width: 100%;
 		height: 200rpx;

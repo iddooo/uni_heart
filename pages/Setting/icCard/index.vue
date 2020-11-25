@@ -119,7 +119,8 @@
 						})
 					}else{
 						uni.showToast({
-							title:"绑定失败"
+							title:"绑定失败",
+							icon: 'none'
 						})
 					}
 				})

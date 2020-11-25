@@ -754,7 +754,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8324,7 +8324,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8345,14 +8345,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8428,7 +8428,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9731,6 +9731,268 @@ module.exports = g;
 
 /***/ 30:
 /*!****************************************************!*\
+  !*** C:/Users/dell/Desktop/uni_heart/api/login.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var fetch = __webpack_require__(/*! ./config.js */ 31).fetch;
+
+module.exports = {
+  //获取token
+  /** 请求体参数：获取token */
+  // username：userName-shu  例：10801-shu
+  // password：123456        注：固定不变
+  // grant_type：password     注：固定不变
+  // client_id：smart-heart     注：固定不变
+  // client_secret：smart-heart-secret   注：固定不变
+  getTokenData: function getTokenData(data) {
+    return fetch({
+      url: "/auth/oauth/token",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' },
+
+      method: "POST",
+      data: data });
+
+  },
+  // 用户登录获取userId 不需要token
+  postCode: function postCode(data) {
+    return fetch({
+      url: '/user-api/user/wechat/binding',
+      method: 'POST',
+      data: data });
+
+  },
+  // 绑定手机号
+  bindMobile: function bindMobile(data) {
+    return fetch({
+      url: '/user-api/user/wechat/phone',
+      method: 'POST',
+      data: data });
+
+  },
+  /** 登录 */
+  // 发送手机验证码
+  // 请求参数：phone -->需发送验证码手机号码  
+  // type =1 登录注册验证码 type=2重置密码验证码 type=3绑定手机号验证码
+  getCode: function getCode(data) {
+    return fetch({
+      url: '/user-api/phoneCode/' + data.phone + '/' + data.type });
+
+  },
+  // 手机号登陆注册
+  phoneLogin: function phoneLogin(data) {
+    return fetch({
+      url: '/user-api/phoneLogin/' + data.phone + '/' + data.code });
+
+  },
+  // 修改/设置密码 验证短信验证码
+  checkCode: function checkCode(data) {
+    return fetch({
+      url: '/user-api/checkCode/' + data.phone + '/' + data.code });
+
+  },
+  // 修改密码
+  updatePwd: function updatePwd(data) {
+    return fetch({
+      url: '/user-api/updatePwd/' + data.phone + '/' + data.pwd });
+
+  },
+  //账号密码登录
+  passwordLogin: function passwordLogin(data) {
+    return fetch({
+      url: '/user-api/userByphone/' + data.phone + '/' + data.pwd });
+
+  } };
+
+/***/ }),
+
+/***/ 31:
+/*!*****************************************************!*\
+  !*** C:/Users/dell/Desktop/uni_heart/api/config.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+
+var _index = __webpack_require__(/*! ../common/index.js */ 20); //测试
+var BASE_URL = "https://heart.synpowertech.com";
+module.exports = {
+  fetch: function fetch(option) {
+    var token = uni.getStorageSync('token');
+    // 测试
+    //
+
+
+    return new Promise(function (resolve, reject) {
+      uni.request({
+        url: BASE_URL + option.url,
+        method: option.method || 'GET', // 必须大写
+        header: option.header || {
+          'content-type': "application/json",
+          'Authorization': token && 'bearer ' + token },
+
+        data: option.data,
+        success: function success(res) {
+          if (res.data.status == '401' || res.statusCode == 401) {
+            (0, _index.goLoginPageTimeOut)();
+          }
+
+          if (res.data.code == 0) {
+            var title = '服务器开小差了，请再试一次';
+            if (res.data.message != '' || res.data.message != null) {
+              title = res.data.message || res.data.msg;
+            }
+            uni.showToast({
+              title: title,
+              icon: "none",
+              duration: 2000 });
+
+          }
+          resolve(res.data);
+        },
+        fail: function fail(err) {
+          console.log(err);
+          reject(err);
+        } });
+
+    });
+  },
+  uploadOss: function uploadOss(path) {
+    var token = uni.getStorageSync('token');
+    return new Promise(function (resolve, reject) {
+      uni.uploadFile({
+        url: BASE_URL + '/recover-api/feedback/uploadFbPic',
+        filePath: path,
+        name: 'file',
+        header: {
+          'Authorization': "bearer " + token },
+
+        success: function success(res) {
+          // console.log(res)
+          if (res.statusCode != 200) {
+            uni.showToast({
+              title: '图片上传报错',
+              icon: "none" });
+
+            resolve(null);
+          }
+
+          var data = JSON.parse(res.data);
+          resolve(data.data);
+
+        },
+        fail: function fail(err) {
+          reject(err);
+        } });
+
+    });
+  },
+  // 用户设置头像
+  uploadHeadPic: function uploadHeadPic(data) {
+    var token = uni.getStorageSync('token');
+    return new Promise(function (resolve, reject) {
+      uni.uploadFile({
+        url: BASE_URL + '/user-api/uploadHeadPic/' + data.userId,
+        filePath: data.path,
+        name: 'file',
+        header: {
+          'Authorization': "bearer " + token },
+
+        success: function success(res) {
+          console.log(res);
+          if (res.statusCode != 200) {
+            uni.showToast({
+              title: '图片上传报错',
+              icon: "none" });
+
+            resolve(null);
+          }
+
+          var data = JSON.parse(res.data);
+          resolve(data);
+        },
+        fail: function fail(err) {
+          reject(err);
+        } });
+
+    });
+  },
+  // 语音识别
+  uploadVoice: function uploadVoice(path) {
+    var token = uni.getStorageSync('token');
+    return new Promise(function (resolve, reject) {
+      uni.uploadFile({
+        url: BASE_URL + '/about-api/garbage/webVoice',
+        filePath: path,
+        name: 'file',
+        header: {
+          'Authorization': "bearer " + token },
+
+        success: function success(res) {
+          // console.log(res)
+          if (res.statusCode == 401) {
+            console.log('===token失效===');
+            app.goLoginPageTimeOut();
+          }
+
+          var data = JSON.parse(res.data);
+          resolve(data);
+
+        },
+        fail: function fail(err) {
+          reject(err);
+        } });
+
+    });
+  },
+  // 人脸识别
+  uploadFace: function uploadFace(data) {
+    var token = uni.getStorageSync('token');
+    //  上传人脸 / 重新上传
+    var url = BASE_URL + '/user-api/user/facePic/' + data.userId;
+    if (data.hasPhoto) {
+      url = BASE_URL + '/user-api/user/updateFace/' + data.userId;
+    }
+    return new Promise(function (resolve, reject) {
+      uni.uploadFile({
+        url: url,
+        header: {
+          'Authorization': 'bearer ' + token },
+
+        filePath: data.tempFilePath,
+        name: 'photo',
+        formData: {
+          'faceBase64': data.faceBase64 },
+
+        success: function success(res) {
+          if (res.statusCode != 200) {
+            uni.showToast({
+              title: '照片上传失败，请重新拍摄',
+              icon: "none" });
+
+            resolve(null);
+          }
+          var data = JSON.parse(res.data);
+          resolve(data);
+        },
+        fail: function fail(err) {
+          reject(err);
+        } });
+
+    });
+  } };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 32:
+/*!****************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/api/index.js ***!
   \****************************************************/
 /*! no static exports found */
@@ -10131,188 +10393,6 @@ module.exports = {
       data: data });
 
   } };
-
-/***/ }),
-
-/***/ 31:
-/*!*****************************************************!*\
-  !*** C:/Users/dell/Desktop/uni_heart/api/config.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-
-var _index = __webpack_require__(/*! ../common/index.js */ 20); //测试
-var BASE_URL = "https://heart.synpowertech.com";
-module.exports = {
-  fetch: function fetch(option) {
-    var token = uni.getStorageSync('token');
-    // 测试
-    //
-
-
-    return new Promise(function (resolve, reject) {
-      uni.request({
-        url: BASE_URL + option.url,
-        method: option.method || 'GET', // 必须大写
-        header: option.header || {
-          'content-type': "application/json",
-          'Authorization': token && 'bearer ' + token },
-
-        data: option.data,
-        success: function success(res) {
-          if (res.data.status == '401' || res.statusCode == 401) {
-            (0, _index.goLoginPageTimeOut)();
-          }
-
-          if (res.data.code == 0) {
-            var title = '服务器开小差了，请再试一次';
-            if (res.data.message != '' || res.data.message != null) {
-              title = res.data.message || res.data.msg;
-            }
-            uni.showToast({
-              title: title,
-              icon: "none",
-              duration: 2000 });
-
-          }
-          resolve(res.data);
-        },
-        fail: function fail(err) {
-          console.log(err);
-          reject(err);
-        } });
-
-    });
-  },
-  uploadOss: function uploadOss(path) {
-    var token = uni.getStorageSync('token');
-    return new Promise(function (resolve, reject) {
-      uni.uploadFile({
-        url: BASE_URL + '/recover-api/feedback/uploadFbPic',
-        filePath: path,
-        name: 'file',
-        header: {
-          'Authorization': "bearer " + token },
-
-        success: function success(res) {
-          // console.log(res)
-          if (res.statusCode != 200) {
-            uni.showToast({
-              title: '图片上传报错',
-              icon: "none" });
-
-            resolve(null);
-          }
-
-          var data = JSON.parse(res.data);
-          resolve(data.data);
-
-        },
-        fail: function fail(err) {
-          reject(err);
-        } });
-
-    });
-  },
-  // 用户设置头像
-  uploadHeadPic: function uploadHeadPic(data) {
-    var token = uni.getStorageSync('token');
-    return new Promise(function (resolve, reject) {
-      uni.uploadFile({
-        url: BASE_URL + '/user-api/uploadHeadPic/' + data.userId,
-        filePath: data.path,
-        name: 'file',
-        header: {
-          'Authorization': "bearer " + token },
-
-        success: function success(res) {
-          console.log(res);
-          if (res.statusCode != 200) {
-            uni.showToast({
-              title: '图片上传报错',
-              icon: "none" });
-
-            resolve(null);
-          }
-
-          var data = JSON.parse(res.data);
-          resolve(data);
-        },
-        fail: function fail(err) {
-          reject(err);
-        } });
-
-    });
-  },
-  // 语音识别
-  uploadVoice: function uploadVoice(path) {
-    var token = uni.getStorageSync('token');
-    return new Promise(function (resolve, reject) {
-      uni.uploadFile({
-        url: BASE_URL + '/about-api/garbage/webVoice',
-        filePath: path,
-        name: 'file',
-        header: {
-          'Authorization': "bearer " + token },
-
-        success: function success(res) {
-          // console.log(res)
-          if (res.statusCode == 401) {
-            console.log('===token失效===');
-            app.goLoginPageTimeOut();
-          }
-
-          var data = JSON.parse(res.data);
-          resolve(data);
-
-        },
-        fail: function fail(err) {
-          reject(err);
-        } });
-
-    });
-  },
-  // 人脸识别
-  uploadFace: function uploadFace(data) {
-    var token = uni.getStorageSync('token');
-    //  上传人脸 / 重新上传
-    var url = BASE_URL + '/user-api/user/facePic/' + data.userId;
-    if (data.hasPhoto) {
-      url = BASE_URL + '/user-api/user/updateFace/' + data.userId;
-    }
-    return new Promise(function (resolve, reject) {
-      uni.uploadFile({
-        url: url,
-        header: {
-          'Authorization': 'bearer ' + token },
-
-        filePath: data.tempFilePath,
-        name: 'photo',
-        formData: {
-          'faceBase64': data.faceBase64 },
-
-        success: function success(res) {
-          if (res.statusCode != 200) {
-            uni.showToast({
-              title: '照片上传失败，请重新拍摄',
-              icon: "none" });
-
-            resolve(null);
-          }
-          var data = JSON.parse(res.data);
-          resolve(data);
-        },
-        fail: function fail(err) {
-          reject(err);
-        } });
-
-    });
-  } };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -11215,7 +11295,7 @@ main();
 
 /***/ }),
 
-/***/ 588:
+/***/ 590:
 /*!***************************************************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/components/simple-address/city-data/province.js ***!
   \***************************************************************************************/
@@ -11369,7 +11449,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 589:
+/***/ 591:
 /*!***********************************************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/components/simple-address/city-data/city.js ***!
   \***********************************************************************************/
@@ -12887,7 +12967,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 590:
+/***/ 592:
 /*!***********************************************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/components/simple-address/city-data/area.js ***!
   \***********************************************************************************/
@@ -25457,7 +25537,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 
 /***/ }),
 
-/***/ 62:
+/***/ 63:
 /*!*****************************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/utils/weapp.qrcode.esm.js ***!
   \*****************************************************************/
@@ -25481,7 +25561,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/Tabbar/index/index": { "navigationBarTitleText": "小红心", "usingComponents": { "banner": "/components/Banner", "h-button": "/components/HButton", "station-loc": "/pages/Tabbar/index/StationLoc", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste", "rank": "/pages/Tabbar/index/Rank", "entry": "/pages/Tabbar/index/Entry", "gold": "/pages/Tabbar/index/Gold" }, "usingAutoImportComponents": {} }, "pages/Tabbar/foundList/index": { "navigationBarTitleText": "发现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/voiceRecognition/index": { "navigationBarTitleText": "语音识别", "usingComponents": { "search-box": "/components/SearchBox" }, "usingAutoImportComponents": {} }, "pages/Tabbar/shop/index": { "navigationBarTitleText": "商城", "usingComponents": { "banner": "/components/Banner", "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/Tabbar/mine/index": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/AI/face/index": { "navigationBarTitleText": "人脸识别", "usingComponents": { "h-button": "/components/HButton" }, "usingAutoImportComponents": {} }, "pages/Authorize/login/index": { "navigationBarTitleText": "登录", "usingComponents": { "valid-code": "/components/validCode" }, "usingAutoImportComponents": {} }, "pages/Authorize/wx/index": { "navigationBarTitleText": "微信登录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/answer/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/knowledge/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/results/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/list/index": { "navigationBarTitleText": "分类列表", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/search/index": { "navigationBarTitleText": "小红心", "usingComponents": { "search-box": "/components/SearchBox", "keywords-list": "/components/KeywordsList" }, "usingAutoImportComponents": {} }, "pages/ICCard/countDown/index": { "navigationBarTitleText": "领取倒计时", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/deliveryCode/index": { "navigationBarTitleText": "垃圾箱投递二维码", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/familyAccount/index": { "navigationBarTitleText": "家庭账户", "usingComponents": { "family-total": "/pages/ICCard/familyAccount/FamilyTotal", "manager-members": "/pages/ICCard/familyAccount/ManagerMembers", "delivery-record": "/pages/ICCard/familyAccount/DeliveryRecord" }, "usingAutoImportComponents": {} }, "pages/Mall/exchangeRecord/index": { "navigationBarTitleText": "兑换记录", "usingComponents": { "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/Mall/goodsDetails/index": { "navigationBarTitleText": "商品详情", "usingComponents": { "banner": "/components/Banner" }, "usingAutoImportComponents": {} }, "pages/Mall/createOrder/index": { "navigationBarTitleText": "创建订单", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/address/index": { "navigationBarTitleText": "编辑地址信息", "usingComponents": { "ref-address": "/components/simple-address/simple-address", "h-button": "/components/HButton" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/Money/delivering/index": { "navigationBarTitleText": "扫码成功开始投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/deliveryFinish/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdraw/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdrawResult/index": { "navigationBarTitleText": "提现申请成功", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/score/index": { "navigationBarTitleText": "我的积分", "usingComponents": { "do-task": "/pages/My/score/DoTask", "records": "/pages/My/score/Records", "rule-tag": "/pages/My/score/RuleTag" }, "usingAutoImportComponents": {} }, "pages/My/energyData/index": { "navigationBarTitleText": "环保数据", "usingComponents": { "resource-list": "/components/ResourceList" }, "usingAutoImportComponents": {} }, "pages/My/gold/index": { "navigationBarTitleText": "环保金明细", "usingComponents": { "end": "/components/End", "item": "/pages/My/gold/Item" }, "usingAutoImportComponents": {} }, "pages/My/delivery/index": { "navigationBarTitleText": "我的投递", "usingComponents": { "kw-deliver": "/pages/My/delivery/KwDeliver", "recyclable-deliver": "/pages/My/delivery/RecyclableDeliver" }, "usingAutoImportComponents": {} }, "pages/My/welfareRule/index": { "navigationBarTitleText": "公益值", "usingComponents": { "rule-tag": "/pages/My/welfareRule/RuleTag", "step-box": "/pages/My/welfareRule/StepBox", "table": "/pages/My/welfareRule/Table" }, "usingAutoImportComponents": {} }, "pages/My/welfare/index": { "navigationBarTitleText": "公益值明细", "usingComponents": { "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/My/ranking/index": { "navigationBarTitleText": "小区排名", "usingComponents": { "rank-item": "/pages/My/ranking/RankItem", "user-card": "/pages/My/ranking/UserCard", "top-three": "/pages/My/ranking/TopThree" }, "usingAutoImportComponents": {} }, "pages/Map/map/index": { "navigationBarTitleText": "地图", "usingComponents": { "banner": "/components/Banner", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Setting/icCard/index": { "navigationBarTitleText": "绑定IC卡", "usingComponents": { "simple-address": "/components/simple-address/simple-address", "h-button": "/components/HButton" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/Setting/personal/index": { "navigationBarTitleText": "个人信息", "usingComponents": { "h-button": "/components/HButton" }, "usingAutoImportComponents": {} }, "pages/Setting/myCode/index": { "navigationBarTitleText": "完善信息", "usingComponents": { "simple-address": "/components/simple-address/simple-address", "h-button": "/components/HButton" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/About/help/index": { "navigationBarTitleText": "帮助中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/aboutUs/index": { "navigationBarTitleText": "关于我们", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/guide/index": { "navigationBarTitleText": "引导页", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小红心", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/Tabbar/index/index": { "navigationBarTitleText": "小红心", "usingComponents": { "banner": "/components/Banner", "h-button": "/components/HButton", "station-loc": "/pages/Tabbar/index/StationLoc", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste", "rank": "/pages/Tabbar/index/Rank", "entry": "/pages/Tabbar/index/Entry", "gold": "/pages/Tabbar/index/Gold" }, "usingAutoImportComponents": {} }, "pages/Tabbar/foundList/index": { "navigationBarTitleText": "发现", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Tabbar/voiceRecognition/index": { "navigationBarTitleText": "语音识别", "usingComponents": { "search-box": "/components/SearchBox" }, "usingAutoImportComponents": {} }, "pages/Tabbar/shop/index": { "navigationBarTitleText": "商城", "usingComponents": { "banner": "/components/Banner", "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/Tabbar/mine/index": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/AI/face/index": { "navigationBarTitleText": "人脸识别", "usingComponents": { "h-button": "/components/HButton" }, "usingAutoImportComponents": {} }, "pages/Authorize/login/index": { "navigationBarTitleText": "登录", "usingComponents": { "valid-code": "/components/validCode" }, "usingAutoImportComponents": {} }, "pages/Authorize/wx/index": { "navigationBarTitleText": "微信登录", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/answer/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/knowledge/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/results/index": { "navigationBarTitleText": "环保知识竞赛", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/list/index": { "navigationBarTitleText": "分类列表", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Classification/search/index": { "navigationBarTitleText": "小红心", "usingComponents": { "search-box": "/components/SearchBox", "keywords-list": "/components/KeywordsList" }, "usingAutoImportComponents": {} }, "pages/ICCard/countDown/index": { "navigationBarTitleText": "领取倒计时", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/deliveryCode/index": { "navigationBarTitleText": "垃圾箱投递二维码", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/ICCard/familyAccount/index": { "navigationBarTitleText": "家庭账户", "usingComponents": { "family-total": "/pages/ICCard/familyAccount/FamilyTotal", "manager-members": "/pages/ICCard/familyAccount/ManagerMembers", "delivery-record": "/pages/ICCard/familyAccount/DeliveryRecord" }, "usingAutoImportComponents": {} }, "pages/Mall/exchangeRecord/index": { "navigationBarTitleText": "兑换记录", "usingComponents": { "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/Mall/goodsDetails/index": { "navigationBarTitleText": "商品详情", "usingComponents": { "banner": "/components/Banner" }, "usingAutoImportComponents": {} }, "pages/Mall/createOrder/index": { "navigationBarTitleText": "创建订单", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Mall/address/index": { "navigationBarTitleText": "编辑地址信息", "usingComponents": { "ref-address": "/components/simple-address/simple-address", "h-button": "/components/HButton" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/Money/delivering/index": { "navigationBarTitleText": "扫码成功开始投递", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/deliveryFinish/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdraw/index": { "navigationBarTitleText": "我的环保金", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/Money/withdrawResult/index": { "navigationBarTitleText": "提现申请成功", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/My/score/index": { "navigationBarTitleText": "我的积分", "usingComponents": { "do-task": "/pages/My/score/DoTask", "records": "/pages/My/score/Records", "rule-tag": "/pages/My/score/RuleTag" }, "usingAutoImportComponents": {} }, "pages/My/energyData/index": { "navigationBarTitleText": "环保数据", "usingComponents": { "resource-list": "/components/ResourceList" }, "usingAutoImportComponents": {} }, "pages/My/gold/index": { "navigationBarTitleText": "环保金明细", "usingComponents": { "end": "/components/End", "item": "/pages/My/gold/Item" }, "usingAutoImportComponents": {} }, "pages/My/delivery/index": { "navigationBarTitleText": "我的投递", "usingComponents": { "kw-deliver": "/pages/My/delivery/KwDeliver", "recyclable-deliver": "/pages/My/delivery/RecyclableDeliver" }, "usingAutoImportComponents": {} }, "pages/My/welfareRule/index": { "navigationBarTitleText": "公益值", "usingComponents": { "rule-tag": "/pages/My/welfareRule/RuleTag", "step-box": "/pages/My/welfareRule/StepBox", "table": "/pages/My/welfareRule/Table" }, "usingAutoImportComponents": {} }, "pages/My/welfare/index": { "navigationBarTitleText": "公益值明细", "usingComponents": { "end": "/components/End" }, "usingAutoImportComponents": {} }, "pages/My/ranking/index": { "navigationBarTitleText": "小区排名", "usingComponents": { "rank-item": "/pages/My/ranking/RankItem", "user-card": "/pages/My/ranking/UserCard", "top-three": "/pages/My/ranking/TopThree" }, "usingAutoImportComponents": {} }, "pages/Map/map/index": { "navigationBarTitleText": "地图", "usingComponents": { "banner": "/components/Banner", "resources": "/components/Resources", "kitchen-waste": "/components/KitchenWaste" }, "usingAutoImportComponents": {} }, "pages/Setting/icCard/index": { "navigationBarTitleText": "绑定IC卡", "usingComponents": { "simple-address": "/components/simple-address/simple-address", "h-button": "/components/HButton" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/Setting/personal/index": { "navigationBarTitleText": "个人信息", "usingComponents": { "h-button": "/components/HButton" }, "usingAutoImportComponents": {} }, "pages/Setting/myCode/index": { "navigationBarTitleText": "完善信息", "usingComponents": { "simple-address": "/components/simple-address/simple-address", "h-button": "/components/HButton" }, "usingAutoImportComponents": { "simple-address": "/components/simple-address/simple-address" } }, "pages/About/help/index": { "navigationBarTitleText": "帮助中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/aboutUs/index": { "navigationBarTitleText": "关于我们", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/About/guide/index": { "navigationBarTitleText": "引导页", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/App/feedback/index": { "navigationBarTitleText": "意见反馈", "usingComponents": { "h-button": "/components/HButton" }, "usingAutoImportComponents": {} }, "pages/App/accountSecurity/index": { "navigationBarTitleText": "账号与安全", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/App/accountSetting/index": { "navigationBarTitleText": "账号与安全" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小红心", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
 
 /***/ }),
 

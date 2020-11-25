@@ -1,17 +1,17 @@
 <template>
 	<view class="page">
-		<image class="hd-img" src="/imgs/card/family-hd.png" mode=""></image>
+		<image class="hd-img" src="/pages/ICCard/images/family-hd.png" mode=""></image>
 		<view class="f-content">
 			<FamilyTotal  
 				:entry="entry" 
 				:profit="profit" 
 				@click="handler"/>
-			<image class="f-img" src="/imgs/card/family-img.png" mode=""></image>
+			<image class="f-img" src="/pages/ICCard/images/family-img.png" mode=""></image>
 			<!-- 家庭成员 -->
 			<ManagerMembers 
 				:members="members"
 				@onDelHandler="delMember"
-				@onShareHandler="onShareAppMessage"/>
+				@onShareHandler="AppShare"/>
 			<!-- 邀请家人 -->
 			<!-- #ifdef APP-PLUS -->
 			<button class="add-f" @click="AppShare">邀请家人</button>
@@ -57,10 +57,10 @@
 	import { mapMutations } from 'vuex';
 
 	const entry = [
-		{id:1,name:"二维码",icon:"/imgs/card/code.png",handler:'deliveryCode'},
-		{id:2,name:"上传人脸",icon:"/imgs/card/face.png",handler:'uploadFace'},
-		{id:3,name:"规则",icon:"/imgs/card/rule.png",handler:'showRule'},
-		{id:4,name:"家人管理",icon:"/imgs/card/del.png",iconOn:"/imgs/card/del-s.png",handler:'managerMembers'},
+		{id:1,name:"二维码",icon:"/pages/ICCard/images/code.png",handler:'deliveryCode'},
+		{id:2,name:"上传人脸",icon:"/pages/ICCard/images/face.png",handler:'uploadFace'},
+		{id:3,name:"规则",icon:"/pages/ICCard/images/rule.png",handler:'showRule'},
+		{id:4,name:"家人管理",icon:"/pages/ICCard/images/del.png",iconOn:"/pages/ICCard/images/del-s.png",handler:'managerMembers'},
 	]
 	export default{
 		components:{
@@ -101,16 +101,14 @@
 			...mapMutations(['MessageBox']),
 			getAiState(){
 				switchAI().then(res=>{
-					//线上此次结果 true (测试 true)
-					if(res.data===true){
-						this.showAI = true
-						if(this.showAI){
-							this.entry = [].concat(entry)
-						}else{
-							this.entry = entry.filter(v=>{
-								return v.id!==2
-							})
-						}
+					//线上此次结果 true (测试 false)
+					this.showAI = res.data === false ? true : false
+					if(this.showAI){
+						this.entry = [].concat(entry)
+					}else{
+						this.entry = entry.filter(v=>{
+							return v.id!==2
+						})
 					}
 				})
 			},
@@ -128,11 +126,12 @@
 			          }
 			        })
 			      }else{
-			        let { headPic=[],deliver, kwDeliver, isChief} = res.data
+			        let { headPic=[],deliver, kwDeliver, isChief,profit} = res.data
 					this.members = headPic
 					this.deliver = deliver
 					this.kwDeliver = kwDeliver
 					this.isChief = isChief
+					this.profit = profit
 					
 			        headPic.forEach(v=>{
 			          this.userPics[v.userId] = v.headPic ? this.URL + v.headPic : '/static/index/head.png'
@@ -179,16 +178,18 @@
 				this.onManager = !this.onManager
 				
 				//主账号不能删除 主账号可以删除别人 子账号只能删除自己
-				this.members.forEach((v,i)=>{
+				this.members = this.members.reduce((s,v,i)=>{
 					if(i!==0){
 						v.onManager = this.onManager ? (this.isChief==1 ? true : v.userId==this.ownerId ? true : false) : false
 					}
-				})
+					s.push(v)
+					return s
+				},[])
 				// 家人管理
 				this.entry.forEach(v=>{
 					if(v.id===4){
 						v.name= this.onManager ? '完成' : '家人管理'
-						v.icon = this.onManager ? "/imgs/card/del-s.png" :'/imgs/card/del.png'
+						v.icon = this.onManager ? "/pages/ICCard/images/del-s.png" :'/pages/ICCard/images/del.png'
 					}
 				})
 			},
@@ -221,7 +222,7 @@
 					provider:"weixin",
 					title:userInfo.nickName + '，邀请您加入小红心，一起垃圾分类做环保~',
 					scene:"WXSceneSession",//provider 为 weixin 时必选 : WXSceneSession	分享到聊天界面 WXSenceTimeline	分享到朋友圈 WXSceneFavorite	分享到微信收藏
-					imageUrl:"/imgs/card/family-img.png",
+					imageUrl:"/pages/ICCard/images/family-img.png",
 					href:'pages/tabBar/index/index?userId=' + userId + '&familyId=' + familyId+ '&familyName=' + userInfo.nickName + '&photo=' + photo,
 					success:()=>{
 						console.log('分享成功')
@@ -238,7 +239,7 @@
 			return {
 			  path: 'pages/tabBar/index/index?userId=' + userId + '&familyId=' + familyId+ '&familyName=' + userInfo.nickName + '&photo=' + photo,
 			  title: userInfo.nickName + '，邀请您加入小红心，一起垃圾分类做环保~',
-			  imageUrl: '/imgs/card/family-img.png',
+			  imageUrl: '/pages/ICCard/images/family-img.png',
 			}
 		},
 		onPageScroll(e){
@@ -366,6 +367,9 @@
   z-index: 999;
   width: 100%;
   top: 0;
+  /* #ifdef H5 */
+  top: 88rpx;
+  /* #endif */
   background-color: #fff;
   left: 50%;
   transform: translateX(-50%);

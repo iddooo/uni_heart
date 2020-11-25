@@ -6,10 +6,10 @@
 				<image src="/static/index/close.png" mode=""></image>
 			</view>
 			<view class="title">
-				<span>{{messageBox.title}}</span>
+				<text>{{messageBox.title}}</text>
 			</view>
 			<view class="msg" v-if="messageBox.type.toUpperCase() !== 'HTML'">
-				<span>{{messageBox.msg}}</span>
+				<text>{{messageBox.msg}}</text>
 			</view>
 			<view class="msg html" v-else v-html="messageBox.msg"></view>
 			<view :class="['btns','flex-ct-ard',{'single':messageBox.buttons.length === 1}]" v-if="!messageBox.reverse">

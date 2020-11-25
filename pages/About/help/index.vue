@@ -25,13 +25,13 @@
 				>
 				<view class="flex-ct-bwt" @click="fold(item)">
 					<view class="flex-ct q">
-						<image class="icon-l" src="/imgs/about/qustion.png" mode=""></image>
+						<image class="icon-l" src="/pages/About/images/qustion.png" mode=""></image>
 						<view>{{item.question}}</view>
 					</view>
 					<view class="arrow"></view>
 				</view>
 				<view class="a" v-show="actives.includes(item.id)">
-					<image class="icon-l" src="/imgs/about/answer.png" mode=""></image>
+					<image class="icon-l" src="/pages/About/images/answer.png" mode=""></image>
 					<view class="a-text">{{item.answer}}</view>
 				</view>
 			</view>
@@ -49,14 +49,14 @@
 					{
 						id:1,
 						title:"官方客服电话",
-						bg:"/imgs/about/back-left.png",
-						icon:"/imgs/about/phone.png",
+						bg:"/pages/About/images/back-left.png",
+						icon:"/pages/About/images/phone.png",
 						subTitle:"400-970-0989"
 					},
 					{
 						title:"在线客服",
-						bg:"/imgs/about/back-right.png",
-						icon:"/imgs/about/helper.png",
+						bg:"/pages/About/images/back-right.png",
+						icon:"/pages/About/images/helper.png",
 						subTitle:"09:00-17:30"
 					}
 				],

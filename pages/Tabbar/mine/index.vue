@@ -96,7 +96,7 @@
 		  <view class="code-ctn">
 			<canvas class="code" :style="{'width':qrcode_s_w + 'px','height':qrcode_s_H + 'px'}" canvas-id="shareCanvas"></canvas>
 			<view class="line">仅可用于督导员验证身份信息</view>
-			<view class="save-btn" bindtap="saveMyCode">保存二维码</view>
+			<view class="save-btn" @click="saveMyCode">保存二维码</view>
 		  </view>
 		</view>
 		  
@@ -129,8 +129,8 @@
 					{id:3, name:"环保金明细",image:"/static/mine/gold.png",url:"/pages/My/gold/index",need:true},
 					{id:4, name:"帮助中心",image:"/static/mine/help.png",url:"/pages/About/help/index"},
 					{id:5, name:"二维码分享",image:"/static/mine/sharecode.png",url:undefined,callback:"showTips"},
-					{id:6, name:"意见反馈",image:"/static/mine/feedback.png",url:undefined},//app新增
-					{id:7, name:"账户与安全",image:"/static/mine/secure.png",url:undefined},
+					{id:6, name:"意见反馈",image:"/static/mine/feedback.png",url:"/pages/App/feedback/index"},//app新增
+					{id:7, name:"账户与安全",image:"/static/mine/secure.png",url:"/pages/App/accountSecurity/index"},
 					{id:8, name:"关于我们",image:"/static/mine/us.png",url:"/pages/About/aboutUs/index"},
 				],
 				isFinish:false, //二维码分享，供督导员扫码
@@ -270,14 +270,22 @@
 							// console.log('fail tempfilepath',res)
 						  },
 						  success: function (res) {
-							// console.log(res);
-							this.codeFilePath= res.tempFilePath
+							that.codeFilePath= res.tempFilePath
+							// console.log(res,that.codeFilePath);
 						  }
 						})
 					}
 				})
 			},
 			saveMyCode(){
+				// #ifdef H5
+				var link = document.createElement('a');
+				link.href = this.codeFilePath;
+				link.download = 'code.jpg';
+				link.click();
+				// #endif
+				
+				// #ifndef H5
 				uni.saveImageToPhotosAlbum({
 					filePath: this.codeFilePath,
 					success: (res) => {
@@ -289,12 +297,15 @@
 						this.show=false
 					},
 					fail: (err) => {
+						console.log(err);
 						uni.showToast({
 							title: '保存失败',
 							icon:"none"
 						})
 					}
 				})
+				// #endif
+				
 			},
 		}
 		
@@ -314,6 +325,7 @@
 	  background: rgba(0, 0, 0, 0.4043);
 	  z-index: 9999;
 	  z-index: 9;
+	  transition: all 1s;
 	}
 	.content {
 	  width: 610rpx;
@@ -324,7 +336,7 @@
 	  margin-left: -305rpx;
 	  transform: translateY(200%);
 	  z-index: 99999;
-	  transition: 1s;
+	  transition: .5s;
 	}
 	.block{
 		transform: translateY(-50%);

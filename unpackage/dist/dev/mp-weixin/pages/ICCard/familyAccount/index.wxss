@@ -116,6 +116,7 @@
   z-index: 999;
   width: 100%;
   top: 0;
+
   background-color: #fff;
   left: 50%;
   -webkit-transform: translateX(-50%);

@@ -31,8 +31,8 @@
 	overflow: hidden;
 }
 .headpic.data-v-4115b846{
-	width: 100%;
-	height: 100%;
+	width: 116rpx;
+	height: 116rpx;
 }
 .info.data-v-4115b846{
 	padding-left: 26rpx;

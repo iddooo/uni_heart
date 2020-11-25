@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<image class="logo" src="/imgs/authorize/weixin.png" mode="widthFix" />
+		<image class="logo" src="/pages/Authorize/images/wx.png" mode="widthFix" />
 		<view class="title">微信授权页面</view>
 		<view class="profile">{{tip}}</view>
 	

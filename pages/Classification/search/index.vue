@@ -58,7 +58,7 @@
 				        type: 1,
 				        typeName: "可回收垃圾",
 				        englishWords: "RECYCLABLE",
-				        imgicon: "/static/ai/recycle-w.png",
+				        imgicon: "/pages/Classification/recycle-w.png",
 				        img: "/static/index/recycle.png",
 				        des: "可回收物可在小红心智能分类回收机进行回收。",
 				        bgClass: "blue"
@@ -67,7 +67,7 @@
 				        type: 2,
 				        typeName: "有害垃圾",
 				        englishWords: "HAZARDOUS WASTE",
-				        imgicon: "/static/ai/harm-w.png",
+				        imgicon: "/pages/Classification/harm-w.png",
 				        img: "/static/index/harm.png",
 				        des: "有害垃圾可在小红心智能分类回收机进行回收。",
 				        bgClass: "red"
@@ -76,7 +76,7 @@
 				        type: 3,
 				        typeName: "厨余垃圾",
 				        englishWords: "PERISHABLE WASTE",
-				        imgicon: "/static/ai/kw-w.png",
+				        imgicon: "/pages/Classification/kw-w.png",
 				        img: "/static/index/kw.png",
 				        des: "厨余垃圾可在小红心智能垃圾箱上进行回收，不仅垃圾袋免费，而且还送积分哦~",
 				        bgClass: "green"
@@ -85,7 +85,7 @@
 				        type: 4,
 				        typeName: "其他垃圾",
 				        englishWords: "OTHER WASTE",
-				        imgicon: "/static/ai/other-w.png",
+				        imgicon: "/pages/Classification/other-w.png",
 				        img: "/static/index/other.png",
 				        des: "其他垃圾可在小红心智能垃圾箱上进行回收，不仅垃圾袋免费，而且还送积分哦~",
 				        bgClass: "grey"
@@ -129,9 +129,11 @@
 						if(this.hasNextPage) ++this.page
 					})
 				},
+				reset(){
+					this.keyword = undefined
+				},
 				// 搜索
 				inputkwd(e){
-					console.log(e);
 					let k = e.detail.value
 					this.keyword = k
 					searchKeywords(k).then(res=>{
@@ -140,9 +142,6 @@
 							this.isFadeback = false
 						}
 					})
-				},
-				reset(){
-					this.keyword = undefined
 				},
 				cancel(){
 					uni.switchTab({

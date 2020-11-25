@@ -13,7 +13,7 @@
 					<view class="flex">
 						<view class="pic radius">
 							<!-- #ifdef MP-WEIXIN -->
-								<open-data class="headpic" type="userheadPicUrl"></open-data>
+								<open-data class="headpic" type="userAvatarUrl"></open-data>
 							<!-- #endif -->
 							<!-- #ifndef MP-WEIXIN -->
 								<image v-if="userInfo.headPic" class="headpic"  :src="userInfo.headPic" mode=""></image>
@@ -53,25 +53,25 @@
 			<view class="flex-ct-bwt share-type">
 				<!-- #ifdef MP-WEIXIN -->
 					<button open-type="share">
-						<image src="/imgs/card/weixin.png"></image>
+						<image src="/pages/ICCard/images/weixin.png"></image>
 						<view>微信好友</view>
 					</button>
 				<!-- #endif -->
 				<!-- #ifdef APP-PLUS -->
 					<button @click="AppShare">
-						<image src="/imgs/card/weixin.png"></image>
+						<image src="/pages/ICCard/images/weixin.png"></image>
 						<view>微信好友</view>
 					</button>
 				<!-- #endif -->
 				<!-- #ifdef H5 -->
 					<button @click="saveImage">
-						<image src="/imgs/card/weixin.png"></image>
+						<image src="/pages/ICCard/images/weixin.png"></image>
 						<view>微信好友</view>
 					</button>
 				<!-- #endif -->
 			
 				<button @click="AppShareTimeLine">
-					<image src="/imgs/card/timeline.png"></image>
+					<image src="/pages/ICCard/images/timeline.png"></image>
 					<view>朋友圈</view>
 				</button>
 			
@@ -120,31 +120,19 @@
 				codeImg0:undefined
 			}
 		},
-		onLoad() {
-			// 设备像素比
-			uni.getSystemInfo({
-				success:(res)=>{
-					let windowWidth = res.windowWidth
-					var rate = 750 / windowWidth 
-					this.rate = rate
-					this.qrcode_w = 452 / rate //轮播图二维码宽高
-					this.qrcode_s_w = 690 / rate //分享图片宽
-					this.qrcode_s_H = 976 / rate //分享图片高
-					this.init()
-				}
-			})
-			// 创建context实例
-			this.context = uni.createCanvasContext('shareCanvas', this)
-		},
 		onShow() {
 			let userInfo = uni.getStorageSync('userInfo')
 			this.userInfo = userInfo
-			// this.validate()
+			this.validate()
+			// 创建context实例
+			this.context = uni.createCanvasContext('shareCanvas', this)
 		},
 		methods:{
 			// 验证是否可是使用二维码
 			validate(){
-				getICRemianDays(userInfo.phone).then(res=>{
+				uni.showLoading()
+				getICRemianDays(this.userInfo.phone).then(res=>{
+					uni.hideLoading()
 					if(res.code==1){
 						if(!res.data){
 							uni.showModal({
@@ -160,12 +148,19 @@
 							return
 						}
 						this.cardNO = res.data.sno
+						// 设备像素比
+						const windowWidth = uni.getSystemInfoSync().windowWidth;
+						var rate = 750 / windowWidth
+						this.rate = rate
+						this.qrcode_w = 452 / rate //轮播图二维码宽高
+						this.qrcode_s_w = 690 / rate //分享图片宽
+						this.qrcode_s_H = 976 / rate //分享图片高
+						this.init()
 					}
 				})
 			},
 			// 绘制厨余与其他二维码
 			init(){
-				console.log(1);
 				var that = this
 				// 家庭二维码
 				 // 厨余：“XHX”+用户id+“ID”+000+0
@@ -175,7 +170,7 @@
 			
 				let canvas0 = String('XHX' + userId + 'ID').padEnd(11,0) + '0'
 				let canvas1 = String('XHX' + userId + 'ID').padEnd(11,0) + '5'
-				console.log(canvas0,canvas1)
+				console.log(this.qrcode_w,canvas0,canvas1,drawQrcode);
 				drawQrcode({
 				  width: this.qrcode_w,
 				  height: this.qrcode_w,
@@ -225,8 +220,8 @@
 				this.show  = true
 				let that = this
 				let rate = this.rate
-				let bg = '/imgs/card/share-bg.png'
-				let icon = '/imgs/card/share-icon.png'
+				let bg = '/pages/ICCard/images/share-bg.png'
+				let icon = '/pages/ICCard/images/share-icon.png'
 				this.drawImg(bg, 0, 0, 690, 976)
 				this.drawImg(this.codeImg0, 246, 194, 200, 200)
 				this.drawImg(icon,322, 270, 48, 48)
@@ -234,35 +229,40 @@
 				this.drawImg(icon,322, 662, 48, 48)
 			
 				//用户 头像 昵称 cardNO
-				let {nickname, headPic, cardNO} = this.userInfo
+				let {nickname, headPic} = this.userInfo
+				let cardNO = this.cardNO
+				if(!headPic){
+					headPic = '/static/index/head.png'
+				}
 			
 				let usernameObj = {x: 154,y: 65,size: 30,color: '#3B3B3B',align: 'left',text: nickname,bold: true,baseline:"middle"};
 				this.drawText(usernameObj);
 			
-				let cardObj = { x: 154, y: 112, size: 20, color: '#909090', align: 'left', text: 'IC卡号：'+cardNO, baseline: 'middle'}
+				let cardObj = { x: 154, y: 112, size: 20, color: '#909090', align: 'left', text: 'IC卡号：'+ cardNO, baseline: 'middle'}
 				this.drawText(cardObj);
 			
 				let circle = { x: 84 / rate, y: 84 / rate, r: 44 / rate }
 				this.context.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
 				this.context.clip()
 				this.drawImg(headPic,40, 40, 88, 88)
-			
+				
+				
 				this.context.draw(false, () => {
-				  setTimeout(()=>{
 					this.getTempFilePath()
-				  }, 200)})
+				})
 			  },
 			getTempFilePath(){
-			     uni.canvasToTempFilePath({
+				let that = this
+			    uni.canvasToTempFilePath({
 			       canvasId: 'shareCanvas',
 			       fail: function (res) {
 						console.log(res)
 			       },
 			       success: (res)=>{
-			           this.familyCodeImg = res.tempFilePath
+			           that.familyCodeImg = res.tempFilePath
 			       }
-			     })
-			   },
+			    })
+			},
 			// 画图函数
 			drawImg(img,x,y,w,h){
 				var rate = this.rate
@@ -294,7 +294,7 @@
 			AppShareTimeLine(){
 				uni.share({
 					provider:"weixin",
-					title:垃圾箱投递码,
+					title:'垃圾箱投递码',
 					scene:"WXSenceTimeline",//provider 为 weixin 时必选 : WXSceneSession	分享到聊天界面 WXSenceTimeline	分享到朋友圈 WXSceneFavorite	分享到微信收藏
 					imageUrl:this.familyCodeImg,
 					href:'/pages/iCCard/deliveryCode/index',
@@ -306,23 +306,31 @@
 			// 保存图片
 			saveImage(){
 			    let that = this
-			    uni.saveImageToPhotosAlbum({
-			      filePath: this.familyCodeImg,
-			      success: (res) => {
-			        wx.showToast({
-			          title: '图片已保存至相册',
-			          icon: 'success',
-			          duration: 2000
-			        })
-			        that.setData({
-			          canvasHidden:true,
-			        })
-			      },
-			      fail: (err) => {
-			        console.log(err)
-			      }
-			    })
-			    
+				uni.canvasToTempFilePath({
+				  canvasId: 'shareCanvas',
+				  fail: function (res) {
+					console.log(res)
+				  },
+				  success: (res)=>{
+				      this.familyCodeImg = res.tempFilePath
+					  uni.saveImageToPhotosAlbum({
+					    filePath: this.familyCodeImg,
+					    success: (res) => {
+					      wx.showToast({
+					        title: '图片已保存至相册',
+					        icon: 'success',
+					        duration: 2000
+					      })
+					      that.setData({
+					        canvasHidden:true,
+					      })
+					    },
+					    fail: (err) => {
+					      console.log(err)
+					    }
+					  })
+				  }
+				})
 			  },
 		},
 		// 微信分享
@@ -370,8 +378,8 @@
 		overflow: hidden;
 	}
 	.headpic{
-		width: 100%;
-		height: 100%;
+		width: 116rpx;
+		height: 116rpx;
 	}
 		
 	.info{

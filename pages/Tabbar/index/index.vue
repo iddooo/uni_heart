@@ -54,12 +54,40 @@
 			<view class="title mbt-50">请先登录</view>
 			<HButton size="big" @click="goAuthority">登录/注册</HButton>
 		</view>
+		
+		<!-- 确认邀请 -->
+		<view class="add-f-box" v-if="fInvite">
+			<view class="content-box">
+				<view class="img-box">
+					<image v-if="family.photo" :src="family.photo"></image>
+					<image v-else src="/static/index/head.png"></image>
+				</view>
+				<view class="family-name">{{family.familyName}}</view>
+				<view class="ivit">邀你加入家庭账号</view>
+				<image class="f-left" src="/static/index/i-left.png"></image>
+				<image class="f-right" src="/static/index/i-right.png"></image>
+				<view class="f-house">
+					<image src="/static/index/i-house.png"></image>
+					<view class="des">一个账号 全家使用</view>
+				</view>
+				<view class="f-family">
+					<image src="/static/index/i-family.png"></image>
+					<view class="des">成员上传人 脸即可投递</view>
+				</view>
+				<view @click="acceptJoin" class="accept">接受</view>
+				<view @click="rejectJoin" class="reject">拒绝</view>
+				<view class="close-f" @click="rejectJoin">
+					<image src="/static/index/close-f.png"></image>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
 	const api = require('.../../../api/index.js')
 	let { getBanners, getNearest, getClassify, getNearestKc, myMoney, getAllRank, deliveringToken,userDelivering } = api
+	import { postCode } from '../../../api/login.js'
 	import { goLoginPageTimeOut } from '../../../common/index.js'
 	import Banner from '../../../components/Banner.vue'
 	import HButton from '../../../components/HButton.vue'
@@ -146,15 +174,29 @@
 					{id:2,name:"环保金排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-2.png"},
 					{id:1,name:"投递次数排名",ranking:"1",url:"/pages/My/ranking/index",imgUrl:"/static/index/rank-3.png",pics:[]},
 				],
-				item6:false
-				
+				item6:false,
+				family:{},
+				fInvite:false
 			}
 		},
 		onLoad(e) {
-			// console.log(e)
-			//首页启动存储被分享人的id
-			let invitedId = e.userId
-			uni.setStorageSync('invitedId',invitedId)
+			console.log(e)
+			// 分享邀请 or 通过分享邀请加入家庭账户
+			if (e.userId) {
+			  uni.setStorageSync('invitedId', e.userId)
+			}
+			// #ifdef MP-WEIXIN
+				if(e.familyId){
+					uni.setStorageSync('familyId', e.familyId)
+					uni.setStorageSync('family', e)
+					this.family = e
+					this.fInvite = true
+				}else if(uni.getStorageSync('familyId')){
+					console.log('先关闭后加入')
+					this.family = uni.getStorageSync('family')
+					this.fInvite = true
+				}
+			// #endif
 		},
 		onShow(){
 			// 轮播图
@@ -172,6 +214,57 @@
 			this.getRank()
 		},
 		methods: {
+			acceptJoin(){
+				let that = this
+				let userInfo =  uni.getStorageSync('userInfo')
+				if(!userInfo){
+				  console.log('登录注册并加入家庭')
+				  app.goLoginPageTimeOut()
+				  return
+				}
+			
+				uni.login({
+				      success: function(res) {
+				        // 获取登陆凭证换取openid等信息
+				        let invitedId = uni.getStorageSync('invitedId')
+				        let familyId = uni.getStorageSync('familyId')
+				        // 后台请求登录参数
+				        let params = {
+				          name: userInfo.nickname,
+				          sex: userInfo.gender,
+				          code: res.code,
+				          invitedId: invitedId,
+				          familyId:familyId
+				        }
+				        postCode(params).then(res=>{
+				          if(res.code==1){
+				            //加入成功 删除familyId
+				            uni.removeStorageSync('familyId')
+				            uni.showToast({
+				              title: '恭喜您成功加入家庭账户',
+				              icon: 'none',
+				            })
+				
+				            setTimeout(() => {
+				              uni.navigateTo({
+				                url: '/pages/ICCard/familyAccount/index',
+				              })
+				            }, 200);
+				          }else{
+				            uni.showToast({
+				              title: res.message,
+				            })
+				          }
+						  this.fInvite = false
+				        })
+				      }
+				    })
+			},
+			rejectJoin(){
+				uni.removeStorageSync('familyId')
+				uni.removeStorageSync('family')
+				this.fInvite = false
+			},
 			getRank(){
 				getAllRank().then(res=>{
 					this.rank[0].ranking = res.data.welfareRank || '--'
@@ -539,6 +632,131 @@
 		
 	.not-login.mbt-50{
 		margin-bottom: 50rpx;
+	}
+	
+	.add-f-box {
+	  position: fixed;
+	  left: 0;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: rgba(0, 0, 0, .6);
+	  z-index: 999;
+	}
+	
+	.content-box {
+	  text-align: center;
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  transform: translate(-50%, -50%);
+	  width: 654rpx;
+	  height: 710rpx;
+	  background: rgba(249, 249, 249, 1);
+	  border-radius: 10rpx;
+	}
+	
+	.img-box {
+	  position: absolute;
+	  left: 50%;
+	  top: 0;
+	  transform: translate(-50%, -50%);
+	  width: 170rpx;
+	  height: 170rpx;
+	  border: 5rpx solid #fff;
+	  border-radius: 50%;
+	  background-color: #fff;
+	  overflow: hidden;
+	}
+	.img-box image{
+		width: 100%;
+		height: 100%;
+	}
+	
+	.family-name {
+	  font-size: 36rpx;
+	  font-family: PingFangSC-Medium, PingFang SC;
+	  font-weight: 500;
+	  color: rgba(51, 51, 51, 1);
+	  line-height: 50rpx;
+	  padding-top: 106rpx;
+	  margin-bottom: 40rpx;
+	}
+	
+	.ivit {
+	  font-size: 36rpx;
+	  font-family: PingFangSC-Medium, PingFang SC;
+	  font-weight: 500;
+	  color: rgba(51, 51, 51, 1);
+	  line-height: 50rpx;
+	  margin-bottom: 282rpx;
+	}
+	
+	.f-left ,.f-right {
+	  position: absolute;
+	  top: 204rpx;
+	  width: 72rpx;
+	  height: 34rpx;
+	}
+	
+	.f-left {
+	  left: 90rpx;
+	}
+	
+	.f-right {
+	  right: 90rpx;
+	}
+	.f-house,.f-family{
+	  position: absolute;
+	  top: 296rpx;
+	  font-size:26rpx;
+	  color:rgba(30,30,30,1);
+	  line-height:36rpx;
+	}
+	.f-house {
+	  left: 104rpx;
+	  width: 106rpx;
+	}
+	.f-family{
+	  right: 104rpx;
+	  width: 134rpx;
+	}
+	.f-house image,.f-family image{
+	  width: 102rpx;
+	  height: 102rpx;
+	  margin-bottom: 8rpx;
+	}
+	.accept,.reject{
+	  width:554rpx;
+	  height:80rpx;
+	  border-radius:4rpx;
+	  line-height: 80rpx;
+	  text-align: center;
+	  margin: 0 auto;
+	  font-size: 32rpx;
+	}
+	.accept{
+	  background:rgba(255,95,98,1);
+	  color: #fff;
+	
+	}
+	.reject{
+	  color: #909090;
+	}
+	
+	.close-f{
+	  position: absolute;
+	  width: 90rpx;
+	  height: 90rpx;
+	  padding: 10rpx;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  bottom: -126rpx;
+	}
+	.close-f image{
+	  width: 70rpx;
+	  height: 70rpx;
+	  display: block;
 	}
 	
 </style>

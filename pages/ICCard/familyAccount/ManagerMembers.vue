@@ -9,7 +9,7 @@
 					<image v-else class="user-photo" src="/static/index/head.png" mode=""></image>
 				</view>
 				<view @click="delMember(item.userId)" class="minus" v-show="item.onManager">
-					<image src="/imgs/card/minus.png"></image>
+					<image src="/pages/ICCard/images/minus.png"></image>
 				</view>
 			</view>
 			<view class="font24">
@@ -22,16 +22,31 @@
 				<image class="gold-icon" src="/static/money/gold.png" mode=""></image>
 			</view>
 		</view>
-		<view class="member" @click="handlerShare">
+		<!-- 邀请家人 -->
+		<!-- #ifdef APP-PLUS -->
+		<button class="member" @click="handlerShare">
 			<view class="head-pic">
 				<view class="pic-box flex-ct-ct">
-					<image class="add-icon" src="/imgs/card/add.png" mode=""></image>
+					<image class="add-icon" src="/pages/ICCard/images/add.png" mode=""></image>
 				</view>
 			</view>
 			<view class="add">
 				添加
 			</view>
-		</view>
+		</button>
+		<!-- #endif -->
+		<!-- #ifndef APP-PLUS -->
+		<button class="member" open-type="share">
+			<view class="head-pic">
+				<view class="pic-box flex-ct-ct">
+					<image class="add-icon" src="/pages/ICCard/images/add.png" mode=""></image>
+				</view>
+			</view>
+			<view class="add">
+				添加
+			</view>
+		</button>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -65,6 +80,15 @@
 </script>
 
 <style lang="scss" scoped>
+	button{
+		border: 0;
+		padding: 0;
+		margin: 0;
+		background-color: transparent;
+	}
+	button::after{
+		border: 0;
+	}
 	.font24{
 		font-size: 24rpx;
 		color: #1E1E1E;

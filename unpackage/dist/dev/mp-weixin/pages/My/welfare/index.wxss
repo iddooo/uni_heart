@@ -24,10 +24,10 @@
 	font-weight: bold;
 	line-height: 38px;
 }
-.red.data-v-37ed0f7f{
+.f-red.data-v-37ed0f7f{
 	color: #FF5F62;
 }
-.blue.data-v-37ed0f7f{
+.f-blue.data-v-37ed0f7f{
 	color: #44D7B6;
 }
 

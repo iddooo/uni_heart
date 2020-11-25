@@ -5,7 +5,7 @@
 			<icon class="search-icon" type="search" color="#333" size="14"></icon>
 			<input :disabled="disabled" class="weui-input" placeholder-class="plc" @input="onInput" @confirm="onConfirm" confirm-type="搜索" :value="value" placeholder="请输入识别的垃圾名称" />
 			<view class="reset" @click="reset">
-				<image src="/static/index/clear.png" mode=""></image>
+				<!-- <image src="/static/index/clear.png" mode=""></image> -->
 			</view>
 		</view>
 		<slot></slot>
@@ -17,6 +17,7 @@
 		props:['value','disabled'],
 		methods:{
 			reset(){
+				console.log('reset');
 				this.$emit('reset')
 			},
 			onInput(e){

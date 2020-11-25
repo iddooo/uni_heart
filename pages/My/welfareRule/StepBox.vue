@@ -2,7 +2,7 @@
 	<view class="step-box">
 		<view class="progress-box">
 			<view class="alert-box" :style="{left:percent +'%'}">
-				<image src="/imgs/welfare/alert.png" mode=""></image>
+				<image src="/pages/My/images/alert.png" mode=""></image>
 				<text>{{data}}</text>
 			</view>
 			<progress :percent="percent" border-radius="40" activeColor="#FF5F62" backgroundColor="#E8E8E8" stroke-width="2" />
@@ -16,10 +16,10 @@
 					'red' : data >= l.maximum,
 					'on':data >= l.gold && data < l.maximum
 					}">
-					<image src="/imgs/welfare/on.png" mode=""></image>
+					<image src="/pages/My/images/on.png" mode=""></image>
 				</view>
 				<view class="star">
-					<image src="/imgs/welfare/star.png" mode=""></image>
+					<image src="/pages/My/images/star.png" mode=""></image>
 					<text>{{i}}</text>
 				</view>
 				<view class="name">

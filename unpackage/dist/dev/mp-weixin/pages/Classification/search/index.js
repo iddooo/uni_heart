@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _index = __webpack_require__(/*! ../../../api/index.js */ 30); //
+var _index = __webpack_require__(/*! ../../../api/index.js */ 32); //
 //
 //
 //
@@ -222,7 +222,7 @@ var _index = __webpack_require__(/*! ../../../api/index.js */ 30); //
 //
 //
 //
-var SearchBox = function SearchBox() {return __webpack_require__.e(/*! import() | components/SearchBox */ "components/SearchBox").then(__webpack_require__.bind(null, /*! ../../../components/SearchBox.vue */ 534));};var KeywordsList = function KeywordsList() {return __webpack_require__.e(/*! import() | components/KeywordsList */ "components/KeywordsList").then(__webpack_require__.bind(null, /*! ../../../components/KeywordsList.vue */ 555));};var _default = { components: { SearchBox: SearchBox, KeywordsList: KeywordsList }, data: function data() {return { classify: [{ type: 1, typeName: "可回收垃圾", englishWords: "RECYCLABLE", imgicon: "/static/ai/recycle-w.png", img: "/static/index/recycle.png", des: "可回收物可在小红心智能分类回收机进行回收。", bgClass: "blue" }, { type: 2, typeName: "有害垃圾", englishWords: "HAZARDOUS WASTE", imgicon: "/static/ai/harm-w.png", img: "/static/index/harm.png", des: "有害垃圾可在小红心智能分类回收机进行回收。", bgClass: "red" }, { type: 3, typeName: "厨余垃圾", englishWords: "PERISHABLE WASTE", imgicon: "/static/ai/kw-w.png", img: "/static/index/kw.png", des: "厨余垃圾可在小红心智能垃圾箱上进行回收，不仅垃圾袋免费，而且还送积分哦~", bgClass: "green" }, { type: 4, typeName: "其他垃圾", englishWords: "OTHER WASTE", imgicon: "/static/ai/other-w.png", img: "/static/index/other.png", des: "其他垃圾可在小红心智能垃圾箱上进行回收，不仅垃圾袋免费，而且还送积分哦~",
+var SearchBox = function SearchBox() {return __webpack_require__.e(/*! import() | components/SearchBox */ "components/SearchBox").then(__webpack_require__.bind(null, /*! ../../../components/SearchBox.vue */ 536));};var KeywordsList = function KeywordsList() {return __webpack_require__.e(/*! import() | components/KeywordsList */ "components/KeywordsList").then(__webpack_require__.bind(null, /*! ../../../components/KeywordsList.vue */ 557));};var _default = { components: { SearchBox: SearchBox, KeywordsList: KeywordsList }, data: function data() {return { classify: [{ type: 1, typeName: "可回收垃圾", englishWords: "RECYCLABLE", imgicon: "/pages/Classification/recycle-w.png", img: "/static/index/recycle.png", des: "可回收物可在小红心智能分类回收机进行回收。", bgClass: "blue" }, { type: 2, typeName: "有害垃圾", englishWords: "HAZARDOUS WASTE", imgicon: "/pages/Classification/harm-w.png", img: "/static/index/harm.png", des: "有害垃圾可在小红心智能分类回收机进行回收。", bgClass: "red" }, { type: 3, typeName: "厨余垃圾", englishWords: "PERISHABLE WASTE", imgicon: "/pages/Classification/kw-w.png", img: "/static/index/kw.png", des: "厨余垃圾可在小红心智能垃圾箱上进行回收，不仅垃圾袋免费，而且还送积分哦~", bgClass: "green" }, { type: 4, typeName: "其他垃圾", englishWords: "OTHER WASTE", imgicon: "/pages/Classification/other-w.png", img: "/static/index/other.png", des: "其他垃圾可在小红心智能垃圾箱上进行回收，不仅垃圾袋免费，而且还送积分哦~",
         bgClass: "grey" }],
 
       classifyList: [],
@@ -264,9 +264,11 @@ var SearchBox = function SearchBox() {return __webpack_require__.e(/*! import() 
         if (_this.hasNextPage) ++_this.page;
       });
     },
+    reset: function reset() {
+      this.keyword = undefined;
+    },
     // 搜索
     inputkwd: function inputkwd(e) {var _this2 = this;
-      console.log(e);
       var k = e.detail.value;
       this.keyword = k;
       (0, _index.searchKeywords)(k).then(function (res) {
@@ -275,9 +277,6 @@ var SearchBox = function SearchBox() {return __webpack_require__.e(/*! import() 
           _this2.isFadeback = false;
         }
       });
-    },
-    reset: function reset() {
-      this.keyword = undefined;
     },
     cancel: function cancel() {
       uni.switchTab({

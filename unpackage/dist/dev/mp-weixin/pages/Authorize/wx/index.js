@@ -1,4 +1,4 @@
-require('../common/vendor.js');(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/Authorize/wx/index"],{
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/Authorize/wx/index"],{
 
 /***/ 83:
 /*!*****************************************************************************************!*\
@@ -148,7 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _login = __webpack_require__(/*! ../../../api/login.js */ 80); //
+var _login = __webpack_require__(/*! ../../../api/login.js */ 30); //
 //
 //
 //
@@ -331,5 +331,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[[83,"common/runtime","common/vendor","pages/Authorize/common/vendor"]]]);
+},[[83,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../../.sourcemap/mp-weixin/pages/Authorize/wx/index.js.map

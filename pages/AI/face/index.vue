@@ -8,7 +8,7 @@
 			<view class="sub-title">
 				*照片要保证清晰光线充足
 			</view>
-			<image class="face-tip" src="/static/ai/face-tip.png" mode=""></image>
+			<image class="face-tip" src="/pages/AI/images/face-tip.png" mode=""></image>
 			<view class="flex-ct-bwt tip-text">
 				<text>不能配戴墨镜</text>
 				<text>不能遮挡脸部</text>
@@ -29,7 +29,7 @@
 			</view>
 			<HButton @click="takePicture">重新拍摄</HButton>
 			<view class="msg-tip flex-ct-ct" @click="showTips">
-				<image src="/static/ai/msg-tip.png" mode=""></image>
+				<image src="/pages/AI/images/msg-tip.png" mode=""></image>
 				人脸录入须知
 			</view>
 		</view>

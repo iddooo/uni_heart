@@ -1,8 +1,8 @@
 <template>
 	<view class="page">
 		<view class="head">
-			<image class="bg" src="/imgs/welfare/headbg.png" mode=""></image>
-			<image class="level" :src='"/imgs/welfare/level-icon-"+ 1 +".png"' mode=""></image>
+			<image class="bg" src="/pages/My/images/headbg.png" mode=""></image>
+			<image class="level" :src='"/pages/My/images/level-icon-"+ 1 +".png"' mode=""></image>
 			<RuleTag @click="linkToWelfare" />
 		</view>
 		<StepBox :data="currWelfare" :percent="percent" :levels="levels"/>

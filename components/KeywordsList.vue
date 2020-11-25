@@ -7,7 +7,7 @@
 			{{item.name}}
 		</view>
 		<view class="no-container" v-show="data.length===0">
-			<image class="no-res" src="/static/ai/nores.png"></image>
+			<image class="no-res" src="/static/index/nores.png"></image>
 			<view class="no-words">抱歉，未找到该垃圾</view>
 			<view v-if="!isFadeback" @click="fadeback" class="no-words">点击此处反馈“{{keyword}}”让小红心收录</view>
 			<view v-else class="no-words">感谢您的反馈</view>

@@ -89,6 +89,14 @@
         "aboutUs/index",
         "guide/index"
       ]
+    },
+    {
+      "root": "pages/App",
+      "pages": [
+        "feedback/index",
+        "accountSecurity/index",
+        "accountSetting/index"
+      ]
     }
   ],
   "window": {

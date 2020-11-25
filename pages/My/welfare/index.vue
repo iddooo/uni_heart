@@ -8,7 +8,7 @@
 			<view class="time">
 				{{item.createTime}}
 			</view>
-			<view :class="['num',item.type?'red':'blue']">
+			<view :class="['num',item.type?'f-red':'f-blue']">
 				{{item.type ? '+' : '-'}}{{item.score}}
 			</view>
 		</view>
@@ -91,10 +91,10 @@
 		font-weight: bold;
 		line-height: 38px;
 	}
-	.red{
+	.f-red{
 		color: #FF5F62;
 	}
-	.blue{
+	.f-blue{
 		color: #44D7B6;
 	}
 </style>
