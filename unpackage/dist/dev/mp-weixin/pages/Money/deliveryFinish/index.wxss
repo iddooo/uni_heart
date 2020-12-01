@@ -68,7 +68,8 @@
 	margin-top: 182rpx;
 	width:382rpx;
 	height:80rpx;
-	border-radius:4rpx;
+	-webkit-border-radius:4rpx;
+	        border-radius:4rpx;
 	border:2rpx solid rgba(255,95,98,1);
 	line-height: 80rpx;
 	color: rgba(255,95,98,1);

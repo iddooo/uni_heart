@@ -1,5 +1,5 @@
 
-.form-item.data-v-4d9e2cb1{
+.form-item.data-v-4c948692{
 	border-bottom: 2rpx solid #F6F6F6;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -9,13 +9,13 @@
 	        align-items: center;
 	padding: 24rpx 0;
 }
-.label.data-v-4d9e2cb1{
+.label.data-v-4c948692{
 	width: 172rpx;
 	font-size: 28rpx;
 	color: #333333;
 	line-height: 40rpx;
 }
-.content.data-v-4d9e2cb1{
+.content.data-v-4c948692{
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	        flex: 1;

@@ -1,14 +1,14 @@
 
-.mtp.data-v-0051408f{
+.mtp.data-v-e72e5ed6{
 	margin-top: 200rpx;
 }
 /* input框样式 */
-.txt.data-v-0051408f{
+.txt.data-v-e72e5ed6{
 	font-size:28rpx;
 	color:#333333;
 	line-height:40rpx;
 }
-input.data-v-0051408f{
+input.data-v-e72e5ed6{
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	        flex: 1;
@@ -18,7 +18,7 @@ input.data-v-0051408f{
 	line-height:40rpx;
 }
 /* end---- */
-.txt.data-v-0051408f{
+.txt.data-v-e72e5ed6{
 	font-size:28rpx;
 	color:#333333;
 	line-height:40rpx;

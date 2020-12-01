@@ -132,7 +132,8 @@
 	  	padding: 2rpx 10rpx;
 	  	display:  inline-block;
 	  	margin-left: 12rpx;
-		border-radius:6rpx;
+		-webkit-border-radius:6rpx;
+		        border-radius:6rpx;
 }
 /* 青铜 */
 .level-0{

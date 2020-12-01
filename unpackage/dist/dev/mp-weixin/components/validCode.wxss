@@ -1,4 +1,7 @@
 
+.valid-code{
+	width: 100%;
+}
 .valid-code .item{
 	/* width:136rpx; */
 	-webkit-box-flex: 1;
@@ -7,7 +10,8 @@
 	height: 136rpx;
 	text-align: center;
 	border-bottom: 2rpx solid rgba(226,226,226,.9);
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	color: #FF5F62;
 	font-size:70rpx;
 	font-family:DINAlternate-Bold,DINAlternate;

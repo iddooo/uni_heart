@@ -51,7 +51,7 @@
 				handler:(val,oval)=>{
 					_this.item6 = val.length > 4
 					_this.swiperData = _this.truck(val,6)
-					console.log(_this.item6,_this.swiperData)
+					// console.log(_this.item6,_this.swiperData)
 				}
 			}
 		},

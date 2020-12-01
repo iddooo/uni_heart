@@ -16,6 +16,9 @@
 			<view class="user-rank">
 				我的排名:{{user.rank}}
 			</view>
+			<view class="user-pct">
+				已超过小区{{user.percent}}的用户
+			</view>
 		</view>
 		<view class="user-count">
 			{{user.count}}<text v-if="cur==1">次</text>
@@ -75,9 +78,14 @@
 	}
 	.user-rank{
 		margin-top: 6rpx;
-		font-size:28rpx;
+		font-size:24rpx;
 		color:rgba(109,114,120,1);
 		line-height:40rpx;
+		font-weight: 300;
+	}
+	.user-pct{
+		font-size:24rpx;
+		color:rgba(109,114,120,1);
 	}
 	.user-count{
 		font-size:28rpx;

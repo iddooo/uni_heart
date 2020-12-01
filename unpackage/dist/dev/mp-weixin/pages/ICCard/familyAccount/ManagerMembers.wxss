@@ -24,28 +24,28 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-button.data-v-790714f4 {
+button.data-v-686cd1ae {
   border: 0;
   padding: 0;
   margin: 0;
   background-color: transparent;
 }
-button.data-v-790714f4::after {
+button.data-v-686cd1ae::after {
   border: 0;
 }
-.font24.data-v-790714f4 {
+.font24.data-v-686cd1ae {
   font-size: 24rpx;
   color: #1E1E1E;
   line-height: 34rpx;
 }
-.font-num.data-v-790714f4 {
+.font-num.data-v-686cd1ae {
   font-size: 30rpx;
   font-family: DINAlternate-Bold, DINAlternate;
   font-weight: bold;
   color: #FF5F62;
   line-height: 34rpx;
 }
-.flex-ct-ct.data-v-790714f4 {
+.flex-ct-ct.data-v-686cd1ae {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -56,7 +56,7 @@ button.data-v-790714f4::after {
   -webkit-justify-content: center;
           justify-content: center;
 }
-.members.data-v-790714f4 {
+.members.data-v-686cd1ae {
   padding: 46rpx 20rpx 0;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
@@ -64,54 +64,56 @@ button.data-v-790714f4::after {
   display: -webkit-flex;
   display: flex;
 }
-.member.data-v-790714f4 {
+.member.data-v-686cd1ae {
   width: 25%;
   text-align: center;
   padding-bottom: 38rpx;
 }
-.head-pic.data-v-790714f4 {
+.head-pic.data-v-686cd1ae {
   width: 90rpx;
   height: 90rpx;
   margin: 0 auto 20rpx;
   position: relative;
 }
-.pic-box.data-v-790714f4 {
+.pic-box.data-v-686cd1ae {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
   overflow: hidden;
 }
-.pic-box .user-photo.data-v-790714f4 {
+.pic-box .user-photo.data-v-686cd1ae {
   width: 100%;
   height: 100%;
 }
-.minus.data-v-790714f4 {
+.minus.data-v-686cd1ae {
   position: absolute;
   right: -16rpx;
   top: -14rpx;
   padding: 10rpx;
 }
-.minus image.data-v-790714f4 {
+.minus image.data-v-686cd1ae {
   width: 32rpx;
   height: 32rpx;
 }
-.gold.data-v-790714f4 {
+.gold.data-v-686cd1ae {
   margin-top: 26rpx;
 }
-.gold-icon.data-v-790714f4 {
+.gold-icon.data-v-686cd1ae {
   width: 28rpx;
   height: 28rpx;
   margin-left: 6rpx;
 }
-.pic-box .add-icon.data-v-790714f4 {
+.pic-box .add-icon.data-v-686cd1ae {
   width: 38rpx;
   height: 38rpx;
 }
-.add.data-v-790714f4 {
+.add.data-v-686cd1ae {
   width: 90rpx;
   height: 38rpx;
   background: #F4F4F4;
-  border-radius: 19rpx;
+  -webkit-border-radius: 19rpx;
+          border-radius: 19rpx;
   text-align: center;
   line-height: 38rpx;
   font-size: 20rpx;

@@ -68,7 +68,7 @@
 		
 		<!-- 没有数据 -->
 		<view v-if="list.length==0" class="no-data">
-			<image src="../../../static/images/no-income.png" mode=""></image>
+			<image src="/static/index/no-income.png" mode=""></image>
 			<view class="tips">您占时没有订单哦</view>
 		</view>
 		<!-- 下拉加载 -->

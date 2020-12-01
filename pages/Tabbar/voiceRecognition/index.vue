@@ -80,14 +80,17 @@
 		},
 		onLoad() {
 			this.initRecorderManager()
+			// #ifdef MP-WEIXIN
 			// 询问授权
 			this.auth()
 			//验证版本
 			this.validVersion()
+			// #endif
 		},
 		methods:{
 			auth(){
 				let that = this
+				// app 和 h5 不支持
 				uni.getSetting({
 				  success: function (res) {
 				    console.log('获取授权信息',res)

@@ -93,7 +93,8 @@
 	line-height: 26rpx;
 	text-align: center;
 	background:rgba(30,30,30,0.4);
-	border-radius:15rpx;
+	-webkit-border-radius:15rpx;
+	        border-radius:15rpx;
 	position: absolute;
 	right: 50rpx;
 	top: 480rpx;
@@ -150,8 +151,10 @@
 	width:528rpx;
 	height:80rpx;
 	background:rgba(255,95,98,1);
-	box-shadow:0rpx 4rpx 28rpx 0px rgba(255,95,98,0.41);
-	border-radius:40rpx;
+	-webkit-box-shadow:0rpx 4rpx 28rpx 0px rgba(255,95,98,0.41);
+	        box-shadow:0rpx 4rpx 28rpx 0px rgba(255,95,98,0.41);
+	-webkit-border-radius:40rpx;
+	        border-radius:40rpx;
 	line-height: 80rpx;
 	text-align: center;
 	color: #FFFFFF;

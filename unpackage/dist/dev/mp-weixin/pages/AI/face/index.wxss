@@ -1,5 +1,5 @@
 
-.title.data-v-1f8b90f8{
+.title.data-v-16038884{
 	padding-top: 100rpx;
 	font-size: 32rpx;
 	font-weight: 500;
@@ -8,45 +8,46 @@
 	text-align: center;
 	margin-bottom: 10rpx;
 }
-.sub-title.data-v-1f8b90f8{
+.sub-title.data-v-16038884{
 	font-size: 24rpx;
 	color: #FF5F62;
 	line-height: 34rpx;
 	text-align: center;
 	margin-bottom: 96rpx;
 }
-.face-tip.data-v-1f8b90f8{
+.face-tip.data-v-16038884{
 	display: block;
 	margin: 0 auto;
 	width: 548rpx;
 	height: 530rpx;
 }
-.tip-text.data-v-1f8b90f8{
+.tip-text.data-v-16038884{
 	padding: 12rpx 76rpx 158rpx;
 	font-size: 26rpx;
 	color: #909090;
 	line-height: 36rpx;
 }
-.face.data-v-1f8b90f8{
+.face.data-v-16038884{
 	width: 448rpx;
 	height: 448rpx;
 	background: #D8D8D8;
 	border: 4rpx solid #FF5F62;
 	margin: 112rpx auto 88rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 }
-.face image.data-v-1f8b90f8{
+.face image.data-v-16038884{
 	width: 100%;
 	height: 100%;
 }
-.tips-1.data-v-1f8b90f8{
+.tips-1.data-v-16038884{
 	font-size: 40rpx;
 	font-weight: 600;
 	color: #1E1E1E;
 	line-height: 60rpx;		
 	text-align: center;
 }
-.tips-2.data-v-1f8b90f8{
+.tips-2.data-v-16038884{
 	font-size: 30rpx;
 	font-weight: 500;
 	color: #1E1E1E;
@@ -54,13 +55,13 @@
 	text-align: center;
 	margin-bottom: 252rpx;
 }
-.msg-tip.data-v-1f8b90f8{
+.msg-tip.data-v-16038884{
 	margin-top: 32rpx;
 	font-size: 26rpx;
 	color: #BCBCBC;
 	line-height: 58rpx;
 }
-.msg-tip image.data-v-1f8b90f8{
+.msg-tip image.data-v-16038884{
 	width: 24rpx;
 	height: 24rpx;
 	margin-right: 10rpx;

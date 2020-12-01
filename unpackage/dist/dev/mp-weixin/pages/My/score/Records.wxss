@@ -1,22 +1,26 @@
 
-.li-item.data-v-4fe30ad6{
+.list.data-v-6eb6541b{
+	height: 100%;
+	overflow-y: scroll;
+}
+.li-item.data-v-6eb6541b{
 	margin: 0 28rpx;
 	padding: 28rpx 0;
 	position: relative;
 	border-bottom: 2rpx solid #F6F6F6;
 }
-.type.data-v-4fe30ad6{
+.type.data-v-6eb6541b{
 	margin-bottom: 22rpx;
 	font-size: 28rpx;
 	color: #000000;
 	line-height: 40rpx;
 }
-.time.data-v-4fe30ad6{
+.time.data-v-6eb6541b{
 	font-size: 20rpx;
 	color: #888888;
 	line-height: 28rpx;
 }
-.score.data-v-4fe30ad6{
+.score.data-v-6eb6541b{
 	position: absolute;
 	right: 0;
 	top: 60rpx;

@@ -85,5 +85,6 @@
 		color:rgba(144,144,144,1);
 		height:36rpx;
 		line-height:36rpx;
+		font-weight: 200;
 	}
 </style>

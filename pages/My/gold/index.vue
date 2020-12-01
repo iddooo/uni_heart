@@ -107,7 +107,7 @@
 							a.push({
 								name:this.cashType[b.cashType],
 								time:b.createTimeStr,
-								profit:b.amount,
+								profit:'-' + b.amount,
 								statusdes:this.status[b.type],
 								state:b.type
 							})

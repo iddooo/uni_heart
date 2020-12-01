@@ -1,14 +1,15 @@
 
-.title.data-v-21f9f52d{
-	height: 90rpx;
-	line-height: 90rpx;
+.title.data-v-05cdd2e7{
+	padding-top: 28rpx;
+	padding-bottom: 26rpx;
+	line-height: 40rpx;
 	border-bottom: 2rpx solid #F6F6F6;
 	padding-left: 26rpx;
 	position: relative;
 	font-size: 28rpx;
 	color: #1E1E1E;
 }
-.title.data-v-21f9f52d::after{
+.title.data-v-05cdd2e7::after{
 	content: "";
 	position: absolute;
 	left: 0;
@@ -18,14 +19,25 @@
 	background: #FF5F62;
 	margin-top: -12rpx;
 }
-.line.data-v-21f9f52d{
-	height: 102rpx;
-	border-bottom: 2rpx solod #F6F6F6;
+.line.data-v-05cdd2e7{
+	height: 104rpx;
 	margin-left: 50rpx;
 	position: relative;
 	font-size: 22rpx;
 }
-.line .name.data-v-21f9f52d{
+.line.data-v-05cdd2e7::after{
+	content: "";
+	width: 100%;
+	height: 2rpx;
+	background-color: #F6F6F6;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.line.data-v-05cdd2e7:last-of-type::after{
+	height: 0rpx;
+}
+.line .name.data-v-05cdd2e7{
 	padding-top: 12rpx;
 	padding-bottom: 8rpx;
 	font-size: 24rpx;
@@ -33,37 +45,41 @@
 	line-height: 34rpx;
 	position: relative;
 }
-.line .name.todo.data-v-21f9f52d::after{
+.line .name.todo.data-v-05cdd2e7::after{
 	content: "";
 	position: absolute;
 	width: 12rpx;
 	height: 12rpx;
 	background: #FF5F62;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	left: -26rpx;
 	top: 24rpx;
 }
-.line .name.data-v-21f9f52d::after{
+.line .name.data-v-05cdd2e7::after{
 	content: "";
 	position: absolute;
 	width: 12rpx;
 	height: 12rpx;
 	background: #CDCDCD;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	left: -26rpx;
 	top: 24rpx;
 }
-.line .des.data-v-21f9f52d{
+.line .des.data-v-05cdd2e7{
 	color: #999999;
+	line-height: 32rpx;
 }
-.buttons.data-v-21f9f52d{
+.buttons.data-v-05cdd2e7{
 	position: absolute;
 	right: 22rpx;
 	top: 28rpx;
 	width: 104rpx;
 	height: 46rpx;
 	background: #FF5F62;
-	border-radius: 23rpx;
+	-webkit-border-radius: 23rpx;
+	        border-radius: 23rpx;
 	color: #fff;
 	line-height: 45rpx;
 	text-align: center;
@@ -71,7 +87,7 @@
 	padding: 0;
 	margin: 0;
 }
-.line .done.data-v-21f9f52d{
+.line .done.data-v-05cdd2e7{
 	position: absolute;
 	right: 40rpx;
 	top: 36rpx;

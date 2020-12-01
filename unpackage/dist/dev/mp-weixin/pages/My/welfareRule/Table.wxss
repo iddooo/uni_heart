@@ -1,11 +1,11 @@
 
-.table-box.data-v-08406a77{
+.table-box.data-v-2697de06{
 	width: 698rpx;
 	height: 452rpx;
 	border: 2rpx solid #F6F6F6;
 	margin: 0 auto;
 }
-.table-head.data-v-08406a77{
+.table-head.data-v-2697de06{
 	height: 72rpx;
 	background: #F6F6F6;
 	font-size: 28rpx;
@@ -16,7 +16,7 @@
 	display: -webkit-flex;
 	display: flex;
 }
-.tr.data-v-08406a77{
+.tr.data-v-2697de06{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -26,7 +26,7 @@
 	font-size: 24rpx;
 	color: #1E1E1E;
 }
-.col.data-v-08406a77{
+.col.data-v-2697de06{
 	text-align: center;
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;

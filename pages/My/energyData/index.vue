@@ -173,7 +173,7 @@
 				// ctx.clip();
 				// 头像
 				if(!headPic){
-					// #ifdef H5
+					// #ifndef MP-WEIXIN
 						headPic = '/static/index/head.png'
 						this.drawCanvasImage(headPic,64,64,120,120)
 					// #endif
@@ -191,14 +191,22 @@
 					// #endif
 					
 				}else{
-					headPic = this.URL+this.userInfo.headPic
-					uni.downloadFile({
-						url:headPic,
-						success:(res)=>{
-							let tempFilePath = res.tempFilePath
-							this.drawCanvasImage(tempFilePath,64,64,120,120)
-						}
-					})
+					// #ifndef MP-WEIXIN
+						headPic = '/static/index/head.png'
+						this.drawCanvasImage(headPic,64,64,120,120)
+					// #endif
+					
+					// #ifdef MP-WEIXIN
+						headPic = this.userInfo.headPic
+						uni.downloadFile({
+							url:headPic,
+							success:(res)=>{
+								let tempFilePath = res.tempFilePath
+								this.drawCanvasImage(tempFilePath,64,64,120,120)
+							}
+						})
+					// #endif
+					
 				};
 				
 				this.drawCanvasText({text:day,x:620,y:134,fontSize:78,color:"#FF5F62",textAlign:"right",baseline:"top"})
@@ -485,7 +493,7 @@
 		color: #FFFFFF;
 		font-size: 26rpx;
 		position: absolute;
-		bottom: 56rpx;
+		bottom: 36rpx;
 		left: 50%;
 		transform:translateX(-50%);
 		z-index: 10;

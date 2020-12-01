@@ -9,10 +9,11 @@ const state = {
 		success:function(){},
 		cancel:function(){}
 	},
+	loginBox:false
 }
 
 const mutations = {
-	 MessageBox({ messageBox }, option = {}){
+	MessageBox({ messageBox }, option = {}){
 		messageBox.title = option.title || '';
 		messageBox.type = option.type || 'text';
 		messageBox.msg = option.msg || '';
@@ -21,7 +22,13 @@ const mutations = {
 		messageBox.visible = true;
 		messageBox.success = option.success || function(){},
 		messageBox.cancel = option.cancel || function(){}
-	}
+	},
+	openLoginBox:(state)=>{
+		state.loginBox = true
+	},
+	closeLoginBox:(state)=>{
+		state.loginBox = false
+	},
 }
 
 const actions = {
@@ -30,6 +37,7 @@ const actions = {
 
 const getters = {
 	messageBox: state => state.messageBox,
+	loginBox: state => state.loginBox
 }
 
 export default{

@@ -8,7 +8,8 @@
 }
 .swiper-container{
 	height: 306rpx;
-	border-radius: 16rpx;
+	-webkit-border-radius: 16rpx;
+	        border-radius: 16rpx;
 	overflow: hidden;
 	-webkit-transform: translateY(0);
 	        transform: translateY(0);
@@ -34,7 +35,8 @@
 .dot{
 	width:10rpx;
 	height:10rpx;
-	border-radius: 5rpx;
+	-webkit-border-radius: 5rpx;
+	        border-radius: 5rpx;
 	background: #fff;
 	opacity:0.42;
 	margin-right: 14rpx;

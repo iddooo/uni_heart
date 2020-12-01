@@ -24,11 +24,12 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.button.data-v-35dbf6ae {
+.button.data-v-0400dda2 {
   margin: 20rpx auto;
   color: #fff;
   font-size: 13px;
-  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+          border-radius: 4rpx;
   text-align: center;
   background-color: #FF5F62;
   width: 682rpx;
@@ -36,24 +37,24 @@
   font-size: 32rpx;
   line-height: 80rpx;
 }
-.button.big.data-v-35dbf6ae {
-    width: 606rpx;
-    height: 88rpx;
-    line-height: 88rpx;
-    font-size: 34rpx;
+.button.big.data-v-0400dda2 {
+  width: 606rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
 }
-.button.medium.data-v-35dbf6ae {
-    width: 554rpx;
+.button.medium.data-v-0400dda2 {
+  width: 554rpx;
 }
-.button.small.data-v-35dbf6ae {
-    width: 244rpx;
+.button.small.data-v-0400dda2 {
+  width: 244rpx;
 }
-.button.disabled.data-v-35dbf6ae {
-    opacity: .5;
+.button.disabled.data-v-0400dda2 {
+  opacity: .5;
 }
-.button.plain.data-v-35dbf6ae {
-    background-color: #fff;
-    border: 1px solid #FF5F62;
-    color: #FF5F62;
+.button.plain.data-v-0400dda2 {
+  background-color: #fff;
+  border: 1px solid #FF5F62;
+  color: #FF5F62;
 }
 

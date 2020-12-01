@@ -58,8 +58,9 @@
 
 <style scoped>
 	.title{
-		height: 90rpx;
-		line-height: 90rpx;
+		padding-top: 28rpx;
+		padding-bottom: 26rpx;
+		line-height: 40rpx;
 		border-bottom: 2rpx solid #F6F6F6;
 		padding-left: 26rpx;
 		position: relative;
@@ -77,11 +78,22 @@
 		margin-top: -12rpx;
 	}
 	.line{
-		height: 102rpx;
-		border-bottom: 2rpx solod #F6F6F6;
+		height: 104rpx;
 		margin-left: 50rpx;
 		position: relative;
 		font-size: 22rpx;
+	}
+	.line::after{
+		content: "";
+		width: 100%;
+		height: 2rpx;
+		background-color: #F6F6F6;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+	.line:last-of-type::after{
+		height: 0rpx;
 	}
 	.line .name{
 		padding-top: 12rpx;
@@ -114,6 +126,7 @@
 	}
 	.line .des{
 		color: #999999;
+		line-height: 32rpx;
 	}
 	.buttons{
 		position: absolute;

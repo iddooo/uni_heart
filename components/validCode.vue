@@ -61,6 +61,9 @@
 </script>
 
 <style>
+	.valid-code{
+		width: 100%;
+	}
 	.valid-code .item{
 		/* width:136rpx; */
 		flex: 1;

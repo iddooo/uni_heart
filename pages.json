@@ -322,32 +322,32 @@
 			{
 				"pagePath":"pages/Tabbar/index/index",
 				"text":"首页",
-				"iconPath":"static/tabbar/home.png",
-				"selectedIconPath":"static/tabbar/home-s.png"
+				"iconPath":"/static/tabbar/home.png",
+				"selectedIconPath":"/static/tabbar/home-s.png"
 			},
 			{
 				"pagePath":"pages/Tabbar/foundList/index",
 				"text":"发现",
-				"iconPath":"static/tabbar/fund.png",
-				"selectedIconPath":"static/tabbar/fund-s.png"
+				"iconPath":"/static/tabbar/fund.png",
+				"selectedIconPath":"/static/tabbar/fund-s.png"
 			},
 			{
 				"pagePath":"pages/Tabbar/voiceRecognition/index",
 				"text":"语音识别",
-				"iconPath":"static/tabbar/voice-tabbar-s.png",
-				"selectedIconPath":"static/tabbar/voice-tabbar.png"
+				"iconPath":"/static/tabbar/voice-tabbar-s.png",
+				"selectedIconPath":"/static/tabbar/voice-tabbar.png"
 			},
 			{
 				"pagePath":"pages/Tabbar/shop/index",
 				"text":"商城",
-				"iconPath":"static/tabbar/shop.png",
-				"selectedIconPath":"static/tabbar/shop-s.png"
+				"iconPath":"/static/tabbar/shop.png",
+				"selectedIconPath":"/static/tabbar/shop-s.png"
 			},
 			{
 				"pagePath":"pages/Tabbar/mine/index",
 				"text":"我的",
-				"iconPath":"static/tabbar/my.png",
-				"selectedIconPath":"static/tabbar/my-s.png"
+				"iconPath":"/static/tabbar/my.png",
+				"selectedIconPath":"/static/tabbar/my-s.png"
 			}
 		]
 		

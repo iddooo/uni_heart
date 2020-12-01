@@ -1,21 +1,21 @@
 
-.line.data-v-37ed0f7f{
+.line.data-v-62d62df6{
 	border-bottom: 2rpx solid rgba(246,246,246,1);
 	padding: 28rpx 58rpx 26rpx;
 	position: relative;
 }
-.content.data-v-37ed0f7f{
+.content.data-v-62d62df6{
 	font-size: 28rpx;
 	color: #000000;
 	line-height: 40rpx;
 	margin-bottom: 22rpx;
 }
-.time.data-v-37ed0f7f{
+.time.data-v-62d62df6{
 	font-size: 20rpx;
 	color: #888888;
 	line-height: 28rpx;
 }
-.num.data-v-37ed0f7f{
+.num.data-v-62d62df6{
 	position: absolute;
 	right: 58rpx;
 	top: 54rpx;
@@ -24,10 +24,10 @@
 	font-weight: bold;
 	line-height: 38px;
 }
-.f-red.data-v-37ed0f7f{
+.f-red.data-v-62d62df6{
 	color: #FF5F62;
 }
-.f-blue.data-v-37ed0f7f{
+.f-blue.data-v-62d62df6{
 	color: #44D7B6;
 }
 

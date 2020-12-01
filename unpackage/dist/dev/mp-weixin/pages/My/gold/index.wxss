@@ -1,8 +1,8 @@
 
-.tabs.data-v-be2708ba{
+.tabs.data-v-b49f0046{
 	padding: 36rpx 30rpx;
 }
-.tab-item.data-v-be2708ba{
+.tab-item.data-v-b49f0046{
 	width: 30%;
 	color: #909090;
 	font-size: 28rpx;
@@ -10,12 +10,12 @@
 	position: relative;
 	text-align: center;
 }
-.tab-item.active.data-v-be2708ba{
+.tab-item.active.data-v-b49f0046{
 	font-size: 32rpx;
 	font-weight: 500;
 	color: #1E1E1E;
 }
-.tab-item.active.data-v-be2708ba::after{
+.tab-item.active.data-v-b49f0046::after{
 	position: absolute;
 	content: "";
 	left: 50%;
@@ -23,10 +23,11 @@
 	width: 40rpx;
 	height: 8rpx;
 	background: #FF5F62;
-	border-radius: 5rpx;
+	-webkit-border-radius: 5rpx;
+	        border-radius: 5rpx;
 	margin-left: -20rpx;
 }
-.end.data-v-be2708ba{
+.end.data-v-b49f0046{
 	background-color: #fff;
 }
 

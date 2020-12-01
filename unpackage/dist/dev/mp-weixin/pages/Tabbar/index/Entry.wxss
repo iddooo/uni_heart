@@ -1,5 +1,5 @@
 
-.entry.data-v-0ebaaa12 {
+.entry.data-v-f68b8a06 {
   padding: 44rpx 50rpx 66rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -8,7 +8,7 @@
   -webkit-justify-content: space-between;
           justify-content: space-between;
 }
-.entry .entry-item.data-v-0ebaaa12 {
+.entry .entry-item.data-v-f68b8a06 {
   position: relative;
   text-align: center;
   font-size: 24rpx;
@@ -16,12 +16,12 @@
   color: rgba(59, 59, 59, 1);
   line-height: 34rpx;
 }
-.entry-item .icon.data-v-0ebaaa12 {
+.entry-item .icon.data-v-f68b8a06 {
   width: 100rpx;
   height: 100rpx;
   margin-bottom: 28rpx;
 }
-.entry-item .badge.data-v-0ebaaa12 {
+.entry-item .badge.data-v-f68b8a06 {
   width: 84rpx;
   height: 30rpx;
   position: absolute;

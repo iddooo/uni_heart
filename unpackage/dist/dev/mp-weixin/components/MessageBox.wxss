@@ -1,5 +1,5 @@
 
-.popup.data-v-385f7825{
+.popup.data-v-1c3355df{
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -7,7 +7,7 @@
 	bottom: 0;
 	z-index: 99;
 }
-.pop-bg.data-v-385f7825{
+.pop-bg.data-v-1c3355df{
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -15,7 +15,7 @@
 	bottom: 0;
 	background-color: rgba(0,0,0,.4);
 }
-.close-btn.data-v-385f7825{
+.close-btn.data-v-1c3355df{
 	position: absolute;
 	width: 26rpx;
 	height: 26rpx;
@@ -23,30 +23,32 @@
 	top: 32rpx;
 	right: 32rpx;
 }
-.close-btn image.data-v-385f7825{
+.close-btn image.data-v-1c3355df{
 	width: 100%;
 	height: 100%;
 }
-.content.data-v-385f7825{
+.content.data-v-1c3355df{
 	width:654rpx;
 	background:rgba(255,255,255,1);
-	border-radius:10rpx;
+	-webkit-border-radius:10rpx;
+	        border-radius:10rpx;
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	-webkit-transform: translate(-50%,-50%);
 	        transform: translate(-50%,-50%);
 	padding: 42rpx;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
-.title.data-v-385f7825{
+.title.data-v-1c3355df{
 	font-size:34rpx;
 	font-weight:500;
 	color:rgba(30,30,30,1);
 	line-height:48rpx;
 	text-align: center;
 }
-.msg.data-v-385f7825{
+.msg.data-v-1c3355df{
 	padding: 64rpx 0 80rpx;
 	text-align: center;
 	font-size:32rpx;
@@ -54,27 +56,28 @@
 	color:rgba(101,101,101,1);
 	line-height:46rpx;
 }
-.msg.html.data-v-385f7825{
+.msg.html.data-v-1c3355df{
 	padding: 36rpx 0rpx 52rpx;
 	text-align: left;
 	font-size:28rpx;
 }
-.btns button.data-v-385f7825{
+.btns button.data-v-1c3355df{
 	width:226rpx;
 	height:80rpx;
 	line-height: 80rpx;
 	text-align: center;
-	border-radius:4rpx;
+	-webkit-border-radius:4rpx;
+	        border-radius:4rpx;
 	background:rgba(255,95,98,1);
 	font-size:32rpx;
 	color: #FFFFFF;
 }
-.btns button.plain.data-v-385f7825{
+.btns button.plain.data-v-1c3355df{
 	background-color: #FFFFFF;
 	border:2rpx solid rgba(255,95,98,1);
 	color: rgba(255,95,98,1);
 }
-.btns.single button.data-v-385f7825{
+.btns.single button.data-v-1c3355df{
 	width:554rpx;
 }
 

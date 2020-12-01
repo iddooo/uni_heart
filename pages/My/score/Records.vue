@@ -31,6 +31,10 @@
 </script>
 
 <style scoped>
+	.list{
+		height: 100%;
+		overflow-y: scroll;
+	}
 	.li-item{
 		margin: 0 28rpx;
 		padding: 28rpx 0;

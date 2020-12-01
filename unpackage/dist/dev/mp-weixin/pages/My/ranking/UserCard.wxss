@@ -1,5 +1,5 @@
 
-.flex-ct.data-v-8186ebd8{
+.flex-ct.data-v-93d20a64{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -7,38 +7,40 @@
 	-webkit-align-items: center;
 	        align-items: center;
 }
-.user.data-v-8186ebd8{
+.user.data-v-93d20a64{
 	border-bottom: 20rpx solid #F6F6F6;
 	padding: 26rpx;
 }
-.user-photo.data-v-8186ebd8{
+.user-photo.data-v-93d20a64{
 	width:80rpx;
 	height:80rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	overflow: hidden;
 }
-.user-photo .headpic.data-v-8186ebd8{
+.user-photo .headpic.data-v-93d20a64{
 	width: 100%;
 	height: 100%;
 }
-.user-info.data-v-8186ebd8{
+.user-info.data-v-93d20a64{
 	width: 432rpx;
-	box-sizing:  border-box;
+	-webkit-box-sizing:  border-box;
+	        box-sizing:  border-box;
 	padding-left: 30rpx;
 }
-.user-name .name.data-v-8186ebd8{
+.user-name .name.data-v-93d20a64{
 	font-size:28rpx;
 	font-weight:500;
 	color:rgba(30,30,30,1);
 	line-height:40rpx;
 }
-.user-rank.data-v-8186ebd8{
+.user-rank.data-v-93d20a64{
 	margin-top: 6rpx;
 	font-size:28rpx;
 	color:rgba(109,114,120,1);
 	line-height:40rpx;
 }
-.user-count.data-v-8186ebd8{
+.user-count.data-v-93d20a64{
 	font-size:28rpx;
 	font-family:DINAlternate-Bold,DINAlternate;
 	font-weight:bold;

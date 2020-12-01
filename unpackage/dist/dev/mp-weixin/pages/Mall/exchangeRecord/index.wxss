@@ -30,7 +30,8 @@
 	width:40rpx;
 	height:8rpx;
 	background:rgba(255,95,98,1);
-	border-radius:5rpx;
+	-webkit-border-radius:5rpx;
+	        border-radius:5rpx;
 }
 .list{
 	padding: 20rpx;
@@ -120,7 +121,8 @@
 	width:138rpx;
 	height:54rpx;
 	background:rgba(255,95,98,1);
-	border-radius:28rpx;
+	-webkit-border-radius:28rpx;
+	        border-radius:28rpx;
 	text-align: center;
 	line-height: 54rpx;
 	color: #FFFFFF;
@@ -142,7 +144,8 @@
 .pop-content{
 	width:654rpx;
 	background:rgba(255,255,255,1);
-	border-radius:10px;
+	-webkit-border-radius:10px;
+	        border-radius:10px;
 	position: absolute;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
@@ -168,9 +171,11 @@
 .pop-btn button{
 	width:226rpx;
 	height:80rpx;
-	border-radius:4rpx;
+	-webkit-border-radius:4rpx;
+	        border-radius:4rpx;
 	line-height: 80rpx;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	margin: 0;
 }
 .cancel{

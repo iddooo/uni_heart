@@ -1,22 +1,24 @@
 
-.rule-box.data-v-0b7f1d51{
+.rule-box.data-v-bbb21252{
 	position: absolute;
 	top: 50rpx;
 	right: 0;
 	width: 220rpx;
 	height: 62rpx;
 	padding: 0 14rpx 0 30rpx;
-	border-top-left-radius: 31rpx;
-	border-bottom-left-radius: 31rpx;
+	-webkit-border-top-left-radius: 31rpx;
+	        border-top-left-radius: 31rpx;
+	-webkit-border-bottom-left-radius: 31rpx;
+	        border-bottom-left-radius: 31rpx;
 	background: rgba(0, 0, 0, 0.05);
 	font-size: 24rpx;
 	color: #fff;
 }
-.rule-img.data-v-0b7f1d51{
+.rule-img.data-v-bbb21252{
 	width: 22rpx;
 	height: 22rpx;
 }
-.arrow.data-v-0b7f1d51{
+.arrow.data-v-bbb21252{
 	width: 16rpx;
 	height: 16rpx;
 	margin-left: 12rpx;

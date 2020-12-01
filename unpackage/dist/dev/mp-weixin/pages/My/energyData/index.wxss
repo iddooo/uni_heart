@@ -1,16 +1,16 @@
 
-.page.data-v-3bb70915{
+.page.data-v-329179cf{
 	background: -webkit-linear-gradient(248deg,rgba(241,158,79,1) 0%,rgba(235,75,90,1) 100%);
 	background: linear-gradient(202deg,rgba(241,158,79,1) 0%,rgba(235,75,90,1) 100%);
 	padding-bottom: 40rpx;
 }
-.box1.data-v-3bb70915{
+.box1.data-v-329179cf{
 	padding-top: 24rpx;
 	height: 590rpx;
 	position: relative;
 	z-index: 3;
 }
-.bg.data-v-3bb70915{
+.bg.data-v-329179cf{
 	width: 730rpx;
 	position: absolute;
 	left: 50%;		
@@ -18,7 +18,7 @@
 	        transform: translateX(-50%);
 	z-index: -1;
 }
-.link.data-v-3bb70915{
+.link.data-v-329179cf{
 	width: 606rpx;
 	height: 104rpx;
 	position:absolute;
@@ -28,32 +28,33 @@
 	bottom: -34rpx;
 	z-index: 1;
 }
-.box2.data-v-3bb70915{
+.box2.data-v-329179cf{
 	height: 506rpx;
 	position: relative;
 	z-index: 2;
 	margin-top: -12rpx;
 }
-.box3.data-v-3bb70915{
+.box3.data-v-329179cf{
 	min-height: 412rpx;
 	position: relative;
 	z-index: 1;
 	margin-top: -12rpx;
 }
-.user-photo.data-v-3bb70915{
+.user-photo.data-v-329179cf{
 	width:120rpx;
 	height:120rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	overflow: hidden;
 	position: absolute;
 	left: 64rpx;
 	top: 44rpx;
 }
-.user-photo .headpic.data-v-3bb70915{
+.user-photo .headpic.data-v-329179cf{
 	width: 100%;
 	height: 100%;
 }
-.user-name.data-v-3bb70915{
+.user-name.data-v-329179cf{
 	position: absolute;
 	left: 68rpx;
 	top: 186rpx;
@@ -62,7 +63,7 @@
 	color:rgba(30,30,30,1);
 	line-height:50rpx;
 }
-.user-id.data-v-3bb70915{
+.user-id.data-v-329179cf{
 	position: absolute;
 	left: 68rpx;
 	top: 244rpx;
@@ -70,7 +71,7 @@
 	color:rgba(144,144,144,1);
 	line-height:34rpx;
 }
-.days.data-v-3bb70915{
+.days.data-v-329179cf{
 	position: absolute;
 	right: 124rpx;
 	top: 92rpx;
@@ -80,13 +81,13 @@
 	color:rgba(235,75,90,1);
 	line-height:92rpx;
 }
-.save.data-v-3bb70915{
+.save.data-v-329179cf{
 	position: absolute;
 	top: 420rpx;
 	left: 20rpx;
 	width: 710rpx;
 }
-.save view.data-v-3bb70915{
+.save view.data-v-329179cf{
 	width: 33.33%;
 	text-align: center;
 	font-size:32rpx;
@@ -95,7 +96,7 @@
 	color:rgba(30,30,30,1);
 	line-height:38rpx;
 }
-.tree.data-v-3bb70915,.petroleum.data-v-3bb70915,.electric.data-v-3bb70915{
+.tree.data-v-329179cf,.petroleum.data-v-329179cf,.electric.data-v-329179cf{
 	font-size:32rpx;
 	font-family:DINAlternate-Bold,DINAlternate;
 	font-weight:bold;
@@ -104,16 +105,16 @@
 	position: absolute;
 	top: 350rpx;
 }
-.tree.data-v-3bb70915{
+.tree.data-v-329179cf{
 	right: 580rpx;
 }
-.petroleum.data-v-3bb70915{
+.petroleum.data-v-329179cf{
 	right: 360rpx;
 }
-.electric.data-v-3bb70915{
+.electric.data-v-329179cf{
 	right: 140rpx;
 }
-.title.data-v-3bb70915{
+.title.data-v-329179cf{
 	padding-top: 92rpx;
 	padding-left: 68rpx;
 	font-weight:500;
@@ -122,28 +123,29 @@
 	font-size: 30rpx;
 	margin-bottom: 46rpx;
 }
-.list.data-v-3bb70915{
+.list.data-v-329179cf{
 	padding-left: 84rpx;
 	padding-right: 70rpx;
 }
-.bg3.data-v-3bb70915{
+.bg3.data-v-329179cf{
 	height: 100%;
 }
-.box3.data-v-3bb70915{
+.box3.data-v-329179cf{
 	padding-bottom: 20rpx;
 }
-.preview.data-v-3bb70915{
+.preview.data-v-329179cf{
 	margin: 26rpx auto 0;
 	width:300rpx;
 	height:66rpx;
-	border-radius:33rpx;
+	-webkit-border-radius:33rpx;
+	        border-radius:33rpx;
 	border:2rpx solid rgba(255,255,255,1);
 	line-height: 66rpx;
 	text-align: center;
 	color: #fff;
 	font-size: 28rpx;
 }
-.model.data-v-3bb70915{
+.model.data-v-329179cf{
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -152,7 +154,7 @@
 	background-color: rgba(0,0,0,.75);
 	z-index: 9;
 }
-.share.data-v-3bb70915{
+.share.data-v-329179cf{
 	position: absolute!important;
 	left: 50%;
 	top: 76rpx;
@@ -160,15 +162,16 @@
 	        transform: translateX(-50%);
 	z-index: 10;
 }
-.share.data-v-3bb70915{
+.share.data-v-329179cf{
 	background: -webkit-linear-gradient(248deg,rgba(241,158,79,1) 0%,rgba(235,75,90,1) 100%);
 	background: linear-gradient(202deg,rgba(241,158,79,1) 0%,rgba(235,75,90,1) 100%);
 }
-.save-img.data-v-3bb70915{
+.save-img.data-v-329179cf{
 	width:278rpx;
 	height:64rpx;
 	background:rgba(255,95,98,1);
-	border-radius:62rpx;
+	-webkit-border-radius:62rpx;
+	        border-radius:62rpx;
 	line-height: 64rpx;
 	text-align: center;
 	color: #FFFFFF;

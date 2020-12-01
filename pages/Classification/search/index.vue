@@ -31,7 +31,7 @@
 		</view>
 		<!-- 列表 -->
 		<view class="list-container" v-show="!keyword">
-			<view :class="['dot',classify[type].bgClass]"></view>
+			<view :class="['dot',classify[type-1].bgClass]"></view>
 			<view class="li-line"
 				v-for="(item,i) in classifyList"
 				:key="i"

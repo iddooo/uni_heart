@@ -1,17 +1,16 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/Map/common/vendor"],{
 
-/***/ 408:
+/***/ 404:
 /*!***********************************************************!*\
   !*** C:/Users/dell/Desktop/uni_heart/utils/coordinate.js ***!
   \***********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
 
 /**
-               *  判断经纬度是否超出中国境内
-               */
+ *  判断经纬度是否超出中国境内
+ */
 function isLocationOutOfChina(latitude, longitude) {
   if (longitude < 72.004 || longitude > 137.8347 || latitude < 0.8293 || latitude > 55.8271)
   return true;

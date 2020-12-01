@@ -27,7 +27,7 @@
 		<!-- 商品列表 -->
 		<view class="goods">
 			<view class="no-goods" v-if="goods.length==0">
-				<image src="../../static/images/no-income.png" mode=""></image>
+				<image src="/static/index/no-income.png" mode=""></image>
 				<view>您暂时没有可兑换商品哦</view>
 			</view>
 			<view v-else class="good-box" v-for="(item,index) in goods" :key="index" @click="goDetails(item)">

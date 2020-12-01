@@ -67,7 +67,7 @@
 			</view>
 			<image src="/pages/Authorize/images/wx.png" mode=""></image>
 			<view class="protocol center">
-				登录注册代表您已阅读并同意<text class="red">《小红心用户协议》</text>
+				登录注册代表您已阅读并同意<text class="f-red">《小红心用户协议》</text>
 			</view>
 		</view>
 		<MessageBox></MessageBox>
@@ -415,7 +415,7 @@
 		line-height:32rpx;
 		padding-bottom: 28rpx;
 	}
-	.protocol .red{
+	.protocol .f-red{
 		color: #FF5F62;
 	}
 	.code-logins{

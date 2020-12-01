@@ -76,7 +76,7 @@
 				</button>
 			
 				<button @click="saveImage">
-					<image src="../images/album.png"></image>
+					<image src="/pages/ICCard/images/album.png"></image>
 					<view>保存图片</view>
 				</button>
 			</view>

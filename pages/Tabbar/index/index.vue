@@ -81,6 +81,7 @@
 				</view>
 			</view>
 		</view>
+		
 	</view>
 </template>
 
@@ -219,7 +220,7 @@
 				let userInfo =  uni.getStorageSync('userInfo')
 				if(!userInfo){
 				  console.log('登录注册并加入家庭')
-				  app.goLoginPageTimeOut()
+				  goLoginPageTimeOut()
 				  return
 				}
 			
@@ -368,7 +369,7 @@
 				uni.setStorageSync('station',this.min_station)
 				
 				let resp = await getClassify(this.min_station.id)
-				let resources = resp.data.concat(resp.data)
+				let resources = resp.data
 				this.resources = resources
 			},
 			async getNearestKcEqp(){

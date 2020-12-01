@@ -14,22 +14,33 @@
 		</view>
 		<view class="content">
 			<view class="tabs flex">
-				<view :class="['tab-item',item.id==active ? 'active':'']"
-					v-for="item in tabs"
+				<view :class="['tab-item',index == active ? 'active':'']"
+					v-for="(item,index) in tabs"
 					:key="item.id"
-					@click="changeTab(item.id)">
+					@click="changeTab(index)">
 					{{item.name}}
 				</view>
 			</view>
-			<view v-show="active==1">
+			<swiper class="card-ctr" :current="active" @change="move">
+				<swiper-item>
+					<DoTask title="日常任务" :task='task1' @onTodo="todoHandler"/>
+					<view class="divide"></view>
+					<DoTask title="账户任务" :task='task2' @onTodo="todoHandler"/>
+				</swiper-item>
+				<swiper-item>
+					<Records :list="list" />
+				</swiper-item>
+			</swiper>
+			
+			<!-- <view v-show="active==1" class="card-ctr">
 				<DoTask title="日常任务" :task='task1' @onTodo="todoHandler"/>
 				<view class="divide"></view>
 				<DoTask title="账户任务" :task='task2' @onTodo="todoHandler"/>
 			</view>
 			
-			<view v-show="active==2">
+			<view v-show="active==2" class="card-ctr">
 				<Records :list="list" />
-			</view>
+			</view> -->
 		</view>
 		<MessageBox></MessageBox>
 	</view>
@@ -57,7 +68,7 @@
 					{id:1,name:"做任务赚积分"},
 					{id:2,name:"积分明细"}
 				],
-				active:1,
+				active:0,
 				task1:[
 					{name:"每日首次公益投递",des:"+20积分",todo:true,url:"/pages/Tabbar/index/index"},
 					{name:"投递物品",des:"投递越多产生积分越多",todo:true,url:"/pages/Tabbar/index/index"},
@@ -137,8 +148,12 @@
 					}
 				})
 			},
-			changeTab(id){
-				this.active = id
+			changeTab(index){
+				this.active = index
+			},
+			move(e){
+				// console.log(e);
+				this.active = e.detail.current
 			},
 			todoHandler(item){
 				if(item.url){
@@ -232,11 +247,17 @@
 	}
 	.content{
 		width: 690rpx;
-		min-height: 854rpx;
+		height: 808rpx;
 		background: #FFFFFF;
 		box-shadow: 0px 24rpx 26rpx 0px rgba(114, 114, 114, 0.1);
 		border-radius: 16px;
 		margin: -110rpx auto 0;
+		display: flex;
+		flex-direction: column;
+	}
+	.card-ctr{
+		flex: 1;
+		overflow-y: scroll;
 	}
 	.tabs{
 		padding-top: 30rpx;

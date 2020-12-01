@@ -22,6 +22,7 @@ module.exports = {
 				success:(res)=>{
 					if(res.data.status=='401' || res.statusCode == 401){
 						goLoginPageTimeOut()
+						// reject(res.data)
 					}
 	
 					if(res.data.code==0){
@@ -38,7 +39,8 @@ module.exports = {
 					resolve(res.data)
 				},
 				fail:(err)=>{
-					console.log(err)
+					// console.log(err)
+					goLoginPageTimeOut()
 					reject(err)
 				}
 			})
