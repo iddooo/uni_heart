@@ -328,13 +328,21 @@ var ResourceList = function ResourceList() {__webpack_require__.e(/*! require.en
 
 
       } else {
-        headPic = this.URL + this.userInfo.headPic;
+
+
+
+
+
+
+        headPic = this.userInfo.headPic;
         uni.downloadFile({
           url: headPic,
           success: function success(res) {
             var tempFilePath = res.tempFilePath;
             _this4.drawCanvasImage(tempFilePath, 64, 64, 120, 120);
           } });
+
+
 
       };
 

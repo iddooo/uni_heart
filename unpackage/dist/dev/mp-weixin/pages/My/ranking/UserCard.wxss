@@ -36,9 +36,14 @@
 }
 .user-rank.data-v-93d20a64{
 	margin-top: 6rpx;
-	font-size:28rpx;
+	font-size:24rpx;
 	color:rgba(109,114,120,1);
 	line-height:40rpx;
+	font-weight: 300;
+}
+.user-pct.data-v-93d20a64{
+	font-size:24rpx;
+	color:rgba(109,114,120,1);
 }
 .user-count.data-v-93d20a64{
 	font-size:28rpx;

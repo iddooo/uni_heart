@@ -24,6 +24,14 @@ import store from './store/index.js'
 import commom from 'common/index.js'
 Vue.prototype.$common = commom
 
+// #ifndef MP-WEIXIN
+// 调试
+import VConsole from 'vconsole'
+// if (process.env.NODE_ENV === 'development') {
+const vConsole = new VConsole()
+// }
+// #endif
+
 App.mpType = 'app'
 
 const app = new Vue({

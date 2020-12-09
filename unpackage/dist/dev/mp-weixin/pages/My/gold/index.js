@@ -239,7 +239,7 @@ var _index2 = __webpack_require__(/*! ../../../common/index.js */ 16);function _
             a.push({
               name: _this2.cashType[b.cashType],
               time: b.createTimeStr,
-              profit: b.amount,
+              profit: '-' + b.amount,
               statusdes: _this2.status[b.type],
               state: b.type });
 

@@ -34,7 +34,15 @@ var _index2 = _interopRequireDefault(__webpack_require__(/*! common/index.js */ 
 // import MessageBox from 'components/messageBox/index.js'
 // Vue.use(MessageBox)
 var MessageBox = function MessageBox() {__webpack_require__.e(/*! require.ensure | components/MessageBox */ "components/MessageBox").then((function () {return resolve(__webpack_require__(/*! ./components/MessageBox.vue */ 479));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};_vue.default.component('MessageBox', MessageBox);var Form = function Form() {__webpack_require__.e(/*! require.ensure | components/Form/Form */ "components/Form/Form").then((function () {return resolve(__webpack_require__(/*! ./components/Form/Form.vue */ 486));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var FormItem = function FormItem() {__webpack_require__.e(/*! require.ensure | components/Form/FormItem */ "components/Form/FormItem").then((function () {return resolve(__webpack_require__(/*! ./components/Form/FormItem.vue */ 493));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};_vue.default.component('d-form', Form);_vue.default.component('d-form-item', FormItem); // 设置全局的数据和全局的方法
-_vue.default.prototype.$common = _index2.default;_App.default.mpType = 'app';
+_vue.default.prototype.$common = _index2.default;
+
+
+
+
+
+
+_App.default.mpType = 'app';
+
 var app = new _vue.default(_objectSpread(_objectSpread({},
 _App.default), {}, {
   store: _index.default }));

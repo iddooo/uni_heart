@@ -177,7 +177,7 @@
 	color: #FFFFFF;
 	font-size: 26rpx;
 	position: absolute;
-	bottom: 56rpx;
+	bottom: 36rpx;
 	left: 50%;
 	-webkit-transform:translateX(-50%);
 	        transform:translateX(-50%);

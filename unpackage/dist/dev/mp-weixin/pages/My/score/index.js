@@ -200,7 +200,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
       { id: 1, name: "做任务赚积分" },
       { id: 2, name: "积分明细" }],
 
-      active: 1,
+      active: 0,
       task1: [
       { name: "每日首次公益投递", des: "+20积分", todo: true, url: "/pages/Tabbar/index/index" },
       { name: "投递物品", des: "投递越多产生积分越多", todo: true, url: "/pages/Tabbar/index/index" },
@@ -280,12 +280,12 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         }
       });
     },
-    changeTab: function changeTab(id) {
-      this.active = id;
+    changeTab: function changeTab(index) {
+      this.active = index;
     },
     move: function move(e) {
       // console.log(e);
-      this.active = e.detail.current + 1;
+      this.active = e.detail.current;
     },
     todoHandler: function todoHandler(item) {
       if (item.url) {
