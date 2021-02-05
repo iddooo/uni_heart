@@ -162,5 +162,6 @@
     "message-box": "/components/MessageBox",
     "d-form": "/components/Form/Form",
     "d-form-item": "/components/Form/FormItem"
-  }
+  },
+  "sitemapLocation": "sitemap6.json"
 }
